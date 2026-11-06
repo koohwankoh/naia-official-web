@@ -660,12 +660,13 @@
 
     <!-- 6. ORGANIZATION & LEADERSHIP (v1.3) -->
     <section id="sec-org" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40">
-      <div class="max-w-7xl mx-auto space-y-8">
+      <div class="max-w-7xl mx-auto space-y-10">
+        <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">05 // Organization & Leadership</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">05 // Leadership & Organization</span>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">
-              엔인공지능에이전트연구소 2대 총괄본부 및 <span class="gradient-text-cyan">9개 부서 지능형 협업 조직도 (v1.3)</span>
+              엔인공지능에이전트연구소 <span class="gradient-text-cyan">CEO 공식 인사말 & 전사 협업 조직도 (v1.3)</span>
             </h2>
             <p class="text-slate-400 text-sm mt-1">
               대표이사 직속 비서실을 중심으로 AI혁신총괄본부와 경영총괄본부 산하 9개 부서가 인간-에이전트 협업 체계를 이룹니다.
@@ -674,6 +675,69 @@
           <button id="btnViewFullOrgChart" class="px-4 py-2 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 text-xs font-semibold transition flex items-center gap-1.5">
             <i class="fa-solid fa-expand"></i> 조직도 인포그래픽 크게보기
           </button>
+        </div>
+
+        <!-- CEO OFFICIAL GREETING & PROFILE SHOWCASE -->
+        <div id="landingCeoSection" class="glass-card p-6 sm:p-8 rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-blue-950/40 shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <!-- CEO Photo & Profile Badge -->
+            <div class="lg:col-span-4 flex flex-col items-center text-center">
+              <div class="relative group">
+                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-cyan-400/60 shadow-xl shadow-cyan-500/20 bg-slate-900 flex items-center justify-center">
+                  <img id="landingCeoPhoto" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="대표이사 프로필 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                </div>
+                <div class="absolute -bottom-3 inset-x-0 flex justify-center">
+                  <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-extrabold text-[11px] shadow-md flex items-center gap-1">
+                    <i class="fa-solid fa-crown text-amber-300"></i> CEO & FOUNDER
+                  </span>
+                </div>
+              </div>
+
+              <div class="mt-5 space-y-1">
+                <h3 id="landingCeoName" class="text-xl sm:text-2xl font-extrabold text-white tracking-wide">
+                  대표이사 나인빛
+                </h3>
+                <p id="landingCeoTitle" class="text-xs text-cyan-300 font-medium">
+                  CEO / Ninebeat (주식회사 나이아 & 연구소)
+                </p>
+                <p id="landingCosName" class="text-[11px] text-slate-400 mt-1">
+                  직속: 비서실장 한비서 (COS / Hannah Han)
+                </p>
+              </div>
+            </div>
+
+            <!-- CEO Greeting Body -->
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-quote-left text-lg text-cyan-400"></i>
+                <span>CEO’s Official Message // 대표이사 공식 인사말</span>
+              </div>
+
+              <h4 id="landingCeoGreetingTitle" class="text-lg sm:text-2xl font-extrabold text-white leading-snug">
+                자율 AI 에이전트와 인간의 창조성이 공진화하는 새로운 지능 문명을 엽니다.
+              </h4>
+
+              <div id="landingCeoGreetingBody" class="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+안녕하십니까, 주식회사 나이아(NAIA Inc.) 및 엔인공지능에이전트연구소 대표이사 나인빛입니다.
+
+우리는 지금 단순한 기술적 도구를 넘어 스스로 목표를 이해하고 완결하는 자율 AI 에이전트(Autonomous AI Agent) 시대로 진입하고 있습니다. NAIA는 'Ninebeat'의 예술적 영성과 'NEW · NEXT'의 기술 혁신을 융합하여, 챗봇을 넘어선 진정한 'AI 워커'와 인간의 지적 파트너십을 구현하고자 합니다.
+
+7대 핵심 사업영역과 고품격 인문학, 미디어, K-Sound 콘텐츠를 통해 인류의 삶과 기업의 업무를 더 풍요롭고 가치 있게 만들어 가겠습니다. 여러분의 따뜻한 관심과 동행을 기대합니다.
+              </div>
+
+              <div class="pt-3 border-t border-slate-800 flex items-center justify-between flex-wrap gap-2">
+                <span class="text-[11px] text-slate-400">
+                  <i class="fa-solid fa-shield-check text-emerald-400 mr-1"></i> 연구소 공식 최고경영자 선언문
+                </span>
+                <span id="landingCeoSign" class="text-xs sm:text-sm font-bold text-cyan-300">
+                  주식회사 나이아 & 엔인공지능에이전트연구소 대표이사 나인빛 드림
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Org Chart Preview Card -->
@@ -695,7 +759,7 @@
               <div class="text-xs font-bold text-cyan-400 flex items-center gap-1.5">
                 <i class="fa-solid fa-crown text-amber-400"></i> 최고 의사결정 체계
               </div>
-              <p class="text-xs text-slate-300 mt-1">
+              <p class="text-xs text-slate-300 mt-1" id="landingOrgCeoText">
                 <strong>대표이사 나인빛 (CEO / Ninebeat)</strong> · <strong>비서실장 한비서 (COS / Hannah Han)</strong>
               </p>
             </div>
@@ -919,7 +983,7 @@
               <span><strong>대표이메일:</strong> <a href="mailto:khkoh220@naver.com" class="text-cyan-400 hover:underline">khkoh220@naver.com</a></span>
             </div>
             <div class="flex flex-wrap gap-x-4 gap-y-1">
-              <span><strong>발행·편집인:</strong> 나인빛 (Ninebeat)</span>
+              <span><strong>발행·편집인:</strong> <span id="landingFooterCeo">나인빛 (Ninebeat)</span></span>
               <span><strong>편집국장·청소년보호책임자:</strong> 신홍보 (홍보실장)</span>
               <span><strong>공식 도메인:</strong> <a href="https://www.naia.kr" class="text-cyan-400 hover:underline">www.naia.kr</a> (가비아 등록 완료)</span>
             </div>
@@ -967,6 +1031,9 @@
           <button class="admin-nav-btn w-full px-3 py-2.5 rounded-lg text-left flex items-center gap-2.5 bg-cyan-500 text-slate-950 font-bold transition" data-tab="tab-dash">
             <i class="fa-solid fa-chart-pie w-4 text-center"></i> 대시보드 요약
           </button>
+          <button class="admin-nav-btn w-full px-3 py-2.5 rounded-lg text-left flex items-center gap-2.5 text-slate-300 hover:bg-slate-800 transition" data-tab="tab-ceo">
+            <i class="fa-solid fa-user-tie w-4 text-center text-amber-400"></i> 대표이사 인사말 & 프로필 관리
+          </button>
           <button class="admin-nav-btn w-full px-3 py-2.5 rounded-lg text-left flex items-center gap-2.5 text-slate-300 hover:bg-slate-800 transition" data-tab="tab-siteinfo">
             <i class="fa-solid fa-globe w-4 text-center text-cyan-400"></i> 주소·전화·도메인 설정
           </button>
@@ -1009,14 +1076,116 @@
 
           <div class="glass-card p-6 rounded-2xl border-slate-800 space-y-4">
             <h4 class="text-base font-bold text-white flex items-center gap-2">
-              <i class="fa-solid fa-circle-info text-cyan-400"></i> 임시 오픈 운영 지침 (대표이사 나인빛 지시사항)
+              <i class="fa-solid fa-circle-info text-cyan-400"></i> <span id="dashCeoDirectiveTitleText">임시 오픈 운영 지침 (대표이사 나인빛 지시사항)</span>
             </h4>
-            <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <div id="dashCeoDirectivesBody" class="space-y-2 text-xs text-slate-300 leading-relaxed">
               <p>1. <strong>도메인 선점 및 준비</strong>: 가비아에서 도메인 <code>www.naia.kr</code> 결제가 완료되었으므로, 우선 GitHub Pages에 임시 오픈하여 콘텐츠와 카탈로그를 정리하고, 최종 정리가 완료되면 가비아 DNS를 연결합니다.</p>
               <p>2. <strong>7대 사업영역 카탈로그</strong>: 웨이크업뉴스 기획특집(고구환 기자)과 생활문학(나인빛 기자)을 반영한 22개 솔루션 카탈로그가 구축되어 있습니다.</p>
-              <p>3. <strong>무코딩 실시간 수정</strong>: 연구소 주소, 대표전화번호, 공식 도메인, 카탈로그 항목을 코딩 없이 아래 탭에서 즉시 수정할 수 있습니다.</p>
+              <p>3. <strong>무코딩 실시간 수정</strong>: 연구소 주소, 대표전화번호, 공식 도메인, 카탈로그 항목 및 대표이사 인사말을 코딩 없이 관리자 포털에서 즉시 수정할 수 있습니다.</p>
             </div>
           </div>
+        </div>
+
+        <!-- CEO PROFILE & GREETING MANAGEMENT TAB -->
+        <div id="tab-ceo" class="admin-tab-pane hidden glass-card p-6 sm:p-8 rounded-2xl border-slate-800 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div>
+              <h4 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-user-tie text-amber-400"></i> 대표이사 프로필 사진 & 인사말 실시간 관리
+              </h4>
+              <p class="text-xs text-slate-400 mt-1">
+                대표이사 성함, 사진, 직함 및 공식 인사말과 운영 지침을 코딩 없이 수정하고 홈페이지에 즉시 반영합니다.
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-semibold self-start sm:self-auto">
+              <i class="fa-solid fa-crown text-amber-400 mr-1"></i> 총괄 마스터 권한
+            </span>
+          </div>
+
+          <form id="adminCeoForm" class="space-y-6 text-xs">
+            <!-- 1. 사진 업로드 및 미리보기 -->
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <label class="block font-bold text-slate-200 text-sm flex items-center gap-2">
+                <i class="fa-solid fa-camera text-cyan-400"></i> 대표이사 프로필 사진 설정
+              </label>
+              
+              <div class="flex flex-col sm:flex-row items-center gap-5">
+                <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-cyan-500/50 shadow-lg shadow-cyan-500/10 bg-slate-950 flex-shrink-0 flex items-center justify-center relative">
+                  <img id="adminCeoPhotoPreview" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="CEO 사진 미리보기" class="w-full h-full object-cover" />
+                </div>
+                <div class="space-y-3 flex-1 w-full">
+                  <div>
+                    <span class="text-slate-300 font-medium block mb-1">내 컴퓨터에서 사진 파일 직접 등록 (JPG, PNG)</span>
+                    <input type="file" id="ceoPhotoFileInput" accept="image/*" class="w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-cyan-500 file:text-slate-950 hover:file:bg-cyan-400 cursor-pointer" />
+                  </div>
+                  <div>
+                    <span class="text-slate-300 font-medium block mb-1">또는 사진 웹 링크(URL) 직접 입력</span>
+                    <input type="text" id="cfgCeoPhotoUrl" placeholder="https://..." class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white text-xs font-mono" />
+                  </div>
+                  <p class="text-[11px] text-slate-500">
+                    * 파일을 선택하면 브라우저에 즉시 저장되며, 홈페이지 메인 [CEO 공식 인사말] 영역에 고해상도로 노출됩니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. 성함 및 직함 -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">대표이사 성함</label>
+                <input type="text" id="cfgCeoName" required class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-bold text-sm" value="나인빛" />
+              </div>
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">대표이사 직함 / 영문 표기</label>
+                <input type="text" id="cfgCeoTitle" required class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-cyan-300 text-xs" value="CEO & Founder (Ninebeat)" />
+              </div>
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">직속 체계 / 비서실장 표기</label>
+                <input type="text" id="cfgCosName" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs" value="비서실장 한비서 (COS / Hannah Han)" />
+              </div>
+            </div>
+
+            <!-- 3. 공식 인사말 -->
+            <div class="space-y-3">
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">인사말 핵심 슬로건 / 헤드라인 제목</label>
+                <input type="text" id="cfgCeoGreetingTitle" required class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-semibold text-sm" value="자율 AI 에이전트와 인간의 창조성이 공진화하는 새로운 지능 문명을 엽니다." />
+              </div>
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">대표이사 공식 인사말 본문 (엔터 줄바꿈 자동 적용)</label>
+                <textarea id="cfgCeoGreetingBody" rows="6" required class="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs leading-relaxed focus:border-cyan-500 focus:outline-none"></textarea>
+              </div>
+              <div>
+                <label class="block font-medium text-slate-300 mb-1">공식 서명 문구</label>
+                <input type="text" id="cfgCeoSign" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-amber-300 font-medium text-xs" value="주식회사 나이아 & 엔인공지능에이전트연구소 대표이사 나인빛 드림" />
+              </div>
+            </div>
+
+            <!-- 4. 운영 지침 및 공지사항 (대시보드 박스) -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+              <label class="block font-bold text-slate-200 text-sm flex items-center gap-2">
+                <i class="fa-solid fa-bullhorn text-cyan-400"></i> 대시보드 운영 지침 및 지시사항 관리
+              </label>
+              <div>
+                <label class="block font-medium text-slate-400 mb-1">지침 박스 제목</label>
+                <input type="text" id="cfgCeoDirectiveTitle" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-cyan-300 text-xs font-semibold" value="임시 오픈 운영 지침 (대표이사 나인빛 지시사항)" />
+              </div>
+              <div>
+                <label class="block font-medium text-slate-400 mb-1">지시사항 내용 (줄바꿈하여 입력)</label>
+                <textarea id="cfgCeoDirectives" rows="4" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-slate-300 text-xs leading-relaxed"></textarea>
+              </div>
+            </div>
+
+            <!-- 5. 액션 버튼 -->
+            <div class="flex items-center gap-3 pt-2">
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20">
+                <i class="fa-solid fa-floppy-disk"></i> 대표이사 정보 저장 및 홈페이지 즉시 반영
+              </button>
+              <button type="button" onclick="resetCeoDefaults()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs border border-slate-700 transition">
+                기본값으로 되돌리기
+              </button>
+            </div>
+          </form>
         </div>
 
         <div id="tab-siteinfo" class="admin-tab-pane hidden glass-card p-6 rounded-2xl border-slate-800 space-y-5">
@@ -1276,6 +1445,93 @@
     let inquiriesData = [];
     let financialChartInstance = null;
 
+    
+    const DEFAULT_CEO_CONFIG = {
+      name: '나인빛',
+      title: 'CEO & Founder (Ninebeat)',
+      cos: '비서실장 한비서 (COS / Hannah Han)',
+      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80',
+      greetingTitle: '자율 AI 에이전트와 인간의 창조성이 공진화하는 새로운 지능 문명을 엽니다.',
+      greetingBody: '안녕하십니까, 주식회사 나이아(NAIA Inc.) 및 엔인공지능에이전트연구소 대표이사 나인빛입니다.\n\n우리는 지금 단순한 기술적 도구를 넘어 스스로 목표를 이해하고 완결하는 자율 AI 에이전트(Autonomous AI Agent) 시대로 진입하고 있습니다. NAIA는 \'Ninebeat\'의 예술적 영성과 \'NEW · NEXT\'의 기술 혁신을 융합하여, 챗봇을 넘어선 진정한 \'AI 워커\'와 인간의 지적 파트너십을 구현하고자 합니다.\n\n7대 핵심 사업영역과 고품격 인문학, 미디어, K-Sound 콘텐츠를 통해 인류의 삶과 기업의 업무를 더 풍요롭고 가치 있게 만들어 가겠습니다. 여러분의 따뜻한 관심과 동행을 기대합니다.',
+      sign: '주식회사 나이아 & 엔인공지능에이전트연구소 대표이사 나인빛 드림',
+      directiveTitle: '임시 오픈 운영 지침 (대표이사 나인빛 지시사항)',
+      directives: '1. 도메인 선점 및 준비: 가비아에서 도메인 www.naia.kr 결제가 완료되었으므로, 우선 GitHub Pages에 임시 오픈하여 콘텐츠와 카탈로그를 정리하고, 최종 정리가 완료되면 가비아 DNS를 연결합니다.\n2. 7대 사업영역 카탈로그: 웨이크업뉴스 기획특집(고구환 기자)과 생활문학(나인빛 기자)을 반영한 22개 솔루션 카탈로그가 구축되어 있습니다.\n3. 무코딩 실시간 수정: 연구소 주소, 대표전화번호, 공식 도메인, 카탈로그 항목 및 대표이사 인사말을 코딩 없이 관리자 포털에서 즉시 수정할 수 있습니다.'
+    };
+
+    let ceoConfig = { ...DEFAULT_CEO_CONFIG };
+    let stagedCeoPhoto = null;
+
+    function renderCeoConfig() {
+      const p = ceoConfig.photo || DEFAULT_CEO_CONFIG.photo;
+      const elPhoto = document.getElementById('landingCeoPhoto');
+      if (elPhoto) elPhoto.src = p;
+      const elAdmPreview = document.getElementById('adminCeoPhotoPreview');
+      if (elAdmPreview) elAdmPreview.src = p;
+
+      const elName = document.getElementById('landingCeoName');
+      if (elName) elName.textContent = '대표이사 ' + ceoConfig.name;
+
+      const elTitle = document.getElementById('landingCeoTitle');
+      if (elTitle) elTitle.textContent = ceoConfig.title + ' (주식회사 나이아 & 연구소)';
+
+      const elCos = document.getElementById('landingCosName');
+      if (elCos) elCos.textContent = '직속: ' + ceoConfig.cos;
+
+      const elGTitle = document.getElementById('landingCeoGreetingTitle');
+      if (elGTitle) elGTitle.textContent = ceoConfig.greetingTitle;
+
+      const elGBody = document.getElementById('landingCeoGreetingBody');
+      if (elGBody) elGBody.textContent = ceoConfig.greetingBody;
+
+      const elSign = document.getElementById('landingCeoSign');
+      if (elSign) elSign.textContent = ceoConfig.sign;
+
+      const elOrg = document.getElementById('landingOrgCeoText');
+      if (elOrg) {
+        elOrg.innerHTML = `<strong>대표이사 ${ceoConfig.name} (${ceoConfig.title})</strong> · <strong>${ceoConfig.cos}</strong>`;
+      }
+
+      const elFoot = document.getElementById('landingFooterCeo');
+      if (elFoot) elFoot.textContent = `${ceoConfig.name} (${ceoConfig.title})`;
+
+      const elDashTitle = document.getElementById('dashCeoDirectiveTitleText');
+      if (elDashTitle) elDashTitle.textContent = ceoConfig.directiveTitle;
+
+      const elDashBody = document.getElementById('dashCeoDirectivesBody');
+      if (elDashBody) {
+        const lines = ceoConfig.directives.split('\n').filter(Boolean);
+        elDashBody.innerHTML = lines.map(line => `<p>${escapeHtml(line)}</p>`).join('');
+      }
+
+      // Fill admin inputs
+      const inpName = document.getElementById('cfgCeoName');
+      if (inpName) inpName.value = ceoConfig.name;
+      const inpTitle = document.getElementById('cfgCeoTitle');
+      if (inpTitle) inpTitle.value = ceoConfig.title;
+      const inpCos = document.getElementById('cfgCosName');
+      if (inpCos) inpCos.value = ceoConfig.cos;
+      const inpGTitle = document.getElementById('cfgCeoGreetingTitle');
+      if (inpGTitle) inpGTitle.value = ceoConfig.greetingTitle;
+      const inpGBody = document.getElementById('cfgCeoGreetingBody');
+      if (inpGBody) inpGBody.value = ceoConfig.greetingBody;
+      const inpSign = document.getElementById('cfgCeoSign');
+      if (inpSign) inpSign.value = ceoConfig.sign;
+      const inpDTitle = document.getElementById('cfgCeoDirectiveTitle');
+      if (inpDTitle) inpDTitle.value = ceoConfig.directiveTitle;
+      const inpDBody = document.getElementById('cfgCeoDirectives');
+      if (inpDBody) inpDBody.value = ceoConfig.directives;
+      const inpUrl = document.getElementById('cfgCeoPhotoUrl');
+      if (inpUrl && !ceoConfig.photo.startsWith('data:')) inpUrl.value = ceoConfig.photo;
+    }
+
+    function resetCeoDefaults() {
+      ceoConfig = { ...DEFAULT_CEO_CONFIG };
+      stagedCeoPhoto = null;
+      try { localStorage.setItem('naia_ceo_config_v2', JSON.stringify(ceoConfig)); } catch(e) {}
+      renderCeoConfig();
+      showToast('대표이사 프로필 및 인사말이 기본값으로 복원되었습니다.');
+    }
+
     function loadState() {
       try {
         const savedCat = localStorage.getItem('naia_catalog_v2');
@@ -1286,6 +1542,14 @@
 
         const savedTheme = localStorage.getItem('naia_theme');
         if (savedTheme) applyTheme(savedTheme);
+
+        const savedCeo = localStorage.getItem('naia_ceo_config_v2');
+        if (savedCeo) {
+          try {
+            ceoConfig = Object.assign({}, DEFAULT_CEO_CONFIG, JSON.parse(savedCeo));
+          } catch(e) {}
+        }
+        renderCeoConfig();
 
         const savedConfig = localStorage.getItem('naia_site_config_v2');
         if (savedConfig) {
@@ -2058,6 +2322,63 @@
           document.getElementById('displayEmail').textContent = email;
 
           showToast('기본 정보가 수정되었습니다. 홈페이지에 즉시 반영되었습니다.', 'success');
+        });
+      }
+
+      const adminCeoForm = document.getElementById('adminCeoForm');
+      if (adminCeoForm) {
+        const photoFileInput = document.getElementById('ceoPhotoFileInput');
+        if (photoFileInput) {
+          photoFileInput.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function(evt) {
+                stagedCeoPhoto = evt.target.result;
+                const prev = document.getElementById('adminCeoPhotoPreview');
+                if (prev) prev.src = stagedCeoPhoto;
+                showToast('사진이 로드되었습니다. [저장] 버튼을 누르면 확정 반영됩니다.');
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        }
+
+        const photoUrlInput = document.getElementById('cfgCeoPhotoUrl');
+        if (photoUrlInput) {
+          photoUrlInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            if (val) {
+              stagedCeoPhoto = val;
+              const prev = document.getElementById('adminCeoPhotoPreview');
+              if (prev) prev.src = val;
+            }
+          });
+        }
+
+        adminCeoForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          ceoConfig.name = (document.getElementById('cfgCeoName')?.value || '').trim() || DEFAULT_CEO_CONFIG.name;
+          ceoConfig.title = (document.getElementById('cfgCeoTitle')?.value || '').trim() || DEFAULT_CEO_CONFIG.title;
+          ceoConfig.cos = (document.getElementById('cfgCosName')?.value || '').trim() || DEFAULT_CEO_CONFIG.cos;
+          ceoConfig.greetingTitle = (document.getElementById('cfgCeoGreetingTitle')?.value || '').trim() || DEFAULT_CEO_CONFIG.greetingTitle;
+          ceoConfig.greetingBody = (document.getElementById('cfgCeoGreetingBody')?.value || '').trim() || DEFAULT_CEO_CONFIG.greetingBody;
+          ceoConfig.sign = (document.getElementById('cfgCeoSign')?.value || '').trim() || DEFAULT_CEO_CONFIG.sign;
+          ceoConfig.directiveTitle = (document.getElementById('cfgCeoDirectiveTitle')?.value || '').trim() || DEFAULT_CEO_CONFIG.directiveTitle;
+          ceoConfig.directives = (document.getElementById('cfgCeoDirectives')?.value || '').trim() || DEFAULT_CEO_CONFIG.directives;
+
+          if (stagedCeoPhoto) {
+            ceoConfig.photo = stagedCeoPhoto;
+          }
+
+          try {
+            localStorage.setItem('naia_ceo_config_v2', JSON.stringify(ceoConfig));
+          } catch(err) {
+            console.error('Storage quota or error', err);
+          }
+
+          renderCeoConfig();
+          showToast('대표이사 프로필 및 인사말이 성공적으로 저장되었습니다! 홈페이지에 즉시 반영되었습니다.', 'success');
         });
       }
 
