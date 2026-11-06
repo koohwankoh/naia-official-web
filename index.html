@@ -952,6 +952,9 @@
       </div>
       <div class="flex items-center gap-3">
         <span class="text-xs text-slate-400 hidden sm:inline">현재 계정: <strong class="text-white" id="adminUserBadge">naia_admin (총괄 마스터)</strong></span>
+        <button onclick="adminLogout()" class="px-3 py-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-700 text-xs font-medium flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> 로그아웃
+        </button>
         <button onclick="switchMainView('landing')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition">
           <i class="fa-solid fa-arrow-left"></i> 공식 홈페이지 보기
         </button>
@@ -1340,7 +1343,84 @@
       try { localStorage.setItem('naia_theme', theme); } catch(e) {}
     }
 
+    let currentAdminUser = 'naia_admin (총괄 마스터)';
+    let isAdminLoggedIn = false;
+
+    function openAdminLoginModal() {
+      const err = document.getElementById('loginErrorMsg');
+      if (err) err.classList.add('hidden');
+      const m = document.getElementById('adminLoginModal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeAdminLoginModal() {
+      const m = document.getElementById('adminLoginModal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function quickMasterLogin() {
+      const idEl = document.getElementById('loginId');
+      const pwEl = document.getElementById('loginPw');
+      if (idEl) idEl.value = 'naia_admin';
+      if (pwEl) pwEl.value = localStorage.getItem('naia_admin_pw') || 'NaiaLab@2026!';
+      submitAdminLogin();
+    }
+
+    function submitAdminLogin() {
+      const id = (document.getElementById('loginId')?.value || '').trim();
+      const pw = (document.getElementById('loginPw')?.value || '').trim();
+      const err = document.getElementById('loginErrorMsg');
+
+      const savedMasterPw = localStorage.getItem('naia_admin_pw') || 'NaiaLab@2026!';
+      let userLabel = '';
+
+      if (id === 'naia_admin' && (pw === 'NaiaLab@2026!' || pw === savedMasterPw)) {
+        userLabel = 'naia_admin (총괄 마스터)';
+      } else if (id === 'dev_manager' && pw === 'AgentDev#2026') {
+        userLabel = 'dev_manager (개발·기술 관리자)';
+      } else if (id === 'pr_editor' && pw === 'WakeUp@2026') {
+        userLabel = 'pr_editor (홍보·미디어 관리자)';
+      } else {
+        if (err) err.classList.remove('hidden');
+        return;
+      }
+
+      isAdminLoggedIn = true;
+      currentAdminUser = userLabel;
+      const badge = document.getElementById('adminUserBadge');
+      if (badge) badge.textContent = userLabel;
+
+      closeAdminLoginModal();
+      currentMainView = 'admin';
+      const landing = document.getElementById('view-landing');
+      const admin = document.getElementById('view-admin');
+      const label = document.getElementById('switchViewLabel');
+      if (landing) landing.classList.add('hidden');
+      if (admin) admin.classList.remove('hidden');
+      if (label) label.textContent = '공식 홈페이지 (Landing) 전환';
+      renderAdminTables();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast(`${userLabel} 계정으로 로그인되었습니다.`, 'success');
+    }
+
+    function adminLogout() {
+      isAdminLoggedIn = false;
+      const landing = document.getElementById('view-landing');
+      const admin = document.getElementById('view-admin');
+      const label = document.getElementById('switchViewLabel');
+      currentMainView = 'landing';
+      if (admin) admin.classList.add('hidden');
+      if (landing) landing.classList.remove('hidden');
+      if (label) label.textContent = '관리자(ADMIN) 전환';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast('관리자 계정에서 정상 로그아웃되었습니다.');
+    }
+
     function switchMainView(view) {
+      if (view === 'admin' && !isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
       currentMainView = view;
       const landing = document.getElementById('view-landing');
       const admin = document.getElementById('view-admin');
@@ -1723,7 +1803,7 @@
     const POLICIES = {
       terms: {
         title: '<i class="fa-solid fa-file-contract text-cyan-400"></i> 엔인공지능에이전트연구소 이용약관',
-        body: '<p><strong>제1조 (목적)</strong><br/>본 약관은 엔인공지능에이전트연구소(NAIA, 이하 '연구소')가 공식 홈페이지(www.naia.kr) 및 AI 에이전트 서비스를 제공함에 있어 이용 조건 및 절차에 관한 기본 사항을 규정함을 목적으로 합니다.</p><p><strong>제2조 (가오픈 및 연구 쇼케이스 고지)</strong><br/>본 웹사이트는 자율 AI 멀티 에이전트 협업 생태계 및 기술을 실증하기 위한 공식 가오픈(Beta) 쇼케이스 공간이며, 수록된 7대 사업영역 및 카탈로그는 법인 설립 및 사업화 추진에 따라 상시 업데이트됩니다.</p><p><strong>제3조 (회원의 의무 및 면책)</strong><br/>이용자는 본 연구소의 AI 결과물 및 자료를 부정한 목적으로 무단 변조하거나 제3자의 권리를 침해해서는 아니 되며, 연구소의 사전 서면 동의 없이 상업적 용도로 재배포할 수 없습니다.</p>'
+        body: '<p><strong>제1조 (목적)</strong><br/>본 약관은 엔인공지능에이전트연구소(NAIA, 이하 &quot;연구소&quot;)가 공식 홈페이지(www.naia.kr) 및 AI 에이전트 서비스를 제공함에 있어 이용 조건 및 절차에 관한 기본 사항을 규정함을 목적으로 합니다.</p><p><strong>제2조 (가오픈 및 연구 쇼케이스 고지)</strong><br/>본 웹사이트는 자율 AI 멀티 에이전트 협업 생태계 및 기술을 실증하기 위한 공식 가오픈(Beta) 쇼케이스 공간이며, 수록된 7대 사업영역 및 카탈로그는 법인 설립 및 사업화 추진에 따라 상시 업데이트됩니다.</p><p><strong>제3조 (회원의 의무 및 면책)</strong><br/>이용자는 본 연구소의 AI 결과물 및 자료를 부정한 목적으로 무단 변조하거나 제3자의 권리를 침해해서는 아니 되며, 연구소의 사전 서면 동의 없이 상업적 용도로 재배포할 수 없습니다.</p>'
       },
       privacy: {
         title: '<i class="fa-solid fa-shield-halved text-cyan-400"></i> 개인정보처리방침',
@@ -1986,6 +2066,7 @@
         adminPwForm.addEventListener('submit', (e) => {
           e.preventDefault();
           const newPw = document.getElementById('newPw').value;
+          localStorage.setItem('naia_admin_pw', newPw);
           showToast(`마스터 비밀번호가 [${newPw}]로 성공적으로 변경되었습니다.`, 'success');
           document.getElementById('newPw').value = '';
           document.getElementById('curPw').value = '';
@@ -1993,6 +2074,67 @@
       }
     });
   </script>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div id="adminLoginModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+    <div class="glass-card max-w-md w-full rounded-3xl p-6 sm:p-8 border-cyan-500/40 space-y-5 relative shadow-2xl bg-slate-900/95 text-xs text-slate-200">
+      <button class="absolute top-5 right-5 text-slate-400 hover:text-white" onclick="closeAdminLoginModal()">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-white">NAIA 관리자(ADMIN) 로그인</h3>
+          <p class="text-[11px] text-slate-400 font-mono">CMS Portal v2.0 Authentication</p>
+        </div>
+      </div>
+
+      <!-- Quick Test Accounts Info Box -->
+      <div class="p-3.5 rounded-xl bg-slate-950/80 border border-cyan-500/30 space-y-1.5 text-[11px]">
+        <div class="flex items-center justify-between text-cyan-300 font-semibold mb-1">
+          <span><i class="fa-solid fa-key mr-1"></i> 임시 발급 마스터 계정</span>
+          <span class="text-[10px] text-slate-400 font-normal">README 표준</span>
+        </div>
+        <div class="flex justify-between text-slate-300">
+          <span>👑 총괄 마스터:</span>
+          <code class="text-cyan-200 font-mono">naia_admin / NaiaLab@2026!</code>
+        </div>
+        <div class="flex justify-between text-slate-400 text-[10px]">
+          <span>💻 기술 관리자:</span>
+          <code class="font-mono">dev_manager / AgentDev#2026</code>
+        </div>
+        <div class="flex justify-between text-slate-400 text-[10px]">
+          <span>📢 홍보 관리자:</span>
+          <code class="font-mono">pr_editor / WakeUp@2026</code>
+        </div>
+      </div>
+
+      <form id="adminLoginForm" class="space-y-3.5" onsubmit="event.preventDefault(); submitAdminLogin();">
+        <div>
+          <label class="block font-medium text-slate-300 mb-1">관리자 아이디 (ID)</label>
+          <input type="text" id="loginId" value="naia_admin" required class="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:border-cyan-500 focus:outline-none transition text-xs font-mono" placeholder="naia_admin" />
+        </div>
+        <div>
+          <label class="block font-medium text-slate-300 mb-1">비밀번호 (Password)</label>
+          <input type="password" id="loginPw" value="NaiaLab@2026!" required class="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:border-cyan-500 focus:outline-none transition text-xs font-mono" placeholder="비밀번호를 입력하세요" />
+        </div>
+        <div id="loginErrorMsg" class="hidden text-rose-400 text-xs font-medium flex items-center gap-1.5">
+          <i class="fa-solid fa-triangle-exclamation"></i> <span>아이디 또는 비밀번호가 올바르지 않습니다.</span>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 text-xs">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> 로그인 (ADMIN 포털 접속)
+        </button>
+
+        <button type="button" onclick="quickMasterLogin()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-medium transition flex items-center justify-center gap-1.5 text-xs">
+          <i class="fa-solid fa-bolt text-amber-400"></i> 대표이사 총괄 마스터 1초 자동로그인
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- POLICY MODAL -->
   <div id="policyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
