@@ -156,8 +156,8 @@
           <a href="#sec-contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition">
             <i class="fa-solid fa-paper-plane"></i> 도입·상담 신청
           </a>
-          <button id="btnMobileMenu" class="lg:hidden p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-cyan-400">
-            <i class="fa-solid fa-bars text-lg"></i>
+          <button id="btnMobileMenu" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-200 hover:text-cyan-400 hover:border-cyan-500/50 transition focus:outline-none shadow-md" aria-label="메뉴 열기">
+            <i class="fa-solid fa-bars text-xl" id="iconMobileBars"></i>
           </button>
         </div>
       </div>
@@ -528,78 +528,101 @@
     </section>
 
     <!-- 4. WAKEUP NEWS & MEDIA SPECIAL REPORT SHOWCASE -->
-    <section id="sec-media" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40">
+    <section id="sec-media" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/50">
       <div id="sec-trends"></div>
-      <div class="max-w-7xl mx-auto space-y-10">
+      <div class="max-w-7xl mx-auto space-y-14">
+        
+        <!-- Header -->
         <div class="text-center max-w-3xl mx-auto space-y-3">
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">03 // Deep Dive & Media Series</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">03 // Deep Dive & Literary Archives</span>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
-            웨이크업뉴스 나인빛/고구환 <span class="gradient-text-gold">기획특집 [AI퍼스트] & 생활문학</span>
+            웨이크업뉴스 <span class="gradient-text-gold">기획특집 [AI퍼스트] & 생활문학</span> 20선
           </h2>
-          <p class="text-slate-400 text-sm sm:text-base">
-            대화형 챗봇에서 업무 실행형 AI 워커로의 진화, AI 브라우저 전쟁, 그리고 고전 인문학과 일상의 음식 미학을 아우르는 심층 연재 아카이브입니다.
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            나인빛·고구환 기자의 <a href="https://www.wakeupnews.co.kr" target="_blank" class="text-amber-300 hover:underline">웨이크업뉴스</a> 심층 연재 기사입니다. 분야별 최신 기사 1편을 기본 게시하며, <strong class="text-white">.....more.....</strong>를 클릭하시면 지난 9편의 3줄 요약과 원문 직통 링크를 모두 확인하실 수 있습니다.
           </p>
         </div>
 
-        <!-- Featured Articles Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">[기획특집] AI퍼스트</span>
-                <span>2026.10.28</span>
+        <!-- 1. 기획특집 [AI퍼스트 & AI 브라우저] (최근 10편) -->
+        <div class="space-y-6 bg-slate-900/40 p-6 sm:p-8 rounded-3xl border border-amber-500/20 shadow-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-800 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-newspaper"></i>
+              </span>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                  기획특집 [AI퍼스트 & AI 브라우저 시리즈]
+                  <span class="text-xs font-normal text-amber-400 px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30">최근 10편 연재</span>
+                </h3>
+                <p class="text-[11px] text-slate-400 mt-0.5">대화형 챗봇에서 스스로 업무를 실행하는 AI 워커, AI 브라우저 전쟁, 그리고 토큰 경제</p>
               </div>
-              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art1')">
-                봇(Bot)의 시대가 다시 온다(3) AI에게 내 일을 맡겨라 — AI 워커와 미래 일자리
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
-                "AI 시대를 이야기할 때 일자리가 한꺼번에 사라지기보다 직업을 구성하는 개별 업무가 먼저 바뀐다. 프롬프트를 넘어 업무의 목표와 절차, 도구와 검증 기준을 설계하는 오케스트레이터의 역량이 핵심이다."
-              </p>
             </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-              <span class="text-slate-400">고구환 기자</span>
-              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art1')">전문 읽기 →</button>
-            </div>
+            <a href="https://www.wakeupnews.co.kr" target="_blank" class="text-xs text-slate-400 hover:text-amber-400 transition flex items-center gap-1 font-medium">
+              웨이크업뉴스 바로가기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
           </div>
 
-          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="px-2.5 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/30 font-semibold">[기획특집] AI 브라우저</span>
-                <span>2026.10.14</span>
-              </div>
-              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art2')">
-                AI 브라우저 전쟁 시작됐다(1~3) Aside와 Comet, 웹을 실행하는 AI 에이전트
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
-                "Comet은 검색 비서가 브라우저를 갖춘 형태라면 Aside는 실제 업무를 완결하는 에이전트다. 스마트폰이 개인 운영체제가 된 것처럼 AI 브라우저는 웹을 구동하는 새로운 인터페이스가 된다."
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-              <span class="text-slate-400">고구환 기자</span>
-              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art2')">전문 읽기 →</button>
-            </div>
+          <!-- Featured Latest Article (Spec 1) -->
+          <div id="featuredSpecialArticleContainer">
+            <!-- Dynamically populated via renderArticlesSections() -->
           </div>
 
-          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30 font-semibold">[생활문학] 음식 인문학</span>
-                <span>2025.11.04</span>
-              </div>
-              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art3')">
-                [노래로 즐기는 한국음식] 열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
-                "홍어찜은 단순한 안주가 아니라 한국인의 강하고 솔직한 기질과 나눔의 환대를 상징한다. 사람을 마주하고 속마음을 털어놓는 진한 인생의 맛을 노랫말과 문학으로 풀어내다."
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-              <span class="text-slate-400">나인빛 기자</span>
-              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art3')">전문 읽기 →</button>
-            </div>
+          <!-- Toggle More Button for Special Articles -->
+          <div class="pt-2">
+            <button id="btnToggleSpecial" onclick="toggleMoreSection('special')" class="w-full py-3.5 px-4 rounded-2xl border border-amber-500/40 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 hover:from-amber-500/20 hover:to-amber-500/30 text-amber-300 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-3 shadow-lg shadow-amber-500/5 group">
+              <i class="fa-solid fa-ellipsis text-amber-400"></i>
+              <span id="lblToggleSpecial">..... more (기획특집 지난 연재 9편 더보기) .....</span>
+              <i id="icoToggleSpecial" class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition"></i>
+            </button>
+          </div>
+
+          <!-- Collapsible Grid for Remaining 9 Special Articles -->
+          <div id="gridMoreSpecial" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 animate-fade-in">
+            <!-- Dynamically populated via renderArticlesSections() -->
           </div>
         </div>
+
+        <!-- 2. 생활문학 [천자문 & 노래로 즐기는 한국음식] (최근 10편) -->
+        <div class="space-y-6 bg-slate-900/40 p-6 sm:p-8 rounded-3xl border border-purple-500/20 shadow-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-800 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-feather"></i>
+              </span>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                  생활문학 [만화 천자문 & 노래로 즐기는 한국음식]
+                  <span class="text-xs font-normal text-purple-400 px-2 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/30">최근 10편 연재</span>
+                </h3>
+                <p class="text-[11px] text-slate-400 mt-0.5">태극사부의 천자문 고전 인문학과 한국 고유의 음식 문화 속에 깃든 삶의 지혜와 온기</p>
+              </div>
+            </div>
+            <a href="https://www.wakeupnews.co.kr" target="_blank" class="text-xs text-slate-400 hover:text-purple-400 transition flex items-center gap-1 font-medium">
+              웨이크업뉴스 바로가기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Featured Latest Article (Lit 1) -->
+          <div id="featuredLitArticleContainer">
+            <!-- Dynamically populated via renderArticlesSections() -->
+          </div>
+
+          <!-- Toggle More Button for Literature Articles -->
+          <div class="pt-2">
+            <button id="btnToggleLit" onclick="toggleMoreSection('lit')" class="w-full py-3.5 px-4 rounded-2xl border border-purple-500/40 bg-gradient-to-r from-purple-500/10 via-purple-500/20 to-purple-500/10 hover:from-purple-500/20 hover:to-purple-500/30 text-purple-300 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-3 shadow-lg shadow-purple-500/5 group">
+              <i class="fa-solid fa-ellipsis text-purple-400"></i>
+              <span id="lblToggleLit">..... more (생활문학 지난 연재 9편 더보기) .....</span>
+              <i id="icoToggleLit" class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition"></i>
+            </button>
+          </div>
+
+          <!-- Collapsible Grid for Remaining 9 Literature Articles -->
+          <div id="gridMoreLit" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 animate-fade-in">
+            <!-- Dynamically populated via renderArticlesSections() -->
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1380,8 +1403,11 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         <span id="artModalSource">웨이크업뉴스 (wakeupnews.co.kr)</span>
       </div>
       <div id="artModalBody" class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3"></div>
-      <div class="pt-4 border-t border-slate-800 flex justify-end">
-        <button class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold" onclick="closeArticleModal()">확인</button>
+      <div class="pt-4 border-t border-slate-800 flex items-center justify-between flex-wrap gap-2">
+        <a id="artModalExternalLink" href="https://www.wakeupnews.co.kr" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold flex items-center gap-2 shadow-md transition">
+          <i class="fa-solid fa-newspaper"></i> 웨이크업뉴스 원문 기사 바로가기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+        <button class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold" onclick="closeArticleModal()">닫기</button>
       </div>
     </div>
   </div>
@@ -1463,6 +1489,50 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
   <div id="toastContainer" class="fixed top-20 right-6 sm:right-12 z-[9999] flex flex-col gap-3 pointer-events-none"></div>
 
   <script>
+
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobileMenu');
+      if (!m) return;
+      m.classList.toggle('hidden');
+      const icon = document.getElementById('iconMobileBars');
+      if (icon) {
+        if (m.classList.contains('hidden')) {
+          icon.className = 'fa-solid fa-bars text-xl';
+        } else {
+          icon.className = 'fa-solid fa-xmark text-xl text-cyan-400';
+        }
+      }
+    }
+
+    function closeMobileMenu() {
+      const m = document.getElementById('mobileMenu');
+      if (m && !m.classList.contains('hidden')) {
+        m.classList.add('hidden');
+        const icon = document.getElementById('iconMobileBars');
+        if (icon) icon.className = 'fa-solid fa-bars text-xl';
+      }
+    }
+
+    function selectCategoryFromMobile(catKey) {
+      closeMobileMenu();
+      currentCategory = catKey;
+
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        if (b.getAttribute('data-cat') === catKey) {
+          b.classList.add('bg-cyan-500', 'text-slate-950', 'font-semibold');
+          b.classList.remove('bg-slate-900', 'text-slate-300', 'font-medium');
+        } else {
+          b.classList.remove('bg-cyan-500', 'text-slate-950', 'font-semibold');
+          b.classList.add('bg-slate-900', 'text-slate-300', 'font-medium');
+        }
+      });
+
+      renderCatalog();
+
+      const sec = document.getElementById('sec-catalog');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    }
+
     const INITIAL_CATALOG = [{"id": "cat-about-1", "category": "about", "categoryName": "NAIA소개", "badge": "사명 & CI 로고 해설", "title": "엔인공지능에이전트연구소 (NAIA) 사명 & CI 로고 브랜드 스토리", "desc": "NAIA는 '나인빛 인공지능 에이전트 연구소'에서 출발하여, N의 의미인 'NEW(새로운 혁신)'와 'NEXT(차세대 지능)', 'NINEBEAT(창조적 완성도)'를 아우르며 자율 AI 에이전트와 공진화하는 글로벌 연구기관입니다.", "tags": ["엔인공지능에이전트연구소", "NEW & NEXT", "3D N·A 모노그램", "블루 코어 스피어", "www.naia.kr"], "target": "전사 대내외 파트너 / B2B 고객사 / 대중", "highlight": "N의 3대 핵심 상징: NEW(새로운 시대), NEXT(차세대 에이전트), NINEBEAT(창조적 영성)", "articleRef": "엔인공지능에이전트연구소 공식 CI 로고 디자인 가이드 및 브랜드 스토리 v1.2", "details": "NAIA(N-AIA)의 정식 기관명은 '엔인공지능에이전트연구소(N | Artificial Intelligent Agent Laboratory)'입니다. 특히 'N'은 기존 나인빛(Ninebeat)의 창조적 영성을 계승함과 동시에, 인공지능 시대를 선도하는 'NEW(새로운 미래 패러다임)'와 'NEXT(차세대 자율 에이전틱 AI)', 그리고 지능 초연결을 뜻하는 'NEURAL'의 혁신적 가치를 함께 함축합니다. CI 로고는 3D N·A 리본 모노그램과 중심부의 푸른 구체(Blue Core Sphere)로 구성되어, 스스로 사고하고 실행하는 자율 지능 코어와 인간의 창조성이 무한히 순환(뫼비우스 루프)하는 공진화를 상징합니다."}, {"id": "cat-about-2", "category": "about", "categoryName": "NAIA소개", "badge": "전사 조직체계", "title": "엔인공지능에이전트연구소 2대 총괄본부 및 9개 부서 조직도 (v1.3)", "desc": "AI혁신총괄본부(안지능 전무)와 경영총괄본부(조총괄 전무이사), 비서실(한비서 실장)을 주축으로 9개 전문 부서가 유기적으로 연계된 차세대 지능형 협업 체계입니다.", "tags": ["엔인공지능에이전트연구소", "2본부 9부서", "조직도 v1.3 인포그래픽", "R&R 체계"], "target": "전사 임직원 및 기업 파트너", "highlight": "대표이사 나인빛 직속 비서실 및 지능형 에이전트 오케스트레이션", "articleRef": "엔인공지능에이전트연구소 전사 조직도 및 직원 명부 (OC v1.3)", "details": "AI전략팀, AI개발팀, AI교육원, 영업팀, 기술팀, 서비스팀, 회계팀, 인사팀, 홍보실로 구성된 9개 부서가 인간과 AI 워커의 유기적 분업을 실현합니다."}, {"id": "cat-trends-1", "category": "trends", "categoryName": "AI트랜드·기술동행", "badge": "웨이크업뉴스 기획특집", "title": "[AI퍼스트] 봇(Bot)의 시대가 다시 온다: 챗봇을 넘어 AI 워커로", "desc": "단순 문답형 챗봇의 한계를 넘어 스스로 목표를 세우고 업무 도구를 직접 다루며 실행하는 'AI 워커(Worker)'의 도래와 미래 일자리의 재설계를 집중 분석합니다.", "tags": ["웨이크업뉴스 고구환 기자", "AI 워커", "업무 자동화", "생산성 75% 절감"], "target": "기업 대표, HR 담당자, 기획자", "highlight": "일자리가 사라지는 것이 아니라 직업을 구성하는 개별 업무가 먼저 바뀐다", "articleRef": "웨이크업뉴스 [AI퍼스트] 봇의 시대가 다시 온다 (3) 고구환 기자", "details": "AI에게 일을 맡긴다는 것은 책임까지 넘기는 것이 아닙니다. 위험도에 따라 인간의 개입 수준을 차등 설계하고, 인간은 목표 설정과 의미 판단, 고객 소통에 집중하는 구조를 제안합니다."}, {"id": "cat-trends-2", "category": "trends", "categoryName": "AI트랜드·기술동행", "badge": "업무 설계 패러다임", "title": "[AI퍼스트] 프롬프트를 넘어 '업무 설계'의 시대로", "desc": "좋은 질문을 던지는 프롬프트 엔지니어링 시대를 지나, AI가 사용할 데이터·도구·작업 순서와 인간의 검증 지점을 정교하게 설계하는 오케스트레이션 전략입니다.", "tags": ["프롬프트→업무설계", "검증 기준 수립", "에이전틱 워크플로우"], "target": "AX 추진 기업, 전문직, IT 엔지니어", "highlight": "AI를 얼마나 많이 쓰는가보다 업무 흐름에 얼마나 효과적으로 연결하는가가 핵심", "articleRef": "웨이크업뉴스 기획특집 나인빛/고구환 [AI퍼스트]", "details": "자신의 하루 업무를 관찰하고, 반복 작업을 선별하여 AI에게 맡길 영역과 사람이 수행할 검토 영역을 명확히 구분하는 실전 워커 도입 방법론을 제시합니다."}, {"id": "cat-trends-3", "category": "trends", "categoryName": "AI트랜드·기술동행", "badge": "브라우저 혁신", "title": "[AI퍼스트] AI 브라우저 전쟁: Aside와 Comet 무엇이 다른가", "desc": "사람이 웹과 애플리케이션을 배우는 시대에서, AI가 브라우저를 직접 조작해 이메일·스프레드시트·내부 시스템 업무를 대신 완결하는 브라우저 운영체제 혁신을 조망합니다.", "tags": ["Aside", "Comet", "AI 브라우저", "웹 액추에이터"], "target": "IT 기획자, 인터넷 언론사, 디지털 마케터", "highlight": "검색 비서(Comet) vs 실제 업무 실행 에이전트(Aside)의 구조적 차이 비교", "articleRef": "웨이크업뉴스 [AI퍼스트] AI 브라우저 전쟁 시작됐다(1~3) 고구환 기자", "details": "스마트폰이 개인의 모든 생활을 연결한 것처럼, AI 브라우저는 인터넷이라는 거대한 운영환경을 AI가 직접 사용하는 새로운 인터페이스로 진화하고 있습니다."}, {"id": "cat-trends-4", "category": "trends", "categoryName": "AI트랜드·기술동행", "badge": "기술 검증", "title": "[AI퍼스트] 대화형 AI에서 실행형 에이전트로 & 환각 검증 체계", "desc": "대화형 ChatGPT(Chat)와 작업 연계형(Work)의 차이를 규명하고, AI의 치명적 환각(Hallucination)을 원천 차단하는 이중 팩트체크 및 인간 검수 표준을 제시합니다.", "tags": ["Chat vs Work", "환각 최소화", "인간 검수 프로세스", "재무·법률 리스크 통제"], "target": "공공기관, 금융권, 대기업 감사팀", "highlight": "자료에 없는 수치는 추정하지 않고 확인 필요로 표시하는 안전 프롬프트 규격", "articleRef": "웨이크업뉴스 [AI퍼스트] ChatGPT Chat과 Work의 차이 고구환 기자", "details": "AI 자동화는 인간의 검증을 없애는 것이 아니라 검토의 효율성을 극대화하는 수단입니다. 작성 근거와 확인 필요 항목을 분리해 신뢰도 99%를 보장합니다."}, {"id": "cat-edu-1", "category": "edu", "categoryName": "AI교육·컨설팅", "badge": "대표 자격과정", "title": "G-AIGrapher (Global AI Grapher) 마스터 인증 과정", "desc": "AI를 단순한 기계적 도구가 아닌 '지능형 붓(AIGrapher's Brush)'으로 다루며, 문명적 스토리텔링과 멀티모달 예술을 창조하는 최고급 AI 크리에이터 자격 과정입니다.", "tags": ["G-AIGrapher", "자격 인증", "창작 전문화", "글로벌 라이선스"], "target": "크리에이터, 미디어 전문가, 작가, 프리랜서", "highlight": "2028년까지 1,000명의 글로벌 공인 G-AIGrapher 양성 목표 (수료율 95%↑)", "articleRef": "NAIA AX 아카데미 교육 로드맵 (배교육 AI교육원장)", "details": "프롬프트 작법을 넘어 멀티모달 비주얼 생성, 음원 결합, 스토리보드 기획, AI 단행본 출판까지 1인 창작의 전 과정을 아우르는 실전형 전문가 과정입니다."}, {"id": "cat-edu-2", "category": "edu", "categoryName": "AI교육·컨설팅", "badge": "10주 완성 실무", "title": "2026년 제7기 생성형 AI 실전 마스터 과정", "desc": "AI/AX 트렌드 이해, AI 글쓰기 및 자서전 제작, AI 홍보영상 제작, 데이터 분석, 브랜딩 콘텐츠 및 에이전트 구축까지 10주간 완벽 마스터하는 실습형 교육입니다.", "tags": ["10주 완성", "온·오프라인 병행", "천도교 수운회관", "파트너 강사 1:1 실습"], "target": "정부기관, 기업체, 언론, 군, 대학생, 일반인", "highlight": "수료증 발급, 자서전(공저) 출판, 생성형 AI 자격증 연계, 원우회 네트워크", "articleRef": "웨이크업뉴스 [AI 교육] 2026년 제7기 생성형 AI 실전 마스터 과정", "details": "단순 이론을 탈피해 현업에서 즉시 매출과 성과를 내는 10대 핵심 모듈을 다룹니다. (수운회관 1303호 위데이터랩 강의실 및 Zoom 온라인 라이브 동시 진행)"}, {"id": "cat-edu-3", "category": "edu", "categoryName": "AI교육·컨설팅", "badge": "엔터프라이즈 AX", "title": "기업 맞춤형 AX (AI Transformation) 종합 컨설팅", "desc": "기존 비즈니스 프로세스를 철저히 분석하여 AI 도입 우선순위를 도출하고, 사내 보안 격리형 Private RAG 시스템 구축 및 부서별 AI 워커를 커스텀 설계합니다.", "tags": ["AX 로드맵", "Private RAG", "보안 아키텍처", "ROI 측정"], "target": "중소·중견기업, 대기업 사업본부, 공공기관", "highlight": "도입 전후 작업 소요시간 75% 절감, 오류율 90% 감소, 데이터 유출 0%", "articleRef": "엔인공지능에이전트연구소 AI혁신총괄본부 및 기술팀 컨설팅 SOP", "details": "기업의 민감 데이터가 외부로 유출되지 않도록 온프레미스 및 프라이빗 클라우드 환경에 벡터 DB(Milvus/Pinecone)와 파인튜닝 모델을 패키징해 드립니다."}, {"id": "cat-media-1", "category": "media", "categoryName": "AI출판·홍보·AIT뉴스", "badge": "디지털 저널리즘", "title": "웨이크업뉴스(Wakeup News) AIT 데일리 뉴스레터 & 브리핑", "desc": "매일 아침 전자신문 등 주요 IT 전문지와 조간신문의 경제·테크 이슈를 AI 에이전트가 6대 핵심 분야로 심층 분석·요약하여 DM형 뉴스레터로 실시간 발행합니다.", "tags": ["매일 아침 07:00 KST", "6대 AIT 분야", "인포그래픽 브리핑", "팩트체크"], "target": "경영진, 정책 입안자, 테크 리더, 직장인", "highlight": "AI 에이전트가 수집·분석하고 전문 기자가 최종 데스킹하는 하이브리드 미디어", "articleRef": "www.wakeupnews.co.kr 및 NAIA 홍보실 뉴스 브리핑 시스템", "details": "단순 요약을 넘어 업계에 미치는 파급력과 비즈니스 시사점을 도출하여, 바쁜 아침 3분 만에 글로벌 테크 흐름을 파악할 수 있는 고품격 인사이트를 전달합니다."}, {"id": "cat-media-2", "category": "media", "categoryName": "AI출판·홍보·AIT뉴스", "badge": "출판 표준 SOP", "title": "AI 기반 하이브리드 도서 편찬 & ISBN 정식 출판 솔루션", "desc": "출판 표준 운영 매뉴얼(SOP)을 기반으로 원고 기획부터 AI 보조 집필, 윤문, 디자인 조판, 국립중앙도서관 정식 ISBN 발급 및 교보문고 유통까지 원스톱 지원합니다.", "tags": ["ISBN 정식 발간", "하이브리드 단행본", "조판·표지 디자인", "교보문고 배포"], "target": "기업 브랜드 도서, 학술 단체, 전문직 저자, 자서전 집필자", "highlight": "기존 6개월 이상 걸리던 단행본 제작 기간을 4주 이내로 단축하는 혁신 공정", "articleRef": "엔인공지능에이전트연구소 도서 출판 표준 운영 매뉴얼(SOP)", "details": "『도덕경 81장』, 『만화로 배우는 천자문』 등 연구소 자체 출판 레퍼런스를 통해 검증된 고품질 인쇄/전자책 동시 발간 파이프라인을 제공합니다."}, {"id": "cat-media-3", "category": "media", "categoryName": "AI출판·홍보·AIT뉴스", "badge": "PR & 브랜딩", "title": "AI 멀티모달 보도자료 자동화 & 미디어 타깃 배포 PR", "desc": "기업의 신제품, 연구 성과, 인사 소식을 뉴스룸 표준 기사체로 변환하고, 시각적 인포그래픽과 함께 주요 언론사 및 포털 뉴스 검색에 최적화하여 배포합니다.", "tags": ["보도자료 생성", "SEO·AEO 최적화", "미디어 릴리즈", "브랜드 인지도 확대"], "target": "스타트업, 중소기업 홍보팀, 신사업 론칭 조직", "highlight": "검색엔진과 AI 에이전트가 동시에 이해하기 쉬운 구조화된 기사 프레임워크", "articleRef": "웨이크업뉴스 기사제보 및 NAIA 홍보실(신홍보 실장) 협력 체계", "details": "단순 홍보 문구를 지양하고 기사 가치가 높은 팩트 중심 앵글을 설계하여 언론 인용률과 포털 노출 효과를 극대화합니다."}, {"id": "cat-human-1", "category": "humanities", "categoryName": "AI인문학·저술", "badge": "기획연재 인기 웹툰", "title": "[기획연재] 만화로 배우는 천자문 | 과거에서 배우는 삶의 지혜", "desc": "태극사부(태권도 9단)와 호기심 가득한 민수·수빈이 우주와 자연, 인간 사회의 질서를 1화 천지현황부터 32화 선주운정까지 쉽고 유쾌하게 풀어내는 디지털 인문학입니다.", "tags": ["웨이크업뉴스 연재", "태극사부·민수·수빈", "8종 AI 일러스트", "한자 1000자"], "target": "청소년, 학부모, 고전 인문학 애호가, 교육 기관", "highlight": "우주의 탄생(천지현황)부터 대자연과 평화의 약속(선주운정)까지 총 32화 완결 연재", "articleRef": "웨이크업뉴스 [기획연재 : 만화로 배우는 천자문] 나인빛/고구환 기자", "details": "고전 한자 텍스트를 현대적 감성의 AI 캐릭터 콘티와 흥미진진한 대화체 스토리텔링으로 재해석하여 한자와 동양 철학을 누구나 쉽고 재미있게 배울 수 있습니다."}, {"id": "cat-human-2", "category": "humanities", "categoryName": "AI인문학·저술", "badge": "융합 단행본", "title": "『AI 도덕경 81장』 동화·5컷 웹툰·음원 하이브리드 단행본", "desc": "노자의 도덕경 81장 전체를 장별 4쪽 고정 그리드로 구성하여, 1문 1답 해설, 5컷 교육 웹툰 콘티, 나인빛TV 81곡 유튜브 음원 QR을 결합한 입체적 인문학 서적입니다.", "tags": ["도덕경 81장", "4쪽 고정 그리드", "5컷 웹툰", "나인빛TV 음원 QR 연동"], "target": "기업 CEO, 인문학 독서 모임, 사색과 힐링을 찾는 독자", "highlight": "태극사부와 민수·수빈의 대화로 깨닫는 무위자연과 비움의 현대적 리더십", "articleRef": "엔인공지능에이전트연구소 도서 출판 표준 단행본 1호 『AI 도덕경 81장』", "details": "책을 읽으며 페이지 내 QR코드를 스마트폰으로 스캔하면 해당 장의 깊이를 담은 나인빛TV 국악 크로스오버 음원이 재생되는 공감각적 독서 경험을 선사합니다."}, {"id": "cat-human-3", "category": "humanities", "categoryName": "AI인문학·저술", "badge": "생활문학 감성 에세이", "title": "웨이크업뉴스 생활문학 [노래로 즐기는 한국음식] 에세이 시리즈", "desc": "코끝을 찌르는 진한 인생의 맛 '홍어찜'부터 청춘의 추억을 간직한 '떡볶이'까지, 한국 고유의 음식 문화 속에 깃든 삶의 지혜와 온기를 노래와 문학으로 풀어냅니다.", "tags": ["생활문학", "나인빛 기자", "홍어찜 이야기", "떡볶이 이야기", "음식 인문학"], "target": "문학 독자, 중장년층, 한국 음식 문화 연구자", "highlight": "음식 한 접시에 담긴 사람 사이의 환대, 기다림, 그리고 인생의 솔직한 맛", "articleRef": "웨이크업뉴스 [생활문학 | 노래로 즐기는 한국음식] 나인빛 기자 연재", "details": "\"홍어찜을 먹는다는 건 사람을 마주하고 속마음을 털어놓는 일이다.\" 음식에 얽힌 정서적 노랫말과 깊이 있는 에세이를 통해 현대인에게 따뜻한 위로와 사색을 전합니다."}, {"id": "cat-music-1", "category": "music", "categoryName": "AI음악·영상", "badge": "글로벌 K-Sound IP", "title": "나인빛TV (@ninebeat-s9u) K-사운드 & 판소리 크로스오버 프로젝트", "desc": "한국 전통 판소리와 국악의 서사적 사설에 현대적 EDM, R&B, Lo-fi, 팝 비트를 결합하여 세계인을 매료시키는 연구소 고유의 81곡 글로벌 음원 프로젝트입니다.", "tags": ["나인빛TV", "81곡 음원 프로젝트", "판소리 크로스오버", "유튜브 채널"], "target": "글로벌 K-컬처 팬, 사운드 디자이너, 콘텐츠 크리에이터", "highlight": "동양적 한(恨)과 흥(興)을 AI 오디오 엔진으로 승화시킨 하이엔드 음원", "articleRef": "YouTube 채널 @ninebeat-s9u 및 NAIA 사운드 에이전트 랩", "details": "도덕경 81장 단행본과 완벽히 동기화되어 책의 각 장마다 고유한 테마 음원을 제공하며, 스트리밍 플랫폼과 영상 배경음악(BGM) 라이선스로 확장되고 있습니다."}, {"id": "cat-music-2", "category": "music", "categoryName": "AI음악·영상", "badge": "사운드 AI 프로덕션", "title": "Suno/Udio 기반 맞춤형 AI 작사·작곡 & 브랜드 사운드스케이프", "desc": "영문 메타태그 규격을 완벽히 준수하는 AI 작사 기술과 Suno/Udio 사운드 파이프라인을 결합하여, 기업 테마곡, 행사 오프닝 음원, 광고 CM송을 맞춤 제작합니다.", "tags": ["AI 작사·작곡", "브랜드 CM송", "메타태그 규격", "사운드 브랜딩"], "target": "브랜드 마케터, 페스티벌 기획사, 영상 제작사", "highlight": "요청 후 48시간 이내 고음질 보컬 트랙 및 Inst 음원 납품 프로세스", "articleRef": "NAIA AI 음원 생성 스킬(ai-lyricist) 및 엔터테인먼트 파이프라인", "details": "원하는 장르, BPM, 보컬 톤앤매너, 가사 스토리를 입력하면 전문 작곡가 수준의 믹싱·마스터링 품질을 갖춘 완제 음원을 즉시 공급합니다."}, {"id": "cat-music-3", "category": "music", "categoryName": "AI음악·영상", "badge": "시네마틱 미디어", "title": "AI 시네마틱 홍보영상 & 숏폼 모션그래픽 자동화", "desc": "최첨단 비디오 생성 모델과 3D 가상 스튜디오를 활용하여, 실사 촬영 없이도 압도적인 몰입감을 주는 시네마틱 영상과 숏폼을 제작합니다.", "tags": ["시네마틱 영상", "숏폼(쇼츠/릴스)", "가상 스튜디오", "비용 80% 절감"], "target": "기업 홍보실, 브랜드 마케팅팀, 유튜브 채널 운영자", "highlight": "촬영 세트와 모델 섭외 비용 없이 구현하는 하이테크 미래 비주얼", "articleRef": "엔인공지능에이전트연구소 홍보실 미디어 제작 파이프라인", "details": "브랜드 스토리보드에 맞춘 장면별 프롬프트 제어와 버추얼 휴먼 아나운서를 결합하여, 글로벌 시장을 겨냥한 다국어 홍보 영상을 신속히 제작합니다."}, {"id": "cat-well-1", "category": "wellness", "categoryName": "건강·웰니스", "badge": "시니어 헬스케어", "title": "AI 기반 60~70대 시니어 관절 건강 & 일상 활력 케어 솔루션", "desc": "웨이크업뉴스 건강생활 연재 기반으로, 고령화 시대 시니어들의 무릎·어깨 관절 건강을 지키는 맞춤형 스트레칭, 관절 보호 생활 수칙, 활력 증진 프로그램을 제공합니다.", "tags": ["웨이크업뉴스 건강생활", "60~70대 관절 건강", "시니어 라이프케어", "예방 의학"], "target": "시니어 세대, 실버타운, 요양·복지 기관, 가족 구성원", "highlight": "무리한 운동 대신 일상에서 관절 부담을 줄이고 통증을 완화하는 검증된 실천법", "articleRef": "웨이크업뉴스 [건강생활] 60~70대의 관절 및 웰니스 연재", "details": "일상에서 쉽게 실천할 수 있는 관절 강화 동작과 바른 보행법을 AI 챗봇이 매일 맞춤 가이드하여 백세 시대 건강하고 활기찬 일상을 든든하게 지켜드립니다."}, {"id": "cat-well-2", "category": "wellness", "categoryName": "건강·웰니스", "badge": "마인드 테라피", "title": "모닝 긍정 확언 & 숙면 수면 ASMR 오디오 웰니스", "desc": "하루를 시작하는 '모닝 긍정 확언(Positive Affirmation)'과 지친 밤 뇌파를 안정시키는 감성 수면 ASMR 및 명상 오디오 콘텐츠를 결합한 멘탈 웰니스 프로그램입니다.", "tags": ["모닝 긍정 확언", "수면 ASMR", "명상 테라피", "멘탈 밸런스"], "target": "불면증 현대인, 수험생, 직장인 스트레스 고위험군", "highlight": "Day 1785일 연속 입증된 아침 긍정 확언 루틴과 아나운서 책 읽기 수면 사운드", "articleRef": "Morning Positive Affirmation 및 KBS 아나운서 수면 ASMR 큐레이션", "details": "스트레스와 뇌 피로에 시달리는 현대인들을 위해, 심리적 안정과 깊은 숙면을 유도하는 음향 공학 기반 힐링 오디오 아카이브를 제공합니다."}, {"id": "cat-well-3", "category": "wellness", "categoryName": "건강·웰니스", "badge": "푸드 테라피", "title": "음식 치유 인문학 & 한국형 면역 웰니스 식문화 가이드", "desc": "제철 식재료와 발효 음식(홍어, 김치, 된장)의 영양학적 가치와 조상의 지혜를 결합하여, 몸과 마음의 조화로운 치유를 이끄는 K-푸드 웰니스 큐레이션입니다.", "tags": ["푸드 테라피", "발효 음식", "면역력 강화", "슬로푸드"], "target": "건강 식문화 관심자, 웰니스 센터, 힐링 리조트", "highlight": "맛있는 음식을 넘어 삶의 회복과 치유를 경험하는 밥상 인문학", "articleRef": "웨이크업뉴스 생활문학 [노래로 즐기는 한국음식] 푸드 웰니스", "details": "자연의 시간에 맞춰 발효된 슬로푸드가 현대인의 장내 미생물과 면역계에 주는 긍정적 효과를 인문학적 스토리텔링과 식단 가이드로 함께 풀어냅니다."}, {"id": "cat-well-4", "category": "wellness", "categoryName": "건강·웰니스", "badge": "24/7 AI 라이프코치", "title": "한비서 웰니스: 24/7 AI 건강·수면·스트레스 케어 어시스턴트", "desc": "사용자의 일상 바이오리듬과 수면 패턴, 에너지 레벨을 분석하여 지금 필요한 휴식과 운동, 긍정 확언 메시지를 실시간으로 조언해 주는 초개인화 AI 라이프 비서입니다.", "tags": ["한비서 웰니스", "24/7 실시간 코칭", "바이오리듬 분석", "초개인화 케어"], "target": "전사 임직원 복지, 웰니스 멤버십 회원, 일반 사용자", "highlight": "지칠 때 즉시 에너지 상태를 진단하고 휴식 타이밍을 알려주는 똑똑한 건강 파트너", "articleRef": "엔인공지능에이전트연구소 AI 에이전트 헬스케어 확장 모듈", "details": "번아웃을 예방하고 최적의 인지 능력과 신체 컨디션을 유지할 수 있도록, 시간대별 맞춤 행동 요령과 마음챙김 가이드를 제공합니다."}];
 
     let currentTheme = 'dark';
@@ -1579,6 +1649,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       stagedCeoPhoto = null;
       try { localStorage.setItem('naia_ceo_config_v2', JSON.stringify(ceoConfig)); } catch(e) {}
       renderCeoConfig();
+        renderArticlesSections();
       showToast('대표이사 프로필 및 인사말이 기본값으로 복원되었습니다.');
     }
 
@@ -1600,6 +1671,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
           } catch(e) {}
         }
         renderCeoConfig();
+        renderArticlesSections();
 
         const savedConfig = localStorage.getItem('naia_site_config_v2');
         if (savedConfig) {
@@ -1902,10 +1974,14 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
 
     const ARTICLES = {
       art1: {
+        id: 'art1',
+        type: 'special',
         category: '웨이크업뉴스 기획특집 [AI퍼스트]',
         title: '봇(Bot)의 시대가 다시 온다(3) AI에게 내 일을 맡겨라 — AI 워커와 미래 일자리',
         author: '고구환 기자',
         date: '2026.10.28',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2015',
+        summary: '단순 질의응답 챗봇을 넘어 스스로 브라우저와 사내 도구를 다루며 업무를 완결하는 AI 워커 시대. 프롬프트 작성을 넘어 업무 절차·도구·검증 기준을 총괄하는 "업무 설계" 능력과 위험도별 인간 개입(Human-in-the-loop) 거버넌스가 핵심입니다.',
         body: [
           '과거 단순 명령어를 처리하던 챗봇의 시대를 지나, 이제는 스스로 목표를 이해하고 인터넷 브라우저와 사내 소프트웨어를 직접 구동하며 실제 업무를 완결하는 "AI 워커(Worker)"의 시대가 열리고 있습니다.',
           'AI가 발전한다고 해서 모든 사람이 프로그래머가 되어야 하는 것은 아닙니다. 오히려 자신이 속한 산업과 도메인을 깊이 이해하고, AI의 산출물을 냉철하게 검증하는 비판적 사고 능력이 더욱 중요해집니다.',
@@ -1913,25 +1989,138 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         ]
       },
       art2: {
-        category: '웨이크업뉴스 기획특집 [AI 브라우저]',
-        title: 'AI 브라우저 전쟁 시작됐다(1~3) Aside와 Comet, 웹을 실행하는 AI 에이전트',
+        id: 'art2',
+        type: 'special',
+        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
+        title: '봇(Bot)의 시대가 다시 온다(1) 챗봇을 넘어 AI 워커로 진화하는 봇의 역사와 미래',
         author: '고구환 기자',
-        date: '2026.10.14',
+        date: '2026.10.22',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2013',
+        summary: '1966년 ELIZA부터 규칙 기반 챗봇을 거쳐 대형 언어 모델(LLM)과 에이전트로 도약한 봇의 60년 진화사. 인간의 수동 지시를 기다리던 챗봇에서 복잡한 기업 업무를 스스로 수행하는 지능형 워커로의 도약을 심층 분석합니다.',
         body: [
-          '스마트폰이 등장했을 때 단순한 전화기를 넘어 개인의 삶과 업무를 아우르는 운영체제가 된 것처럼, AI 브라우저는 웹사이트를 찾아가는 화면을 넘어 웹 전체를 사용하는 AI 에이전트 인터페이스로 발전하고 있습니다.',
-          'Comet은 Perplexity 기반의 뛰어난 검색 및 정보 요약에 강점을 두며, Aside는 웹사이트 로그인 후 실제 결제·발주·데이터 추출 등 장시간이 소요되는 복잡한 실무를 대신 수행하는 데 초점을 맞춥니다.',
-          '결국 인터넷신문과 기업 업무의 승부처는 "질문을 잘 만드는 프롬프트"에서 "업무의 목표와 절차를 정확하게 지시하고 결과의 가치를 판단하는 능력"으로 이동하고 있습니다.'
+          '1966년 조셉 바이젠바움의 ELIZA부터 출발한 봇의 역사는 단순 규칙 기반을 지나, 2020년대 LLM을 만나 인간 언어의 맥락과 감정까지 이해하는 단계로 비약적인 발전을 이루었습니다.',
+          '이제 봇은 단순한 정보 검색 안내원에 머물지 않고, 여러 시스템을 넘나들며 API 호출, 코드 디버깅, 데이터베이스 조회를 능동적으로 수행하는 실행 주체로 거듭나고 있습니다.',
+          '우리가 맞이할 미래는 봇을 거부하는 사회가 아니라, 봇에게 어떤 수준의 권한과 책임을 부여하고 어떻게 인간과 공존시킬 것인가를 설계하는 사회입니다.'
         ]
       },
       art3: {
+        id: 'art3',
+        type: 'special',
+        category: '웨이크업뉴스 기획특집 [AI 브라우저]',
+        title: 'AI 브라우저 전쟁 시작됐다(1) Aside와 Comet 무엇이 다른가',
+        author: '고구환 기자',
+        date: '2026.10.14',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2006',
+        summary: '사람이 인터넷을 검색하던 시대에서 AI가 웹 브라우저를 직접 다루는 시대로의 전환. 검색·리서치 특화 브라우저(Perplexity Comet)와 계정 로그인 후 실제 웹 결제·업무를 완결하는 액추에이터 브라우저(Aside)의 구조와 보안 차이를 규명합니다.',
+        body: [
+          '스마트폰이 등장했을 때 단순한 전화기를 넘어 개인의 삶과 업무를 아우르는 운영체제가 된 것처럼, AI 브라우저는 웹사이트를 찾아가는 화면을 넘어 웹 전체를 사용하는 AI 에이전트 인터페이스로 발전하고 있습니다.',
+          'Comet은 Perplexity 기반의 뛰어난 검색 및 정보 요약에 강점을 두며, Aside는 웹사이트 로그인 후 실제 결제·발주·데이터 추출 등 장시간이 소요되는 복잡한 실무를 대신 수행하는 데 초점을 맞춥니다.',
+          'AI 브라우저 시대의 핵심 과제는 단순한 속도가 아니라 보안과 권한 관리(Vault)입니다. AI가 사용자의 비밀번호와 인증 정보를 직접 탈취당하지 않으면서도 안전하게 로그인하고 업무를 대행할 수 있는 격리 기술이 승부처가 될 것입니다.'
+        ]
+      },
+      art4: {
+        id: 'art4',
+        type: 'special',
+        category: '웨이크업뉴스 기획특집 [AI 브라우저]',
+        title: 'AI 브라우저 전쟁 시작됐다(3) AI가 브라우저를 사용하는 시대, 사람의 일은 어떻게 달라지는가',
+        author: '고구환 기자',
+        date: '2026.10.19',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2012',
+        summary: '인터넷신문 기자가 자료 조사, 기사 작성, SEO 최적화를 AI 브라우저와 분업하듯 일자리가 사라지는 것이 아니라 직무를 이루는 개별 작업이 재설계됩니다. 인간은 단순 반복을 벗어나 가치 판단과 검증, 취재 본질에 집중하게 됩니다.',
+        body: [
+          '기자가 한 편의 기사를 쓰기 위해 소요하던 자료 검색, 원문 대조, 보도자료 분석, 초안 작성 등의 반복 작업이 AI 브라우저의 원클릭 오케스트레이션으로 75% 이상 단축됩니다.',
+          '이 변화는 인간 기자의 역할을 축소하는 것이 아니라, 현장 취재와 심층 인터뷰, 기사의 사회적 파급력 분석 등 오직 사람만이 감당할 수 있는 본질적 언론 사명에 몰입하도록 이끕니다.',
+          '직업의 이름보다 직무를 구성하는 단위 업무의 분해가 먼저 일어납니다. AI 브라우저를 파트너 삼아 자신의 전문성을 확장하는 워커가 미래 시장을 선도할 것입니다.'
+        ]
+      },
+      art5: {
+        id: 'art5',
+        type: 'special',
+        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
+        title: 'ChatGPT Chat과 Work의 차이, 대화형 AI에서 실행형 에이전트로 & 환각 검증 체계',
+        author: '고구환 기자',
+        date: '2026.10.29',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2027',
+        summary: '단순 대화형(Chat)과 업무용 앱 연동 실행형(Work)의 차이 규명. AI 환각을 차단하는 "자료 외 수치 추정 금지 및 확인 필요 표시" 표준 프롬프트와 재무·법률 계약서의 인간 원자료 대조 검수 시스템을 제안합니다.',
+        body: [
+          '대화형 Chat이 그럴듯한 문장을 생성하는 데 집중한다면, 실행형 Work는 실제 파일과 스프레드시트, ERP와 연결되어 오류 없는 결과를 도출해야 합니다.',
+          'AI의 가장 위험한 약점인 환각(Hallucination)을 막기 위해 엔터프라이즈 환경에서는 "제공되지 않은 수치는 임의 추정하지 말고 반드시 [확인 필요]로 표시하라"는 절대 지침이 필수적입니다.',
+          'AI 자동화는 인간 검증의 생략이 아니라 검토의 효율화입니다. AI가 작성한 결과물과 실제 확인된 팩트를 분리 표기하는 표준 프로토콜이 도입되어야 신뢰도 99%를 담보할 수 있습니다.'
+        ]
+      },
+      art6: {
+        id: 'art6',
+        type: 'special',
+        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
+        title: '인공지능 시대의 새로운 화폐 토큰(TOKEN)이 만드는 부의 미래',
+        author: '고구환 기자',
+        date: '2026.07.12',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1675',
+        summary: '언어를 디지털 블록으로 쪼갠 토큰이 AI 경제의 기본 화폐이자 디지털 원유가 된 현실. 효율적 토큰 운용을 통한 기업 생존 전략과 데이터센터 및 독자 AI 인프라를 바탕으로 한 국가적 "토큰 주권" 확보의 시급성을 역설합니다.',
+        body: [
+          '인공지능이 텍스트를 숫자로 치환해 계산하는 단위인 '토큰(Token)'은 이제 지능을 거래하고 비용을 청구하는 글로벌 AI 경제의 기축 통화로 자리잡았습니다.',
+          '기업은 적은 토큰으로 최고 품질의 결과물을 이끌어내는 프롬프트 최적화와 경량화 모델 운용 능력을 갖추어야만 폭증하는 AI 운영 비용을 통제할 수 있습니다.',
+          '데이터센터와 자체 AI 파운데이션 모델을 확보하지 못한 국가는 막대한 토큰 비용을 해외 빅테크에 지불하는 디지털 식민지로 전락할 수 있으므로, 국가 차원의 토큰 주권 수호가 절실합니다.'
+        ]
+      },
+      art7: {
+        id: 'art7',
+        type: 'literature',
+        category: '웨이크업뉴스 생활문학 [만화로 배우는 천자문]',
+        title: '[기획연재 : 만화로 배우는 천자문] 제1화 '우주의 시작과 지구의 탄생' 天地玄黃(천지현황)',
+        author: '나인빛 기자',
+        date: '2026.04.06',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1356',
+        summary: '태권도 9단 태극사부와 민수·수빈의 대화를 통해 아득하고 깊은 우주(검은 하늘)와 생명을 길러내는 황토색 땅의 조화를 20자 한자로 해설. 계절의 순환(한래서왕)처럼 시련 뒤에 반드시 봄이 온다는 끈기의 인문학을 전합니다.',
+        body: [
+          '"하늘은 깊고 아득하여 검고(玄), 땅은 온갖 곡식과 생명을 품어 누렇다(黃)." 우주의 탄생과 질서를 태극사부와 호기심 많은 아이들의 눈높이 대화로 생생하게 풀어냅니다.',
+          '해와 달이 차면 기울고 다시 차오르듯, 추위가 가면 더위가 오고 계절이 순환하듯이(寒來暑往), 인간의 삶과 사업 역시 겨울 같은 시련 뒤에 반드시 찬란한 봄이 온다는 진리를 배웁니다.',
+          '천자문의 고전 지혜를 현대적인 AI 캐릭터와 감각적인 대화체로 재해석하여, 어린이부터 성인까지 일상에서 실천할 수 있는 삶의 철학을 선사합니다.'
+        ]
+      },
+      art8: {
+        id: 'art8',
+        type: 'literature',
+        category: '웨이크업뉴스 생활문학 [만화로 배우는 천자문]',
+        title: '[기획연재 : 만화로 배우는 천자문] 제32화 '하늘에 올린 약속과 천하를 품은 대자연' 禪主云亭(선주운정)',
+        author: '고구환/나인빛 기자',
+        date: '2026.10.23',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2041',
+        summary: '태산 아래 운산·정산에서 천하의 평화를 빌던 임금의 제천 의식, 국경을 지키는 만리장성의 안보 정신, 모든 강물을 차별 없이 품어내는 동정호의 넉넉한 포용력을 통해 현대 사회 리더가 갖추어야 할 책임과 화합의 미학을 전합니다.',
+        body: [
+          '운산과 정산에 올라 하늘과 땅에 제사를 지내며 백성의 평안을 기원하던 고대 제왕들의 겸손함은, 오늘날 조직을 이끄는 리더가 가져야 할 책임 의식과 일맥상통합니다.',
+          '기러기도 쉬어 넘는 안문관과 붉은 성벽 만리장성이 공동체의 안위를 지켜냈듯, 우리의 삶과 터전 역시 철저한 대비와 헌신을 통해 평화를 유지할 수 있습니다.',
+          '수많은 물줄기를 가리지 않고 모두 받아들여 거대한 생태계를 이루는 동정호의 너른 품처럼, 서로 다른 생각과 개성을 품어 안는 열린 포용력이야말로 진정한 인공지능 시대의 리더십입니다.'
+        ]
+      },
+      art9: {
+        id: 'art9',
+        type: 'literature',
         category: '웨이크업뉴스 생활문학 [노래로 즐기는 한국음식]',
-        title: '열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛',
+        title: '[노래로 즐기는 한국음식] 열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛',
         author: '나인빛 기자',
         date: '2025.11.04',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=726',
+        summary: '강렬하게 삭은 홍어의 풍미를 통해 한국인의 강직한 기질과 융숭한 손님 환대의 정을 노래. 혼자 먹지 않고 둘러앉아 막걸리와 함께 속마음을 터놓는 음식 인문학의 깊이를 시적 노랫말과 감성 에세이로 풀어냈습니다.',
         body: [
           '전라도 사람들의 상다리 휘어지는 손님 대접에는 반드시 홍어가 있었습니다. 배가 닿으면 스스로 삭아 독특한 향을 내뿜던 홍어는 단순한 음식이 아니라, 피하지 않고 맞서는 한국인의 기질과 환대의 지혜를 상징합니다.',
           '홍어찜을 먹는다는 것은 사람을 정면으로 마주하고 속마음을 털어놓는 일입니다. 코끝을 찌르는 알싸한 맛 뒤에 밀려오는 담백함처럼, 인생의 시련과 기다림 뒤에 찾아오는 사람 사이의 온기를 노래와 문학으로 풀어냅니다.',
           '웨이크업뉴스 생활문학은 홍어찜, 떡볶이 등 한국인의 정겨운 음식을 통해 디지털 기술의 시대에도 결코 잊혀져선 안 될 인간다운 온기와 사색을 전합니다.'
+        ]
+      },
+      art10: {
+        id: 'art10',
+        type: 'literature',
+        category: '웨이크업뉴스 생활문학 [노래로 즐기는 한국음식]',
+        title: '[노래로 즐기는 한국음식] 여섯번째 비빔밥 이야기 – 한 그릇에 담긴 조화의 미학',
+        author: '나인빛 기자',
+        date: '2025.09.06',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=513',
+        summary: '각양각색의 나물과 고기, 고추장이 한 그릇 안에서 섞여 새로운 맛을 창조하는 비빔밥의 철학. 다름을 배척하지 않고 조화롭게 상생하는 한국인의 지혜와 사람 사이의 마음을 여는 소통의 미학을 담았습니다.',
+        body: [
+          '밥 위에 각양각색의 나물과 고기, 계란, 고추장을 한데 담아 쓱쓱 비벼 먹는 비빔밥은, 각 재료의 고유한 색과 향을 잃지 않으면서도 한 숟가락 안에서 완전히 새로운 미학을 완성합니다.',
+          '비빔밥을 함께 비비는 과정에서 대화가 피어나고, 차이가 섞여 하나가 됩니다. 상다리가 부러지도록 반찬을 차려도 결국 한데 모여야 진정한 식사가 된다는 한국인의 나눔 철학이 오롯이 깃들어 있습니다.',
+          '다양성을 인정하면서도 조화를 추구하는 비빔밥의 정신은, 인공지능과 인간, 기술과 예술이 공진화해야 하는 이 시대에 우리가 가슴 깊이 새겨야 할 가장 한국적인 지혜입니다.'
         ]
       }
     };
@@ -1944,7 +2133,430 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       document.getElementById('artModalAuthor').textContent = '기자: ' + art.author;
       document.getElementById('artModalDate').textContent = '일자: ' + art.date;
       document.getElementById('artModalBody').innerHTML = art.body.map(p => `<p>${p}</p>`).join('');
+      
+      const linkEl = document.getElementById('artModalExternalLink');
+      if (linkEl) {
+        linkEl.href = art.url || 'https://www.wakeupnews.co.kr';
+      }
+      
       document.getElementById('articleModal').classList.remove('hidden');
+    }
+
+    
+    
+    const WAKEUP_SPECIAL_ARTICLES = [
+      {
+        id: 'spec1',
+        title: '봇(Bot)의 시대가 다시 온다(3) AI에게 내 일을 맡겨라 — AI 워커와 미래 일자리',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.10.28',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2015',
+        line1: '단순 문답형 챗봇을 넘어 스스로 도구를 다루며 업무를 완결하는 AI 워커 시대로 진화합니다.',
+        line2: '좋은 질문을 만드는 프롬프트를 넘어 업무 절차·도구·검증 기준을 총괄하는 업무 설계 능력이 핵심입니다.',
+        line3: '일자리가 사라지기보다 개별 업무가 먼저 재편되므로 위험도에 따른 인간 검수 체계 구축이 필수입니다.'
+      },
+      {
+        id: 'spec2',
+        title: 'ChatGPT Chat과 Work의 차이, 대화형 AI에서 실행형 에이전트로 & 환각 검증 체계',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.10.29',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2027',
+        line1: '대화형 Chat과 비즈니스 도구 연동 실행형 Work의 구조적 차이점을 명확히 규명합니다.',
+        line2: 'AI 환각을 차단하기 위해 자료에 없는 수치는 추정하지 않고 확인 필요로 표시하는 안전 프롬프트를 제안합니다.',
+        line3: '재무 수치와 계약 조건 등 중요 산출물은 담당자가 원자료와 직접 대조하는 검수 프로토콜이 필수입니다.'
+      },
+      {
+        id: 'spec3',
+        title: '봇(Bot)의 시대가 다시 온다(1) 챗봇을 넘어 AI 워커로 진화하는 봇의 역사와 미래',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.10.22',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2013',
+        line1: '1966년 ELIZA부터 규칙 기반 챗봇을 거쳐 대형 언어 모델과 결합한 봇의 60년 역사를 조망합니다.',
+        line2: '수동 명령 대기 상태에서 스스로 상황을 판단하고 소프트웨어를 직접 구동하는 AI 워커로 전환됩니다.',
+        line3: '인간과 AI가 서로의 강점을 결합하여 조직의 생산성을 극대화하는 미래 협업 모델을 제시합니다.'
+      },
+      {
+        id: 'spec4',
+        title: 'AI 브라우저 전쟁 시작됐다(3) AI가 브라우저를 사용하는 시대, 사람의 일은 어떻게 달라지는가',
+        category: '기획특집 [AI 브라우저]',
+        author: '고구환 기자',
+        date: '2026.10.19',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2012',
+        line1: 'AI가 웹 브라우저를 직접 다루며 검색·정리·입력 등 반복 업무를 75% 이상 단축시킵니다.',
+        line2: '기자가 자료 조사와 초안 작성을 분업하듯 인간은 심층 팩트체크와 분석, 방향 결정에 몰입하게 됩니다.',
+        line3: '정보를 모으는 능력에서 정보를 해석하고 의미를 판단하는 능력으로 인간의 핵심 가치가 이동합니다.'
+      },
+      {
+        id: 'spec5',
+        title: 'AI 브라우저 전쟁 시작됐다(1) Aside와 Comet 무엇이 다른가',
+        category: '기획특집 [AI 브라우저]',
+        author: '고구환 기자',
+        date: '2026.10.14',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2006',
+        line1: '사람이 웹을 탐색하던 시대에서 AI가 직접 웹사이트를 방문해 실무를 완결하는 시대로 이동합니다.',
+        line2: '검색·요약 중심의 Comet과 실제 계정 로그인 후 복잡한 업무를 대행하는 Aside의 철학을 비교합니다.',
+        line3: '민감한 인증 정보를 보호하면서도 AI가 안전하게 결제·업무를 수행하는 Vault 보안 기술이 승부처입니다.'
+      },
+      {
+        id: 'spec6',
+        title: '초지능 AI, 인류의 마지막 기술인가? AGI 멸종론과 가속주의가 충돌하다',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.09.19',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1948',
+        line1: '초지능의 통제 상실 위험을 경고하는 AI 안전 진영과 무한 기술 가속주의 진영의 첨예한 대립을 분석합니다.',
+        line2: '인간 지능을 뛰어넘는 AGI의 등장이 가져올 사회·경제적 파급력과 생존 윤리 가이드라인을 탐색합니다.',
+        line3: '인류의 번영을 담보하기 위해 기술의 속도 경쟁 속에서도 인간 통제력과 책임 원칙 수호가 필요합니다.'
+      },
+      {
+        id: 'spec7',
+        title: '인공지능 시대의 새로운 화폐 토큰(TOKEN)이 만드는 부의 미래',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.07.12',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1675',
+        line1: '언어를 기계적 단위로 쪼갠 토큰이 인공지능 경제의 기축 통화이자 새로운 디지털 원유로 부상했습니다.',
+        line2: '적은 토큰 소비로 고품질 결과를 창출하는 최적화 운용 기술이 기업의 생존을 가르는 경쟁력입니다.',
+        line3: '자체 데이터센터와 AI 인프라를 보유하지 못한 국가는 막대한 토큰 비용을 치르는 종속 상태에 직면합니다.'
+      },
+      {
+        id: 'spec8',
+        title: '초지능의 파수꾼인가 기술의 반역자인가 일리야 수츠케버와 다리오 아모데이의 고뇌',
+        category: '기획특집 [AI퍼스트]',
+        author: '나인빛 기자',
+        date: '2026.03.05',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1248',
+        line1: '오픈AI를 떠나 초지능 안전 연구소를 세운 일리야 수츠케버와 앤스로픽 다리오 아모데이의 철학을 조명합니다.',
+        line2: '블랙박스 같은 AI 모델의 내부를 해석하고 생명의 존엄성을 지키는 안전 울타리 구축에 투쟁하고 있습니다.',
+        line3: '기술은 오직 인간을 위해 존재해야 하며 어떤 혁신도 인류의 안전보다 앞설 수 없다는 통찰을 전합니다.'
+      },
+      {
+        id: 'spec9',
+        title: '초지능(ASI) 시대, 인간이 잃은 웃음을 되찾을 때..."지구를 떠나거라"',
+        category: '기획특집 [AI퍼스트]',
+        author: '나인빛 기자',
+        date: '2025.10.26',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=676',
+        line1: 'AI가 인간의 감정까지 예측하는 세상에서 80년대 풍자 유행어를 통해 존재론적 질문을 던집니다.',
+        line2: 'AI는 방대한 데이터와 논리를 이해하지만 모순과 역설을 품은 인간 고유의 웃음과 해학은 흉내 내지 못합니다.',
+        line3: '오만한 인간 중심 사고를 내려놓고 겸손을 회복할 때 비로소 진정한 인간 존엄과 지적 저항이 완성됩니다.'
+      },
+      {
+        id: 'spec10',
+        title: '대한민국 AI 패권 사수 조건: 독자 파운데이션 모델과 프론티어 투트랙 국가 전략',
+        category: '기획특집 [AI퍼스트]',
+        author: '고구환 기자',
+        date: '2026.03.10',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1248',
+        line1: '글로벌 빅테크의 AI 종속을 탈피하기 위한 한국형 소버린 AI의 구축 전략을 입체 분석합니다.',
+        line2: '한국어 고유의 문화와 법률 체계를 완벽히 반영한 독자 모델과 글로벌 최고 모델 활용의 투트랙을 제시합니다.',
+        line3: '에너지·반도체·인재를 결합한 국가 인프라 총동원 체계만이 기술 패권 경쟁에서 생존하는 열쇠입니다.'
+      }
+    ];
+
+    const WAKEUP_LIT_ARTICLES = [
+      {
+        id: 'lit1',
+        title: '[기획연재 : 만화로 배우는 천자문] 제32화 \'하늘에 올린 약속과 천하를 품은 대자연\' 禪主云亭(선주운정)',
+        category: '생활문학 [만화 천자문]',
+        author: '고구환/나인빛 기자',
+        date: '2026.10.23',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2041',
+        line1: '운산과 정산에 올라 천하의 평화를 빌던 고대 제왕들의 제천 의식을 통해 겸손한 리더십을 배웁니다.',
+        line2: '험준한 안문관과 만리장성 요새가 국경을 지켜냈듯 소중한 터전과 일상은 철저한 대비로 수호됩니다.',
+        line3: '수많은 물줄기를 가리지 않고 품어내는 동정호의 너른 호수처럼 타인을 포용하는 리더십을 제시합니다.'
+      },
+      {
+        id: 'lit2',
+        title: '[기획연재 : 만화로 배우는 천자문] 제27화 \'역사를 빛낸 영웅들의 발자취\' 策功茂實(책공무실)',
+        category: '생활문학 [만화 천자문]',
+        author: '고구환/나인빛 기자',
+        date: '2026.09.04',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1885',
+        line1: '국가와 백성을 위해 큰 공을 세운 영웅들의 업적을 기록하고 정당하게 보상하던 역사의 교훈을 탐색합니다.',
+        line2: '겉으로 드러나는 화려함보다 실제 거둔 알찬 결실(茂實)을 중시하는 공정한 평가 기준을 배웁니다.',
+        line3: '오늘날 기업과 사회에서도 묵묵히 헌신하는 구성원의 기여를 인정하고 격려하는 포용의 지혜를 전합니다.'
+      },
+      {
+        id: 'lit3',
+        title: '[기획연재 : 만화로 배우는 천자문] 제26화 \'권력과 부귀영화의 풍경\' 家給千兵(가급천병)',
+        category: '생활문학 [만화 천자문]',
+        author: '고구환/나인빛 기자',
+        date: '2026.08.16',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1818',
+        line1: '천 명의 군사를 거느리고 부귀영화를 누리는 화려한 삶 뒤에 감춰진 무거운 책임감을 성찰합니다.',
+        line2: '지위와 권력이 높아질수록 겸손하게 사회에 베풀고 이웃을 보살피는 노블레스 오블리주를 강조합니다.',
+        line3: '물질적 풍요보다 바른 마음가짐과 타인을 배려하는 내면의 품격이 진정한 명예임을 일깨워줍니다.'
+      },
+      {
+        id: 'lit4',
+        title: '[기획연재 : 만화로 배우는 천자문] 제1화 \'우주의 시작과 지구의 탄생\' 天地玄黃(천지현황)',
+        category: '생활문학 [만화 천자문]',
+        author: '나인빛 기자',
+        date: '2026.04.06',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1356',
+        line1: '깊고 아득한 검은 우주와 만물을 길러내는 황토색 땅의 조화를 태극사부와 아이들의 대화로 풉니다.',
+        line2: '해와 달이 차면 기울고 계절이 순환하듯 세상의 모든 시작과 끝은 자연스러운 질서 속에 있습니다.',
+        line3: '추운 겨울이 지나면 반드시 따뜻한 봄이 온다는 한래서왕의 이치처럼 시련을 이겨내는 끈기를 배웁니다.'
+      },
+      {
+        id: 'lit5',
+        title: '[노래로 즐기는 한국음식] 설렁탕 이야기 – 뚝배기에 고인 하얀 세월의 노래',
+        category: '생활문학 [한국음식 에세이]',
+        author: '나인빛 기자',
+        date: '2026.05.30',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1429',
+        line1: '밤새 가마솥에서 뼈를 고아낸 뽀얀 설렁탕 국물 속에 녹아든 서민들의 고단한 하루를 위로합니다.',
+        line2: '서두르지 않고 십여 시간을 묵묵히 지켜 서서 기름을 걷어내는 기다림과 장인 정신의 미학을 담았습니다.',
+        line3: '단순히 배를 채우는 음식을 넘어 서로를 보살피며 살아온 한국인의 뜨거운 온정을 노래로 승화시켰습니다.'
+      },
+      {
+        id: 'lit6',
+        title: '[노래로 즐기는 한국음식] 떡볶이 이야기 – 매콤달콤한 청춘의 기억',
+        category: '생활문학 [한국음식 에세이]',
+        author: '나인빛 기자',
+        date: '2025.12.26',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=920',
+        line1: '학창 시절 친구들과 둘러앉아 냄비 바닥까지 긁어먹던 매콤달콤한 추억의 온기를 소환합니다.',
+        line2: '궁중 떡볶이에서 빨간 고추장 떡볶이로 진화하며 전 세계인의 입맛을 사로잡은 K-FOOD의 생명력을 조명합니다.',
+        line3: '짜릿함 속의 부드러움처럼 청춘의 불안과 설렘을 함께 나누던 사람 사이의 따스한 연대를 노래합니다.'
+      },
+      {
+        id: 'lit7',
+        title: '[노래로 즐기는 한국음식] 열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛',
+        category: '생활문학 [한국음식 에세이]',
+        author: '나인빛 기자',
+        date: '2025.11.04',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=726',
+        line1: '스스로 삭아 코끝을 톡 쏘는 강렬한 홍어의 알싸함 속에서 시련을 견뎌낸 한국인의 담력을 발견합니다.',
+        line2: '혼자 먹지 않고 이웃과 둘러앉아 막걸리 한 잔에 속마음을 털어놓는 전라도 고유의 환대 미학을 전합니다.',
+        line3: '첫맛의 충격을 견디고 나면 깊고 담백한 단맛이 밀려오듯 인생의 고난 뒤에 찾아오는 온기를 노래합니다.'
+      },
+      {
+        id: 'lit8',
+        title: '[노래로 즐기는 한국음식] 아홉번째 잡채 이야기 – 색과 맛이 어우러진 잔치의 온기',
+        category: '생활문학 [한국음식 에세이]',
+        author: '나인빛 기자',
+        date: '2025.10.13',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=588',
+        line1: '오색 채소와 당면이 어우러져 잔칫상의 풍요로움을 완성하는 한국인의 대표 잔치 음식을 노래합니다.',
+        line2: '각각의 재료를 따로 볶아 정성으로 버무리는 과정 속에 사람과 사람 사이의 배려와 화합을 담았습니다.',
+        line3: '추석 한가위 명절의 넉넉함처럼 다채로운 삶의 조화가 만들어내는 행복의 맛을 시적으로 표현했습니다.'
+      },
+      {
+        id: 'lit9',
+        title: '[노래로 즐기는 한국음식] 여섯번째 비빔밥 이야기 – 한 그릇에 담긴 조화의 미학',
+        category: '생활문학 [한국음식 에세이]',
+        author: '나인빛 기자',
+        date: '2025.09.06',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=513',
+        line1: '각양각색의 나물과 고기, 고추장이 한 그릇 안에서 어우러져 완전히 새로운 맛을 창조합니다.',
+        line2: '다름을 배척하지 않고 다양성을 인정하며 함께 살아가는 법을 가르쳐주는 한국인의 상생 철학을 조명합니다.',
+        line3: '한데 비비는 과정에서 대화가 피어나듯 마음의 벽을 허물고 하나가 되는 따뜻한 연대를 노래합니다.'
+      },
+      {
+        id: 'lit10',
+        title: '[도서/생활문학] 한강 작가 대표 작품, "소년이 온다" – 인간 존엄의 사색',
+        category: '생활문학 [도서 평론]',
+        author: '나인빛 기자',
+        date: '2025.06.02',
+        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=272',
+        line1: '노벨문학상 수상 한강 작가의 『소년이 온다』를 통해 비극적 역사 속에서 피어난 숭고한 인간애를 성찰합니다.',
+        line2: '상처 입은 영혼들을 기억하고 애도하는 문학적 언어가 우리 사회의 상처를 치유하는 힘을 조명합니다.',
+        line3: '어둠 속에서도 끝내 존엄을 잃지 않는 인간의 고결한 정신을 깊이 있는 사색의 문장으로 풀어냅니다.'
+      }
+    ];
+
+    function createFeaturedCardHtml(art, themeColor) {
+      const isGold = themeColor === 'amber';
+      const badgeBg = isGold ? 'bg-amber-500/10 text-amber-300 border-amber-500/30' : 'bg-purple-500/10 text-purple-300 border-purple-500/30';
+      const btnBg = isGold ? 'from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950' : 'from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 text-white';
+      return `
+        <div class="glass-card p-6 sm:p-8 rounded-2xl border-slate-700 bg-gradient-to-br from-slate-900/90 to-slate-950/90 shadow-2xl relative overflow-hidden group">
+          <div class="flex items-center justify-between flex-wrap gap-2 text-xs mb-3">
+            <span class="px-3 py-1 rounded-full font-bold border ${badgeBg} flex items-center gap-1.5">
+              <i class="fa-solid fa-star text-[10px]"></i> 최신 1위 대표 기사 // ${escapeHtml(art.category)}
+            </span>
+            <div class="flex items-center gap-3 text-slate-400 font-medium">
+              <span><i class="fa-solid fa-user-pen mr-1"></i>${escapeHtml(art.author)}</span>
+              <span><i class="fa-regular fa-clock mr-1"></i>${escapeHtml(art.date)}</span>
+            </div>
+          </div>
+
+          <h4 class="text-lg sm:text-2xl font-extrabold text-white group-hover:text-cyan-400 transition leading-snug mb-4">
+            ${escapeHtml(art.title)}
+          </h4>
+
+          <div class="p-4 sm:p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2 mb-5">
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+              <i class="fa-solid fa-list-check text-cyan-400"></i> 핵심 3줄 요약
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed flex items-start gap-2">
+              <span class="text-cyan-400 font-bold shrink-0">①</span> <span>${escapeHtml(art.line1)}</span>
+            </p>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed flex items-start gap-2">
+              <span class="text-cyan-400 font-bold shrink-0">②</span> <span>${escapeHtml(art.line2)}</span>
+            </p>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed flex items-start gap-2">
+              <span class="text-cyan-400 font-bold shrink-0">③</span> <span>${escapeHtml(art.line3)}</span>
+            </p>
+          </div>
+
+          <div class="flex items-center justify-between flex-wrap gap-3 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] text-slate-400">
+              <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> 웨이크업뉴스(wakeupnews.co.kr) 정식 기사
+            </span>
+            <div class="flex items-center gap-2.5">
+              <button onclick="openWakeupModal('${art.id}', '${themeColor}')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5">
+                요약 팝업 <i class="fa-solid fa-expand text-[10px]"></i>
+              </button>
+              <a href="${art.url}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-gradient-to-r ${btnBg} text-xs font-extrabold transition shadow-md flex items-center gap-1.5">
+                전문 읽기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function createSubCardHtml(art, idx, themeColor) {
+      const isGold = themeColor === 'amber';
+      const badgeBg = isGold ? 'bg-amber-500/10 text-amber-300 border-amber-500/30' : 'bg-purple-500/10 text-purple-300 border-purple-500/30';
+      const btnBg = isGold ? 'bg-amber-500/20 hover:bg-amber-500/40 text-amber-300 border border-amber-500/40' : 'bg-purple-500/20 hover:bg-purple-500/40 text-purple-300 border border-purple-500/40';
+      return `
+        <div class="glass-card glass-card-hover p-5 rounded-2xl border-slate-800 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-[11px] text-slate-400">
+              <span class="px-2 py-0.5 rounded font-semibold border ${badgeBg}">#${idx} ${escapeHtml(art.category)}</span>
+              <span>${escapeHtml(art.date)}</span>
+            </div>
+
+            <h5 class="text-sm sm:text-base font-bold text-white group-hover:text-cyan-400 transition leading-snug cursor-pointer" onclick="openWakeupModal('${art.id}', '${themeColor}')">
+              ${escapeHtml(art.title)}
+            </h5>
+
+            <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1.5 text-xs text-slate-300 leading-relaxed">
+              <p class="flex items-start gap-1.5"><span class="text-cyan-400 font-bold shrink-0">①</span><span>${escapeHtml(art.line1)}</span></p>
+              <p class="flex items-start gap-1.5"><span class="text-cyan-400 font-bold shrink-0">②</span><span>${escapeHtml(art.line2)}</span></p>
+              <p class="flex items-start gap-1.5"><span class="text-cyan-400 font-bold shrink-0">③</span><span>${escapeHtml(art.line3)}</span></p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs mt-4">
+            <span class="text-slate-400 font-medium text-[11px]">${escapeHtml(art.author)}</span>
+            <div class="flex items-center gap-2">
+              <button onclick="openWakeupModal('${art.id}', '${themeColor}')" class="text-slate-400 hover:text-white transition text-xs">
+                팝업 <i class="fa-solid fa-expand text-[9px]"></i>
+              </button>
+              <a href="${art.url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded font-bold text-[11px] ${btnBg} transition flex items-center gap-1">
+                전문 읽기 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderArticlesSections() {
+      // 1. Special Articles
+      const featSpecialContainer = document.getElementById('featuredSpecialArticleContainer');
+      if (featSpecialContainer && WAKEUP_SPECIAL_ARTICLES.length > 0) {
+        featSpecialContainer.innerHTML = createFeaturedCardHtml(WAKEUP_SPECIAL_ARTICLES[0], 'amber');
+      }
+
+      const gridMoreSpecial = document.getElementById('gridMoreSpecial');
+      if (gridMoreSpecial && WAKEUP_SPECIAL_ARTICLES.length > 1) {
+        gridMoreSpecial.innerHTML = WAKEUP_SPECIAL_ARTICLES.slice(1).map((art, i) => createSubCardHtml(art, i + 2, 'amber')).join('');
+      }
+
+      // 2. Literature Articles
+      const featLitContainer = document.getElementById('featuredLitArticleContainer');
+      if (featLitContainer && WAKEUP_LIT_ARTICLES.length > 0) {
+        featLitContainer.innerHTML = createFeaturedCardHtml(WAKEUP_LIT_ARTICLES[0], 'purple');
+      }
+
+      const gridMoreLit = document.getElementById('gridMoreLit');
+      if (gridMoreLit && WAKEUP_LIT_ARTICLES.length > 1) {
+        gridMoreLit.innerHTML = WAKEUP_LIT_ARTICLES.slice(1).map((art, i) => createSubCardHtml(art, i + 2, 'purple')).join('');
+      }
+    }
+
+    function toggleMoreSection(type) {
+      if (type === 'special') {
+        const grid = document.getElementById('gridMoreSpecial');
+        const lbl = document.getElementById('lblToggleSpecial');
+        const ico = document.getElementById('icoToggleSpecial');
+        if (grid) {
+          const isHidden = grid.classList.contains('hidden');
+          if (isHidden) {
+            grid.classList.remove('hidden');
+            if (lbl) lbl.textContent = '..... 접기 (기획특집 지난 연재 9편 숨기기) .....';
+            if (ico) ico.className = 'fa-solid fa-chevron-up transition';
+          } else {
+            grid.classList.add('hidden');
+            if (lbl) lbl.textContent = '..... more (기획특집 지난 연재 9편 더보기) .....';
+            if (ico) ico.className = 'fa-solid fa-chevron-down group-hover:translate-y-0.5 transition';
+          }
+        }
+      } else if (type === 'lit') {
+        const grid = document.getElementById('gridMoreLit');
+        const lbl = document.getElementById('lblToggleLit');
+        const ico = document.getElementById('icoToggleLit');
+        if (grid) {
+          const isHidden = grid.classList.contains('hidden');
+          if (isHidden) {
+            grid.classList.remove('hidden');
+            if (lbl) lbl.textContent = '..... 접기 (생활문학 지난 연재 9편 숨기기) .....';
+            if (ico) ico.className = 'fa-solid fa-chevron-up transition';
+          } else {
+            grid.classList.add('hidden');
+            if (lbl) lbl.textContent = '..... more (생활문학 지난 연재 9편 더보기) .....';
+            if (ico) ico.className = 'fa-solid fa-chevron-down group-hover:translate-y-0.5 transition';
+          }
+        }
+      }
+    }
+
+    function openWakeupModal(id, themeColor) {
+      let art = WAKEUP_SPECIAL_ARTICLES.find(a => a.id === id);
+      if (!art) art = WAKEUP_LIT_ARTICLES.find(a => a.id === id);
+      if (!art) return;
+
+      document.getElementById('artModalCategory').textContent = art.category;
+      document.getElementById('artModalTitle').textContent = art.title;
+      document.getElementById('artModalAuthor').textContent = '기자: ' + art.author;
+      document.getElementById('artModalDate').textContent = '일자: ' + art.date;
+
+      const bodyHtml = `
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 mb-4">
+          <div class="text-xs font-bold text-amber-400 mb-1">핵심 3줄 요약</div>
+          <p class="text-xs sm:text-sm text-slate-200"><span class="text-cyan-400 font-bold mr-1">①</span>${escapeHtml(art.line1)}</p>
+          <p class="text-xs sm:text-sm text-slate-200"><span class="text-cyan-400 font-bold mr-1">②</span>${escapeHtml(art.line2)}</p>
+          <p class="text-xs sm:text-sm text-slate-200"><span class="text-cyan-400 font-bold mr-1">③</span>${escapeHtml(art.line3)}</p>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          본 기사는 웨이크업뉴스(www.wakeupnews.co.kr)에 정식 보도된 심층 연재 기사입니다. 아래 [웨이크업뉴스 원문 기사 바로가기] 버튼을 누르시면 전체 기사 본문과 고해상도 인포그래픽, 삽화를 즉시 확인하실 수 있습니다.
+        </p>
+      `;
+
+      document.getElementById('artModalBody').innerHTML = bodyHtml;
+
+      const linkEl = document.getElementById('artModalExternalLink');
+      if (linkEl) {
+        linkEl.href = art.url;
+      }
+
+      document.getElementById('articleModal').classList.remove('hidden');
+    }
+ else {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition';
+          }
+        }
+      });
+      renderArticlesSections();
     }
 
     function closeArticleModal() {
@@ -2234,7 +2846,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     document.addEventListener('DOMContentLoaded', () => {
       loadState();
       renderCatalog();
-      initFinancialChart();
+      try { initFinancialChart(); } catch(e) { console.warn('Chart init skip:', e); }
 
       if (currentMainView === 'admin') {
         switchMainView('admin');
@@ -2428,6 +3040,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
           }
 
           renderCeoConfig();
+        renderArticlesSections();
           
           // Visual button feedback
           const submitBtn = adminCeoForm.querySelector('button[type="submit"]');
