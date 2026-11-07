@@ -534,23 +534,71 @@
         <div class="text-center max-w-3xl mx-auto space-y-3">
           <span class="text-xs font-bold uppercase tracking-wider text-amber-400">03 // Deep Dive & Media Series</span>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
-            웨이크업뉴스 나인빛/고구환 <span class="gradient-text-gold">기획특집 [AI퍼스트] & 생활문학 10대 명기사</span>
+            웨이크업뉴스 나인빛/고구환 <span class="gradient-text-gold">기획특집 [AI퍼스트] & 생활문학</span>
           </h2>
           <p class="text-slate-400 text-sm sm:text-base">
-            대화형 챗봇에서 업무 실행형 AI 워커로의 진화, AI 브라우저 전쟁, 그리고 고전 인문학과 일상의 음식 미학을 아우르는 웨이크업뉴스(www.wakeupnews.co.kr) 심층 연재 아카이브입니다.
+            대화형 챗봇에서 업무 실행형 AI 워커로의 진화, AI 브라우저 전쟁, 그리고 고전 인문학과 일상의 음식 미학을 아우르는 심층 연재 아카이브입니다.
           </p>
-          
-          <!-- Category Filter Tabs -->
-          <div class="flex items-center justify-center gap-2 pt-2 flex-wrap">
-            <button onclick="filterArticleDisplay('all')" id="btnArtTab-all" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 shadow-sm transition">전체 10편</button>
-            <button onclick="filterArticleDisplay('special')" id="btnArtTab-special" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition">기획특집 [AI퍼스트·브라우저] (6편)</button>
-            <button onclick="filterArticleDisplay('literature')" id="btnArtTab-literature" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition">생활문학 [천자문·한국음식] (4편)</button>
-          </div>
         </div>
 
-        <!-- 10 Featured Articles Grid Container -->
-        <div id="articlesGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Dynamically populated via renderArticlesGrid() -->
+        <!-- Featured Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">[기획특집] AI퍼스트</span>
+                <span>2026.10.28</span>
+              </div>
+              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art1')">
+                봇(Bot)의 시대가 다시 온다(3) AI에게 내 일을 맡겨라 — AI 워커와 미래 일자리
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                "AI 시대를 이야기할 때 일자리가 한꺼번에 사라지기보다 직업을 구성하는 개별 업무가 먼저 바뀐다. 프롬프트를 넘어 업무의 목표와 절차, 도구와 검증 기준을 설계하는 오케스트레이터의 역량이 핵심이다."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">고구환 기자</span>
+              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art1')">전문 읽기 →</button>
+            </div>
+          </div>
+
+          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="px-2.5 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/30 font-semibold">[기획특집] AI 브라우저</span>
+                <span>2026.10.14</span>
+              </div>
+              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art2')">
+                AI 브라우저 전쟁 시작됐다(1~3) Aside와 Comet, 웹을 실행하는 AI 에이전트
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                "Comet은 검색 비서가 브라우저를 갖춘 형태라면 Aside는 실제 업무를 완결하는 에이전트다. 스마트폰이 개인 운영체제가 된 것처럼 AI 브라우저는 웹을 구동하는 새로운 인터페이스가 된다."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">고구환 기자</span>
+              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art2')">전문 읽기 →</button>
+            </div>
+          </div>
+
+          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30 font-semibold">[생활문학] 음식 인문학</span>
+                <span>2025.11.04</span>
+              </div>
+              <h3 class="text-lg font-bold text-white hover:text-cyan-400 transition cursor-pointer" onclick="openArticleModal('art3')">
+                [노래로 즐기는 한국음식] 열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                "홍어찜은 단순한 안주가 아니라 한국인의 강하고 솔직한 기질과 나눔의 환대를 상징한다. 사람을 마주하고 속마음을 털어놓는 진한 인생의 맛을 노랫말과 문학으로 풀어내다."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">나인빛 기자</span>
+              <button class="text-cyan-400 font-semibold hover:underline" onclick="openArticleModal('art3')">전문 읽기 →</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1332,11 +1380,8 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         <span id="artModalSource">웨이크업뉴스 (wakeupnews.co.kr)</span>
       </div>
       <div id="artModalBody" class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3"></div>
-      <div class="pt-4 border-t border-slate-800 flex items-center justify-between flex-wrap gap-2">
-        <a id="artModalExternalLink" href="https://www.wakeupnews.co.kr" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold flex items-center gap-2 shadow-md transition">
-          <i class="fa-solid fa-newspaper"></i> 웨이크업뉴스 원문 기사 바로가기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-        </a>
-        <button class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold" onclick="closeArticleModal()">닫기</button>
+      <div class="pt-4 border-t border-slate-800 flex justify-end">
+        <button class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold" onclick="closeArticleModal()">확인</button>
       </div>
     </div>
   </div>
@@ -1534,7 +1579,6 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       stagedCeoPhoto = null;
       try { localStorage.setItem('naia_ceo_config_v2', JSON.stringify(ceoConfig)); } catch(e) {}
       renderCeoConfig();
-        renderArticlesGrid();
       showToast('대표이사 프로필 및 인사말이 기본값으로 복원되었습니다.');
     }
 
@@ -1556,7 +1600,6 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
           } catch(e) {}
         }
         renderCeoConfig();
-        renderArticlesGrid();
 
         const savedConfig = localStorage.getItem('naia_site_config_v2');
         if (savedConfig) {
@@ -1859,14 +1902,10 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
 
     const ARTICLES = {
       art1: {
-        id: 'art1',
-        type: 'special',
         category: '웨이크업뉴스 기획특집 [AI퍼스트]',
         title: '봇(Bot)의 시대가 다시 온다(3) AI에게 내 일을 맡겨라 — AI 워커와 미래 일자리',
         author: '고구환 기자',
         date: '2026.10.28',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2015',
-        summary: '단순 질의응답 챗봇을 넘어 스스로 브라우저와 사내 도구를 다루며 업무를 완결하는 AI 워커 시대. 프롬프트 작성을 넘어 업무 절차·도구·검증 기준을 총괄하는 "업무 설계" 능력과 위험도별 인간 개입(Human-in-the-loop) 거버넌스가 핵심입니다.',
         body: [
           '과거 단순 명령어를 처리하던 챗봇의 시대를 지나, 이제는 스스로 목표를 이해하고 인터넷 브라우저와 사내 소프트웨어를 직접 구동하며 실제 업무를 완결하는 "AI 워커(Worker)"의 시대가 열리고 있습니다.',
           'AI가 발전한다고 해서 모든 사람이 프로그래머가 되어야 하는 것은 아닙니다. 오히려 자신이 속한 산업과 도메인을 깊이 이해하고, AI의 산출물을 냉철하게 검증하는 비판적 사고 능력이 더욱 중요해집니다.',
@@ -1874,138 +1913,25 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         ]
       },
       art2: {
-        id: 'art2',
-        type: 'special',
-        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
-        title: '봇(Bot)의 시대가 다시 온다(1) 챗봇을 넘어 AI 워커로 진화하는 봇의 역사와 미래',
-        author: '고구환 기자',
-        date: '2026.10.22',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2013',
-        summary: '1966년 ELIZA부터 규칙 기반 챗봇을 거쳐 대형 언어 모델(LLM)과 에이전트로 도약한 봇의 60년 진화사. 인간의 수동 지시를 기다리던 챗봇에서 복잡한 기업 업무를 스스로 수행하는 지능형 워커로의 도약을 심층 분석합니다.',
-        body: [
-          '1966년 조셉 바이젠바움의 ELIZA부터 출발한 봇의 역사는 단순 규칙 기반을 지나, 2020년대 LLM을 만나 인간 언어의 맥락과 감정까지 이해하는 단계로 비약적인 발전을 이루었습니다.',
-          '이제 봇은 단순한 정보 검색 안내원에 머물지 않고, 여러 시스템을 넘나들며 API 호출, 코드 디버깅, 데이터베이스 조회를 능동적으로 수행하는 실행 주체로 거듭나고 있습니다.',
-          '우리가 맞이할 미래는 봇을 거부하는 사회가 아니라, 봇에게 어떤 수준의 권한과 책임을 부여하고 어떻게 인간과 공존시킬 것인가를 설계하는 사회입니다.'
-        ]
-      },
-      art3: {
-        id: 'art3',
-        type: 'special',
         category: '웨이크업뉴스 기획특집 [AI 브라우저]',
-        title: 'AI 브라우저 전쟁 시작됐다(1) Aside와 Comet 무엇이 다른가',
+        title: 'AI 브라우저 전쟁 시작됐다(1~3) Aside와 Comet, 웹을 실행하는 AI 에이전트',
         author: '고구환 기자',
         date: '2026.10.14',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2006',
-        summary: '사람이 인터넷을 검색하던 시대에서 AI가 웹 브라우저를 직접 다루는 시대로의 전환. 검색·리서치 특화 브라우저(Perplexity Comet)와 계정 로그인 후 실제 웹 결제·업무를 완결하는 액추에이터 브라우저(Aside)의 구조와 보안 차이를 규명합니다.',
         body: [
           '스마트폰이 등장했을 때 단순한 전화기를 넘어 개인의 삶과 업무를 아우르는 운영체제가 된 것처럼, AI 브라우저는 웹사이트를 찾아가는 화면을 넘어 웹 전체를 사용하는 AI 에이전트 인터페이스로 발전하고 있습니다.',
           'Comet은 Perplexity 기반의 뛰어난 검색 및 정보 요약에 강점을 두며, Aside는 웹사이트 로그인 후 실제 결제·발주·데이터 추출 등 장시간이 소요되는 복잡한 실무를 대신 수행하는 데 초점을 맞춥니다.',
-          'AI 브라우저 시대의 핵심 과제는 단순한 속도가 아니라 보안과 권한 관리(Vault)입니다. AI가 사용자의 비밀번호와 인증 정보를 직접 탈취당하지 않으면서도 안전하게 로그인하고 업무를 대행할 수 있는 격리 기술이 승부처가 될 것입니다.'
+          '결국 인터넷신문과 기업 업무의 승부처는 "질문을 잘 만드는 프롬프트"에서 "업무의 목표와 절차를 정확하게 지시하고 결과의 가치를 판단하는 능력"으로 이동하고 있습니다.'
         ]
       },
-      art4: {
-        id: 'art4',
-        type: 'special',
-        category: '웨이크업뉴스 기획특집 [AI 브라우저]',
-        title: 'AI 브라우저 전쟁 시작됐다(3) AI가 브라우저를 사용하는 시대, 사람의 일은 어떻게 달라지는가',
-        author: '고구환 기자',
-        date: '2026.10.19',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2012',
-        summary: '인터넷신문 기자가 자료 조사, 기사 작성, SEO 최적화를 AI 브라우저와 분업하듯 일자리가 사라지는 것이 아니라 직무를 이루는 개별 작업이 재설계됩니다. 인간은 단순 반복을 벗어나 가치 판단과 검증, 취재 본질에 집중하게 됩니다.',
-        body: [
-          '기자가 한 편의 기사를 쓰기 위해 소요하던 자료 검색, 원문 대조, 보도자료 분석, 초안 작성 등의 반복 작업이 AI 브라우저의 원클릭 오케스트레이션으로 75% 이상 단축됩니다.',
-          '이 변화는 인간 기자의 역할을 축소하는 것이 아니라, 현장 취재와 심층 인터뷰, 기사의 사회적 파급력 분석 등 오직 사람만이 감당할 수 있는 본질적 언론 사명에 몰입하도록 이끕니다.',
-          '직업의 이름보다 직무를 구성하는 단위 업무의 분해가 먼저 일어납니다. AI 브라우저를 파트너 삼아 자신의 전문성을 확장하는 워커가 미래 시장을 선도할 것입니다.'
-        ]
-      },
-      art5: {
-        id: 'art5',
-        type: 'special',
-        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
-        title: 'ChatGPT Chat과 Work의 차이, 대화형 AI에서 실행형 에이전트로 & 환각 검증 체계',
-        author: '고구환 기자',
-        date: '2026.10.29',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2027',
-        summary: '단순 대화형(Chat)과 업무용 앱 연동 실행형(Work)의 차이 규명. AI 환각을 차단하는 "자료 외 수치 추정 금지 및 확인 필요 표시" 표준 프롬프트와 재무·법률 계약서의 인간 원자료 대조 검수 시스템을 제안합니다.',
-        body: [
-          '대화형 Chat이 그럴듯한 문장을 생성하는 데 집중한다면, 실행형 Work는 실제 파일과 스프레드시트, ERP와 연결되어 오류 없는 결과를 도출해야 합니다.',
-          'AI의 가장 위험한 약점인 환각(Hallucination)을 막기 위해 엔터프라이즈 환경에서는 "제공되지 않은 수치는 임의 추정하지 말고 반드시 [확인 필요]로 표시하라"는 절대 지침이 필수적입니다.',
-          'AI 자동화는 인간 검증의 생략이 아니라 검토의 효율화입니다. AI가 작성한 결과물과 실제 확인된 팩트를 분리 표기하는 표준 프로토콜이 도입되어야 신뢰도 99%를 담보할 수 있습니다.'
-        ]
-      },
-      art6: {
-        id: 'art6',
-        type: 'special',
-        category: '웨이크업뉴스 기획특집 [AI퍼스트]',
-        title: '인공지능 시대의 새로운 화폐 토큰(TOKEN)이 만드는 부의 미래',
-        author: '고구환 기자',
-        date: '2026.07.12',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1675',
-        summary: '언어를 디지털 블록으로 쪼갠 토큰이 AI 경제의 기본 화폐이자 디지털 원유가 된 현실. 효율적 토큰 운용을 통한 기업 생존 전략과 데이터센터 및 독자 AI 인프라를 바탕으로 한 국가적 "토큰 주권" 확보의 시급성을 역설합니다.',
-        body: [
-          '인공지능이 텍스트를 숫자로 치환해 계산하는 단위인 '토큰(Token)'은 이제 지능을 거래하고 비용을 청구하는 글로벌 AI 경제의 기축 통화로 자리잡았습니다.',
-          '기업은 적은 토큰으로 최고 품질의 결과물을 이끌어내는 프롬프트 최적화와 경량화 모델 운용 능력을 갖추어야만 폭증하는 AI 운영 비용을 통제할 수 있습니다.',
-          '데이터센터와 자체 AI 파운데이션 모델을 확보하지 못한 국가는 막대한 토큰 비용을 해외 빅테크에 지불하는 디지털 식민지로 전락할 수 있으므로, 국가 차원의 토큰 주권 수호가 절실합니다.'
-        ]
-      },
-      art7: {
-        id: 'art7',
-        type: 'literature',
-        category: '웨이크업뉴스 생활문학 [만화로 배우는 천자문]',
-        title: '[기획연재 : 만화로 배우는 천자문] 제1화 '우주의 시작과 지구의 탄생' 天地玄黃(천지현황)',
-        author: '나인빛 기자',
-        date: '2026.04.06',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=1356',
-        summary: '태권도 9단 태극사부와 민수·수빈의 대화를 통해 아득하고 깊은 우주(검은 하늘)와 생명을 길러내는 황토색 땅의 조화를 20자 한자로 해설. 계절의 순환(한래서왕)처럼 시련 뒤에 반드시 봄이 온다는 끈기의 인문학을 전합니다.',
-        body: [
-          '"하늘은 깊고 아득하여 검고(玄), 땅은 온갖 곡식과 생명을 품어 누렇다(黃)." 우주의 탄생과 질서를 태극사부와 호기심 많은 아이들의 눈높이 대화로 생생하게 풀어냅니다.',
-          '해와 달이 차면 기울고 다시 차오르듯, 추위가 가면 더위가 오고 계절이 순환하듯이(寒來暑往), 인간의 삶과 사업 역시 겨울 같은 시련 뒤에 반드시 찬란한 봄이 온다는 진리를 배웁니다.',
-          '천자문의 고전 지혜를 현대적인 AI 캐릭터와 감각적인 대화체로 재해석하여, 어린이부터 성인까지 일상에서 실천할 수 있는 삶의 철학을 선사합니다.'
-        ]
-      },
-      art8: {
-        id: 'art8',
-        type: 'literature',
-        category: '웨이크업뉴스 생활문학 [만화로 배우는 천자문]',
-        title: '[기획연재 : 만화로 배우는 천자문] 제32화 '하늘에 올린 약속과 천하를 품은 대자연' 禪主云亭(선주운정)',
-        author: '고구환/나인빛 기자',
-        date: '2026.10.23',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=2041',
-        summary: '태산 아래 운산·정산에서 천하의 평화를 빌던 임금의 제천 의식, 국경을 지키는 만리장성의 안보 정신, 모든 강물을 차별 없이 품어내는 동정호의 넉넉한 포용력을 통해 현대 사회 리더가 갖추어야 할 책임과 화합의 미학을 전합니다.',
-        body: [
-          '운산과 정산에 올라 하늘과 땅에 제사를 지내며 백성의 평안을 기원하던 고대 제왕들의 겸손함은, 오늘날 조직을 이끄는 리더가 가져야 할 책임 의식과 일맥상통합니다.',
-          '기러기도 쉬어 넘는 안문관과 붉은 성벽 만리장성이 공동체의 안위를 지켜냈듯, 우리의 삶과 터전 역시 철저한 대비와 헌신을 통해 평화를 유지할 수 있습니다.',
-          '수많은 물줄기를 가리지 않고 모두 받아들여 거대한 생태계를 이루는 동정호의 너른 품처럼, 서로 다른 생각과 개성을 품어 안는 열린 포용력이야말로 진정한 인공지능 시대의 리더십입니다.'
-        ]
-      },
-      art9: {
-        id: 'art9',
-        type: 'literature',
+      art3: {
         category: '웨이크업뉴스 생활문학 [노래로 즐기는 한국음식]',
-        title: '[노래로 즐기는 한국음식] 열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛',
+        title: '열한 번째 홍어찜 이야기 – 코끝을 찌르는 진한 인생의 맛',
         author: '나인빛 기자',
         date: '2025.11.04',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=726',
-        summary: '강렬하게 삭은 홍어의 풍미를 통해 한국인의 강직한 기질과 융숭한 손님 환대의 정을 노래. 혼자 먹지 않고 둘러앉아 막걸리와 함께 속마음을 터놓는 음식 인문학의 깊이를 시적 노랫말과 감성 에세이로 풀어냈습니다.',
         body: [
           '전라도 사람들의 상다리 휘어지는 손님 대접에는 반드시 홍어가 있었습니다. 배가 닿으면 스스로 삭아 독특한 향을 내뿜던 홍어는 단순한 음식이 아니라, 피하지 않고 맞서는 한국인의 기질과 환대의 지혜를 상징합니다.',
           '홍어찜을 먹는다는 것은 사람을 정면으로 마주하고 속마음을 털어놓는 일입니다. 코끝을 찌르는 알싸한 맛 뒤에 밀려오는 담백함처럼, 인생의 시련과 기다림 뒤에 찾아오는 사람 사이의 온기를 노래와 문학으로 풀어냅니다.',
           '웨이크업뉴스 생활문학은 홍어찜, 떡볶이 등 한국인의 정겨운 음식을 통해 디지털 기술의 시대에도 결코 잊혀져선 안 될 인간다운 온기와 사색을 전합니다.'
-        ]
-      },
-      art10: {
-        id: 'art10',
-        type: 'literature',
-        category: '웨이크업뉴스 생활문학 [노래로 즐기는 한국음식]',
-        title: '[노래로 즐기는 한국음식] 여섯번째 비빔밥 이야기 – 한 그릇에 담긴 조화의 미학',
-        author: '나인빛 기자',
-        date: '2025.09.06',
-        url: 'https://www.wakeupnews.co.kr/news/articleView.html?idxno=513',
-        summary: '각양각색의 나물과 고기, 고추장이 한 그릇 안에서 섞여 새로운 맛을 창조하는 비빔밥의 철학. 다름을 배척하지 않고 조화롭게 상생하는 한국인의 지혜와 사람 사이의 마음을 여는 소통의 미학을 담았습니다.',
-        body: [
-          '밥 위에 각양각색의 나물과 고기, 계란, 고추장을 한데 담아 쓱쓱 비벼 먹는 비빔밥은, 각 재료의 고유한 색과 향을 잃지 않으면서도 한 숟가락 안에서 완전히 새로운 미학을 완성합니다.',
-          '비빔밥을 함께 비비는 과정에서 대화가 피어나고, 차이가 섞여 하나가 됩니다. 상다리가 부러지도록 반찬을 차려도 결국 한데 모여야 진정한 식사가 된다는 한국인의 나눔 철학이 오롯이 깃들어 있습니다.',
-          '다양성을 인정하면서도 조화를 추구하는 비빔밥의 정신은, 인공지능과 인간, 기술과 예술이 공진화해야 하는 이 시대에 우리가 가슴 깊이 새겨야 할 가장 한국적인 지혜입니다.'
         ]
       }
     };
@@ -2018,74 +1944,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       document.getElementById('artModalAuthor').textContent = '기자: ' + art.author;
       document.getElementById('artModalDate').textContent = '일자: ' + art.date;
       document.getElementById('artModalBody').innerHTML = art.body.map(p => `<p>${p}</p>`).join('');
-      
-      const linkEl = document.getElementById('artModalExternalLink');
-      if (linkEl) {
-        linkEl.href = art.url || 'https://www.wakeupnews.co.kr';
-      }
-      
       document.getElementById('articleModal').classList.remove('hidden');
-    }
-
-    
-    let currentArticleFilter = 'all';
-
-    function renderArticlesGrid() {
-      const container = document.getElementById('articlesGridContainer');
-      if (!container) return;
-
-      const keys = Object.keys(ARTICLES);
-      const filtered = keys.filter(k => {
-        if (currentArticleFilter === 'all') return true;
-        return ARTICLES[k].type === currentArticleFilter;
-      });
-
-      container.innerHTML = filtered.map(k => {
-        const art = ARTICLES[k];
-        const badgeColor = art.type === 'special' 
-          ? 'bg-amber-500/10 text-amber-300 border-amber-500/30' 
-          : 'bg-purple-500/10 text-purple-300 border-purple-500/30';
-        return `
-          <div class="glass-card glass-card-hover p-6 rounded-2xl border-slate-800 flex flex-col justify-between group">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="px-2.5 py-0.5 rounded font-semibold border ${badgeColor}">${escapeHtml(art.category)}</span>
-                <span class="text-[11px]">${escapeHtml(art.date)}</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-cyan-400 transition cursor-pointer leading-snug" onclick="openArticleModal('${art.id}')">
-                ${escapeHtml(art.title)}
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
-                "${escapeHtml(art.summary)}"
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs mt-4">
-              <span class="text-slate-400 font-medium">${escapeHtml(art.author)}</span>
-              <div class="flex items-center gap-2">
-                <button class="text-slate-400 hover:text-white transition" onclick="openArticleModal('${art.id}')">요약 <i class="fa-solid fa-expand text-[10px]"></i></button>
-                <a href="${art.url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/40 text-amber-300 border border-amber-500/40 font-bold transition flex items-center gap-1">
-                  원문 읽기 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function filterArticleDisplay(filter) {
-      currentArticleFilter = filter;
-      ['all', 'special', 'literature'].forEach(f => {
-        const btn = document.getElementById('btnArtTab-' + f);
-        if (btn) {
-          if (f === filter) {
-            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 shadow-sm transition';
-          } else {
-            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition';
-          }
-        }
-      });
-      renderArticlesGrid();
     }
 
     function closeArticleModal() {
@@ -2569,7 +2428,6 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
           }
 
           renderCeoConfig();
-        renderArticlesGrid();
           
           // Visual button feedback
           const submitBtn = adminCeoForm.querySelector('button[type="submit"]');
