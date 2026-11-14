@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아이디어를 이미지로, 이미지를 브랜드로 | NAIA AI교육원</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .naia-hero-gradient {
+      background: linear-gradient(135deg, #0b132b 0%, #1e3a8a 52%, #0d9488 100%);
+    }
+    .naia-card {
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .naia-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(15, 23, 42, 0.12);
+      border-color: #93c5fd;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, 16px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+    .toast-animate {
+      animation: toastIn 0.22s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- 상단 네비게이션 헤더 -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- 좌측 브랜드 -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-xl naia-hero-gradient flex items-center justify-center text-white font-extrabold text-sm shadow-sm shrink-0">
+          N
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-slate-900 text-sm sm:text-base truncate">엔인공지능에이전트연구소</span>
+            <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-100">NAIA AI교육원</span>
+          </div>
+          <p class="text-[11px] text-slate-500 truncate">(사)동북아공동체ICT포럼 · 3강 AI 이미지와 브랜딩 콘텐츠 제작</p>
+        </div>
+      </div>
+
+      <!-- 우측 포털 링크 -->
+      <nav class="flex items-center gap-2 shrink-0">
+        <a href="https://www.naia.kr/slide_design/" target="_blank" rel="noopener noreferrer"
+           class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-blue-700 hover:bg-blue-50 border border-slate-200 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+          </svg>
+          슬라이드 디자인
+        </a>
+        <a href="https://www.naia.kr/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-900 hover:bg-blue-800 transition-colors shadow-sm">
+          <span>NAIA 홈</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 히어로 배너 (네이비·블루·틸 그라데이션) -->
+  <section class="naia-hero-gradient text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 20% 25%, #ffffff 1px, transparent 1px), radial-gradient(circle at 80% 75%, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-xs font-semibold tracking-wider uppercase text-teal-100">
+            <span class="w-2 h-2 rounded-full bg-teal-300"></span>
+            IMAGE PROMPT WORKSHOP · NAIA AI교육원
+          </div>
+          <h1 class="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight leading-tight">
+            아이디어를 이미지로, 이미지를 브랜드로.
+          </h1>
+          <p class="text-sm sm:text-base text-blue-100/90 max-w-2xl leading-relaxed">
+            기초 이미지 생성부터 촬영 구도, 이미지 수정, 실무 콘텐츠, 친환경 브랜드 그린하루 제작까지.
+            프롬프트를 찾아 한 번에 복사해 실습해 보세요.
+          </p>
+          <div class="flex flex-wrap items-center gap-2.5 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/15 border border-white/20 text-xs font-semibold">
+              <svg class="w-4 h-4 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              총 29개 실습
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/15 border border-white/20 text-xs font-semibold">
+              <svg class="w-4 h-4 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              원클릭 복사
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/15 border border-white/20 text-xs font-semibold">
+              <svg class="w-4 h-4 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              PC · 모바일 최적화
+            </span>
+          </div>
+        </div>
+
+        <!-- 우측 비주얼 카드 (GREEN HARU) -->
+        <div class="lg:col-span-4">
+          <div class="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-xl flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-400/20 border border-emerald-300/30 flex items-center justify-center mb-3">
+              <svg class="w-8 h-8 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <div class="text-xs font-bold tracking-widest text-emerald-200 uppercase mb-1">Brand Workshop Project</div>
+            <div class="text-xl font-extrabold tracking-wide text-white">GREEN HARU</div>
+            <p class="text-xs text-blue-100/80 mt-2 leading-relaxed">
+              로고 · 제품 사진 · SNS 카드 · 홈페이지 배너 · PPT 표지까지 하나의 브랜드 톤으로 완성하기
+            </p>
+            <button type="button" id="jumpGreenHaruBtn"
+                    class="mt-4 w-full py-2 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-sm cursor-pointer">
+              그린하루 8개 실습 바로가기 →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3단계 활용 가이드 -->
+  <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 -mt-5 relative z-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0">01</span>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">검색 및 카테고리 선택</h2>
+          <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">원하는 실습 주제나 키워드(예: 로우앵글, 텀블러)를 검색하거나 상단 탭으로 필터링하세요.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-teal-600 text-white font-bold text-xs flex items-center justify-center shrink-0">02</span>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">프롬프트 원클릭 복사</h2>
+          <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">각 카드 우측 하단의 <strong>프롬프트 복사</strong> 버튼을 누르면 즉시 클립보드에 저장됩니다.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-slate-800 text-white font-bold text-xs flex items-center justify-center shrink-0">03</span>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">이미지 생성 AI에 붙여넣기</h2>
+          <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">ChatGPT Images, Gemini 등에 붙여넣으세요. <strong>'첨부한 사진'</strong> 실습은 권한 있는 사진을 함께 올립니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메인 콘텐츠: 검색, 필터, 카드 목록 -->
+  <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    <!-- 검색 및 필터 컨트롤 박스 -->
+    <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm mb-6 space-y-4">
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+        <!-- 검색창 -->
+        <div class="relative flex-1">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="프롬프트 검색: 로우앵글, 텀블러, 홈페이지 배너..."
+            class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 text-sm text-slate-800 placeholder-slate-400 transition-all"
+          />
+          <button
+            type="button"
+            id="clearSearchBtn"
+            aria-label="검색어 지우기"
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- 표시 개수 카운터 -->
+        <div class="flex items-center justify-between sm:justify-end gap-2 shrink-0">
+          <span id="resultCountBadge" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-50 text-blue-800 border border-blue-100 text-xs font-bold">
+            현재 29개 표시
+          </span>
+        </div>
+      </div>
+
+      <!-- 카테고리 필터 탭 -->
+      <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <!-- JS로 동적 렌더링 -->
+      </div>
+    </div>
+
+    <!-- 실습 방법 안내 배너 -->
+    <div class="rounded-xl bg-slate-100 border border-slate-200/80 px-4 py-3 mb-6 flex items-start sm:items-center gap-2.5 text-xs text-slate-700">
+      <svg class="w-4 h-4 text-blue-600 shrink-0 mt-0.5 sm:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="leading-relaxed">
+        <strong>실습 방법</strong> — 원하는 프롬프트를 복사해 ChatGPT Images, Gemini 등 이미지 생성 도구에 붙여 넣으세요.
+        '첨부한 사진'이 포함된 실습은 사용 권한이 있는 사진을 함께 업로드하세요.
+      </p>
+    </div>
+
+    <!-- 카드 그리드 컨테이너 -->
+    <div id="cardsContainer" class="space-y-8">
+      <!-- JS로 동적 렌더링 -->
+    </div>
+
+    <!-- 검색 결과 없음 상태 -->
+    <div id="emptyState" class="hidden py-16 text-center bg-white rounded-2xl border border-slate-200">
+      <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h3 class="text-sm font-bold text-slate-800">조건에 맞는 실습 프롬프트가 없습니다.</h3>
+      <p class="text-xs text-slate-500 mt-1">검색어를 변경하거나 전체 카테고리로 초기화해 보세요.</p>
+      <button type="button" id="resetFilterBtn"
+              class="mt-4 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors cursor-pointer">
+        전체 29개 다시 보기
+      </button>
+    </div>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="text-sm font-bold text-white">
+          엔인공지능에이전트연구소 (NAIA) · AI교육원 &nbsp;|&nbsp; AI 이미지와 브랜딩 콘텐츠 제작 실습실
+        </div>
+        <div class="text-xs text-slate-400">
+          원본 교육 커리큘럼: (사)동북아공동체ICT포럼 · 해피에듀아이 김윤선 대표
+        </div>
+        <div class="text-[11px] text-slate-500 pt-0.5">
+          ※ 가상 브랜드 실습 자료입니다. 실제 상업 활용 전 이미지·표시 문구·권리를 확인하세요.
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="https://www.naia.kr/" target="_blank" rel="noopener noreferrer"
+           class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition-colors">
+          www.naia.kr
+        </a>
+        <a href="https://www.naia.kr/slide_design/" target="_blank" rel="noopener noreferrer"
+           class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition-colors">
+          slide_design
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 맨 위로 이동 버튼 -->
+  <button type="button" id="scrollTopBtn" aria-label="맨 위로 이동"
+          class="hidden fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-slate-900/90 hover:bg-blue-700 text-white shadow-lg flex items-center justify-center transition-all cursor-pointer">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <!-- 복사 완료 토스트 알림 -->
+  <div id="toastNotification"
+       class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-xl bg-slate-900 text-white text-xs sm:text-sm font-semibold shadow-2xl border border-slate-700 flex items-center gap-2">
+    <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toastMessage">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <script>
+    const CATEGORIES = [
+      { id: 'all', label: '전체', badge: '전체', color: 'bg-slate-100 text-slate-700 border-slate-200' },
+      { id: 'basic', label: '기초 이미지 생성', badge: '기초', color: 'bg-blue-50 text-blue-700 border-blue-200' },
+      { id: 'camera', label: '카메라 촬영 구도', badge: '촬영', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
+      { id: 'style', label: '이미지 스타일', badge: '스타일', color: 'bg-violet-50 text-violet-700 border-violet-200' },
+      { id: 'edit', label: '이미지 수정', badge: '수정', color: 'bg-amber-50 text-amber-800 border-amber-200' },
+      { id: 'business', label: 'IT 실무 콘텐츠', badge: '실무', color: 'bg-cyan-50 text-cyan-800 border-cyan-200' },
+      { id: 'greenharu', label: '그린하루 브랜드 실습', badge: '그린하루', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
+    ];
+
+    const EXERCISES = [
+      {
+        num: '01',
+        category: 'basic',
+        badge: '기초',
+        title: '짧은 프롬프트',
+        prompt: '미래형 스마트 오피스에서 AI 로봇과 사람이 함께 일하는 모습을 그려줘.'
+      },
+      {
+        num: '02',
+        category: 'basic',
+        badge: '기초',
+        title: '구체적인 프롬프트',
+        prompt: '밝고 현대적인 스마트 오피스에서 다양한 연령대의 IT 전문가들이 AI 로봇과 함께 협업하는 장면을 만들어줘. 대형 모니터와 디지털 업무 도구가 배치된 공간, 사실적인 3D 렌더링, 자연광, 블루와 화이트 색상, 넓은 시점, 16:9 비율, 글자 없음.'
+      },
+      {
+        num: '03',
+        category: 'camera',
+        badge: '촬영',
+        title: '로우앵글',
+        prompt: '밝은 하늘 아래 바위 위에 앉아 있는 골든리트리버를 아래에서 위로 올려다보는 로우앵글로 촬영한 사실적인 사진. 웅장한 분위기, 자연광, 4:5 비율.'
+      },
+      {
+        num: '04',
+        category: 'camera',
+        badge: '촬영',
+        title: '하이앵글',
+        prompt: '가을 낙엽 위에 앉아 카메라를 올려다보는 귀여운 강아지를 위에서 아래로 내려다보는 하이앵글로 촬영한 사진. 따뜻하고 사랑스러운 분위기, 4:5 비율.'
+      },
+      {
+        num: '05',
+        category: 'camera',
+        badge: '촬영',
+        title: '아웃포커싱',
+        prompt: '카페 창가에 앉아 있는 가상의 IT 전문가 인물 사진. 인물의 얼굴과 눈은 선명하게 표현하고 배경은 부드게 흐려지는 아웃포커싱, shallow depth of field, bokeh, 따뜻한 자연광, 4:5 비율.'.replace('부드게', '부드럽게')
+      },
+      {
+        num: '06',
+        category: 'camera',
+        badge: '촬영',
+        title: '아이레벨',
+        prompt: '푸른 공원에서 카메라를 바라보는 골든리트리버를 강아지의 눈높이와 같은 아이레벨 구도로 촬영한 사진. 자연스러운 시선, 친근한 분위기, 부드러운 햇살, 4:5 비율.'
+      },
+      {
+        num: '07',
+        category: 'camera',
+        badge: '촬영',
+        title: '클로즈업',
+        prompt: '분홍색 꽃잎에 맺힌 투명한 물방울을 초근접 클로즈업으로 촬영한 매크로 사진. 섬세한 표면 질감, 정교한 디테일, 부드러운 배경 흐림, 사실적인 사진, 1:1 비율.'
+      },
+      {
+        num: '08',
+        category: 'style',
+        badge: '스타일',
+        title: '5가지 스타일 비교',
+        prompt: '빨간 지붕의 작은 집, 커다란 나무, 꽃이 핀 정원, 멀리 보이는 산과 맑은 하늘이 있는 아름다운 시골 풍경을 만들어줘. 동일한 장면 구성을 유지하면서 수채화풍, 유화풍, 파스텔풍, 3D 애니메이션풍, 종이 콜라주풍으로 각각 한 장씩 총 5장을 만들어줘. 글자 없음.'
+      },
+      {
+        num: '09',
+        category: 'edit',
+        badge: '수정',
+        title: '색상 변경',
+        prompt: '현재 이미지의 주요 인물과 사물, 구도는 그대로 유지하고 전체 색상만 부드러운 파스텔 블루와 민트톤으로 변경해줘. 글자는 추가하지 마.'
+      },
+      {
+        num: '10',
+        category: 'edit',
+        badge: '수정',
+        title: '배경 변경',
+        prompt: '현재 이미지의 인물 얼굴, 헤어스타일, 의상, 포즈는 그대로 유지하고 배경만 밝고 깔끔한 IT 기업 사무실로 변경해줘. 인물의 동일성을 유지해줘.'
+      },
+      {
+        num: '11',
+        category: 'edit',
+        badge: '수정',
+        title: '비율 변경',
+        prompt: '현재 이미지의 주요 인물과 사물은 그대로 유지하고 가로 16:9 비율로 자연스럽게 확장해줘. 주요 요소가 잘리지 않게 하고 왼쪽에는 제목을 넣을 여백을 확보해줘. 글자 없음.'
+      },
+      {
+        num: '12',
+        category: 'edit',
+        badge: '수정',
+        title: '요소 제거',
+        prompt: '현재 이미지의 인물과 전체 구도는 유지하고 배경에 있는 불필요한 사람, 복잡한 장식, 의미 없는 문자를 제거해줘. 제거한 부분은 자연스럽게 복원해줘.'
+      },
+      {
+        num: '13',
+        category: 'business',
+        badge: '실무',
+        title: 'IT 브랜드 콘셉트',
+        prompt: '당신은 브랜드 기획 전문가입니다. 가상의 IT 서비스 기업을 위한 브랜드 콘셉트를 기획해줘. 사업 분야는 AI 업무 자동화이고 고객은 중소기업 담당자야. 신뢰감과 혁신성을 전달할 브랜드 키워드 3개, 대표 색상 2개, 디자인 스타일 2가지, 한 줄 소개 문구 3개를 제안해줘.'
+      },
+      {
+        num: '14',
+        category: 'business',
+        badge: '실무',
+        title: 'IT 브랜드 SNS 카드',
+        prompt: '가상의 AI 업무 자동화 기업을 소개하는 정사각형 SNS 홍보 카드를 만들어줘. 네이비 블루와 민트색, 전문적이고 친근한 이미지, 제목을 넣을 여백, 1:1 비율, 글자 없음.'
+      },
+      {
+        num: '15',
+        category: 'business',
+        badge: '실무',
+        title: '기업 홈페이지 배너',
+        prompt: '가상의 IT 기업 공식 홈페이지 상단 배너 이미지를 만들어줘. AI 업무 자동화 서비스를 상징하는 시각 요소를 오른쪽에 배치하고 왼쪽에는 문구를 넣을 충분한 여백을 남겨줘. 블루와 화이트 계열의 깔끔한 디자인, 16:9 비율, 글자 없음.'
+      },
+      {
+        num: '16',
+        category: 'business',
+        badge: '실무',
+        title: 'PPT 표지',
+        prompt: '앞서 만든 IT 브랜드 홍보 이미지의 대표 색상과 그래픽 스타일을 유지하면서 16:9 비율의 기업 발표용 PPT 표지 배경을 제작해줘. 왼쪽에는 제목 공간, 오른쪽에는 기술을 상징하는 시각 요소를 배치해줘. 글자 없음.'
+      },
+      {
+        num: '17',
+        category: 'business',
+        badge: '실무',
+        title: '기술 콘셉트 시각화',
+        prompt: '가상의 중소기업이 도입하는 AI 업무 자동화 서비스를 시각적으로 표현해줘. 직원, 데이터 분석 대시보드, 자동화 흐름, AI 비서가 하나의 미래형 업무 환경에 자연스럽게 나타나는 장면. 신뢰감 있는 블루와 화이트 색상, 깔끔한 3D 일러스트, 16:9 비율, 글자 없음.'
+      },
+      {
+        num: '18',
+        category: 'business',
+        badge: '실무',
+        title: '가상 광고 모델 5컷',
+        prompt: '가상의 30대 한국인 여성 IT 전문가 광고 모델을 만들어줘. 베이지색 재킷, 자연스러운 긴 머리, 친근하면서 전문적인 표정, 밝은 사무실 배경, 자연광. 동일한 모델로 전신, 정면 얼굴, 옆모습, 진지한 업무 모습, 활동 모습의 5가지 사진을 각각 만들어줘. 얼굴과 의상은 일관되게 유지해줘. 글자 없음.'
+      },
+      {
+        num: '19',
+        category: 'business',
+        badge: '실무',
+        title: '제품 + 배경 합성',
+        prompt: '첨부한 제품 사진의 실제 형태, 색상, 로고, 라벨은 변경하지 말고 배경만 고급스럽고 따뜻한 카페 내부로 바꿔줘. 제품은 원목 테이블 중앙에 자연스럽게 놓이고 창문으로 들어오는 햇살과 부드러운 그림자가 나타나도록 해줘. 4:5 비율.'
+      },
+      {
+        num: '20',
+        category: 'business',
+        badge: '실무',
+        title: '제품 + 모델 합성',
+        prompt: '첨부한 제품 사진과 앞서 만든 가상 광고 모델 이미지를 결합해줘. 모델이 제품을 자연스럽게 손에 들고 카메라를 바라보는 프리미엄 광고 사진을 만들어줘. 제품의 외형과 모델의 얼굴을 유지하고 조명과 그림자를 일치시켜줘. 4:5 비율, 글자 없음.'
+      },
+      {
+        num: '21',
+        category: 'business',
+        badge: '실무',
+        title: '모델 감정 변화',
+        prompt: '앞서 생성한 동일한 가상 모델이 사무실 책상에서 문제를 고민하는 장면을 만들어줘. 이어서 같은 모델이 해결 아이디어를 떠올리고 밝게 웃는 장면도 만들어줘. 얼굴, 의상, 배경은 유지하고 표정과 동작만 변경해줘. 두 이미지를 각각 따로 생성하고 글자는 넣지 마.'
+      },
+      {
+        num: '22',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '친환경 브랜드 콘셉트 기획',
+        prompt: "당신은 친환경 브랜드 전문 기획자입니다. '그린하루'라는 가상의 친환경 생활용품 브랜드를 만들려고 합니다. 대나무 칫솔, 다회용 텀블러, 에코백 등 일상에서 재사용할 수 있는 제품을 판매합니다. 주요 고객은 20~50대 친환경 소비에 관심 있는 소비자입니다. 브랜드 키워드 3개, 대표 색상 2개, 브랜드 슬로건 5개, 이미지 디자인 스타일 2가지, SNS 홍보 방향을 추천해 주세요."
+      },
+      {
+        num: '23',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '브랜드 로고',
+        prompt: "친환경 생활용품 브랜드 '그린하루'의 로고를 만들어줘. 자연과 지속가능한 생활을 상징하는 새싹, 나뭇잎, 원형 요소를 활용해줘. 포레스트 그린과 아이보리 색상, 심플한 미니멀 벡터 디자인, 복잡한 장식 없이 현대적이고 따뜻한 분위기. 흰색 배경에 독창적인 심볼 중심 로고를 제작하고 다른 브랜드의 로고와 유사하지 않게 해줘."
+      },
+      {
+        num: '24',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '제품 광고 사진',
+        prompt: "친환경 생활용품 브랜드 '그린하루'의 제품 광고 사진을 만들어줘. 밝은 원목 테이블 위에 대나무 칫솔, 스테인리스 텀블러, 면 에코백이 자연스럽게 배치되어 있어. 창문으로 따뜻한 아침 햇살이 들어오고 초록 식물이 배경에 보여. 고급 라이프스타일 브랜드 광고 사진, 사실적인 재질과 그림자, 부드러운 자연광, 베이지와 그린 색상, 4:5 세로 비율, 글자 없음."
+      },
+      {
+        num: '25',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '인스타그램 SNS 카드',
+        prompt: "친환경 생활용품 브랜드 '그린하루'의 인스타그램 홍보 카드 이미지를 만들어줘. 중앙에는 대나무 칫솔과 다회용 텀블러를 배치하고 주변에 작은 나뭇잎과 자연 소재를 활용해줘. 포레스트 그린과 아이보리 배경, 따뜻하고 감성적인 미니멀 디자인. 상단에는 '오늘의 작은 실천'이라는 문구를 크고 선명하게 넣고 하단에는 '그린하루'를 넣어줘. 글자 간격을 넉넉하게 유지하고 정사각형 1:1 비율로 만들어줘."
+      },
+      {
+        num: '26',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '쇼핑몰 홈페이지 배너',
+        prompt: "'그린하루' 친환경 생활용품 쇼핑몰의 홈페이지 메인 배너를 만들어줘. 오른쪽에는 나무 테이블 위에 놓인 텀블러, 에코백, 대나무 칫솔을 배치하고 왼쪽에는 제목과 설명 문구를 넣을 수 있는 넓은 여백을 확보해줘. 초록 식물과 부드러운 햇살, 포레스트 그린과 아이보리 브랜드 색상, 세련된 라이프스타일 쇼핑몰 디자인, 16:9 가로 비율, 글자 없음."
+      },
+      {
+        num: '27',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '브랜드 소개 PPT 표지',
+        prompt: "친환경 생활용품 브랜드 '그린하루'의 기업 소개용 PPT 표지 배경을 만들어줘. 앞서 제작한 홈페이지 배너와 동일한 브랜드 색상과 분위기를 유지해줘. 왼쪽에는 발표 제목을 입력할 수 있는 넓은 여백, 오른쪽에는 나뭇잎과 친환경 제품을 감각적으로 배치해줘. 아이보리 배경, 포레스트 그린 포인트, 미니멀하고 세련된 기업 발표용 디자인, 16:9 비율, 글자 없음."
+      },
+      {
+        num: '28',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '제품 + 광고 모델 합성',
+        prompt: "첨부한 친환경 텀블러 제품 사진을 활용해 '그린하루'의 라이프스타일 광고를 만들어줘. 가상의 30대 한국인 직장인이 밝은 카페 창가에서 텀블러를 자연스럽게 손에 들고 있는 장면으로 표현해줘. 모델은 베이지색 캐주얼 의상을 착용하고 자연스럽게 미소 짓고 있어. 원본 제품의 색상과 형태는 유지하고 자연광과 그림자가 조화로운 사실적인 광고 사진, 4:5 비율, 글자 없음."
+      },
+      {
+        num: '29',
+        category: 'greenharu',
+        badge: '그린하루',
+        title: '브랜드 디자인 통일',
+        prompt: "지금까지 제작한 '그린하루'의 로고, SNS 홍보 카드, 홈페이지 배너, PPT 표지, 제품 광고의 시각적 스타일을 하나로 통일해줘. 대표 색상은 포레스트 그린과 아이보리, 이미지는 자연친화적이고 따뜻한 미니멀 스타일로 유지해줘. 주요 제품의 형태와 브랜드 심볼은 일관되게 표현해줘. 모든 콘텐츠가 하나의 친환경 생활용품 브랜드에서 제작된 것처럼 보이도록 구성하고 각 이미지는 개별 파일용으로 분리해서 만들어줘."
+      }
+    ];
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let toastTimer = null;
+
+    const categoryTabsEl = document.getElementById('categoryTabs');
+    const cardsContainerEl = document.getElementById('cardsContainer');
+    const searchInputEl = document.getElementById('searchInput');
+    const clearSearchBtnEl = document.getElementById('clearSearchBtn');
+    const resultCountBadgeEl = document.getElementById('resultCountBadge');
+    const emptyStateEl = document.getElementById('emptyState');
+    const resetFilterBtnEl = document.getElementById('resetFilterBtn');
+    const jumpGreenHaruBtnEl = document.getElementById('jumpGreenHaruBtn');
+    const scrollTopBtnEl = document.getElementById('scrollTopBtn');
+    const toastEl = document.getElementById('toastNotification');
+    const toastMsgEl = document.getElementById('toastMessage');
+
+    function getCategoryMeta(catId) {
+      return CATEGORIES.find(c => c.id === catId) || CATEGORIES[0];
+    }
+
+    function renderCategoryTabs() {
+      categoryTabsEl.innerHTML = '';
+      CATEGORIES.forEach(cat => {
+        const count = cat.id === 'all'
+          ? EXERCISES.length
+          : EXERCISES.filter(e => e.category === cat.id).length;
+        const isActive = activeCategory === cat.id;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = isActive
+          ? 'shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm transition-all cursor-pointer'
+          : 'shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200/80 text-slate-700 transition-all cursor-pointer';
+        btn.innerHTML = `<span>${cat.label}</span><span class="px-1.5 py-0.5 rounded-md text-[10px] ${isActive ? 'bg-white/20 text-white' : 'bg-white text-slate-500'}">${count}</span>`;
+        btn.addEventListener('click', () => {
+          activeCategory = cat.id;
+          renderCategoryTabs();
+          renderCards();
+        });
+        categoryTabsEl.appendChild(btn);
+      });
+    }
+
+    function copyText(text, btnEl, exerciseNum) {
+      const done = () => {
+        showToast(`EXERCISE ${exerciseNum} 프롬프트가 클립보드에 복사되었습니다!`);
+        if (btnEl) {
+          const originalHtml = btnEl.innerHTML;
+          btnEl.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+          btnEl.classList.add('bg-teal-600', 'hover:bg-teal-700');
+          btnEl.innerHTML = `
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>복사됨</span>
+          `;
+          setTimeout(() => {
+            btnEl.classList.remove('bg-teal-600', 'hover:bg-teal-700');
+            btnEl.classList.add('bg-blue-600', 'hover:bg-blue-700');
+            btnEl.innerHTML = originalHtml;
+          }, 1500);
+        }
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+
+    function fallbackCopy(text, callback) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {
+        // Ignore copy error in restricted environments
+      }
+      document.body.removeChild(textarea);
+      callback();
+    }
+
+    function showToast(message) {
+      toastMsgEl.textContent = message;
+      toastEl.classList.remove('hidden');
+      toastEl.classList.add('toast-animate');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toastEl.classList.add('hidden');
+        toastEl.classList.remove('toast-animate');
+      }, 2400);
+    }
+
+    function createCardElement(item) {
+      const catMeta = getCategoryMeta(item.category);
+      const needsPhoto = item.prompt.includes('첨부한');
+
+      const card = document.createElement('article');
+      card.className = 'naia-card bg-white rounded-2xl border border-slate-200 p-5 flex flex-col justify-between gap-4';
+
+      const topHtml = `
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-extrabold tracking-wider text-slate-400">EXERCISE ${item.num}</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border ${catMeta.color}">
+                ${item.badge}
+              </span>
+            </div>
+            ${needsPhoto ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">사진 첨부</span>` : ''}
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2.5">${item.title}</h3>
+          <div class="rounded-xl bg-slate-50 border border-slate-100 p-3.5 text-[13px] text-slate-700 leading-relaxed select-all">
+            ${escapeHtml(item.prompt)}
+          </div>
+        </div>
+      `;
+
+      const bottomDiv = document.createElement('div');
+      bottomDiv.className = 'flex items-center justify-between gap-2 pt-1';
+
+      const metaSpan = document.createElement('span');
+      metaSpan.className = 'text-[11px] text-slate-400 font-medium';
+      metaSpan.textContent = `${item.prompt.length}자`;
+
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-sm cursor-pointer';
+      copyBtn.innerHTML = `
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <span>프롬프트 복사</span>
+      `;
+      copyBtn.addEventListener('click', () => copyText(item.prompt, copyBtn, item.num));
+
+      bottomDiv.appendChild(metaSpan);
+      bottomDiv.appendChild(copyBtn);
+
+      card.innerHTML = topHtml;
+      card.appendChild(bottomDiv);
+      return card;
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderCards() {
+      const q = searchQuery.trim().toLowerCase();
+      const filtered = EXERCISES.filter(item => {
+        const matchCat = activeCategory === 'all' || item.category === activeCategory;
+        if (!matchCat) return false;
+        if (!q) return true;
+        return (
+          item.title.toLowerCase().includes(q) ||
+          item.prompt.toLowerCase().includes(q) ||
+          item.badge.toLowerCase().includes(q) ||
+          item.num.includes(q)
+        );
+      });
+
+      resultCountBadgeEl.textContent = `현재 ${filtered.length}개 표시`;
+      cardsContainerEl.innerHTML = '';
+
+      if (filtered.length === 0) {
+        emptyStateEl.classList.remove('hidden');
+        return;
+      }
+      emptyStateEl.classList.add('hidden');
+
+      // 카테고리별 섹션 그룹화 렌더링
+      const categoriesToRender = activeCategory === 'all'
+        ? CATEGORIES.filter(c => c.id !== 'all')
+        : CATEGORIES.filter(c => c.id === activeCategory);
+
+      categoriesToRender.forEach((cat, idx) => {
+        const items = filtered.filter(item => item.category === cat.id);
+        if (items.length === 0) return;
+
+        const sectionEl = document.createElement('section');
+        sectionEl.className = 'space-y-4';
+
+        const headerEl = document.createElement('div');
+        headerEl.className = 'flex items-center justify-between border-b border-slate-200 pb-2.5';
+        headerEl.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="w-1.5 h-5 rounded-full bg-blue-600"></span>
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">${cat.label}</h2>
+            <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-slate-200/70 text-slate-700">${items.length}개</span>
+          </div>
+        `;
+
+        const gridEl = document.createElement('div');
+        gridEl.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
+
+        items.forEach(item => {
+          gridEl.appendChild(createCardElement(item));
+        });
+
+        sectionEl.appendChild(headerEl);
+        sectionEl.appendChild(gridEl);
+        cardsContainerEl.appendChild(sectionEl);
+      });
+    }
+
+    // 이벤트 연결
+    searchInputEl.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtnEl.classList.toggle('hidden', searchQuery.length === 0);
+      renderCards();
+    });
+
+    clearSearchBtnEl.addEventListener('click', () => {
+      searchQuery = '';
+      searchInputEl.value = '';
+      clearSearchBtnEl.classList.add('hidden');
+      renderCards();
+      searchInputEl.focus();
+    });
+
+    resetFilterBtnEl.addEventListener('click', () => {
+      activeCategory = 'all';
+      searchQuery = '';
+      searchInputEl.value = '';
+      clearSearchBtnEl.classList.add('hidden');
+      renderCategoryTabs();
+      renderCards();
+    });
+
+    jumpGreenHaruBtnEl.addEventListener('click', () => {
+      activeCategory = 'greenharu';
+      renderCategoryTabs();
+      renderCards();
+      cardsContainerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 360) {
+        scrollTopBtnEl.classList.remove('hidden');
+      } else {
+        scrollTopBtnEl.classList.add('hidden');
+      }
+    });
+
+    scrollTopBtnEl.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 초기 렌더링
+    renderCategoryTabs();
+    renderCards();
+  </script>
+</body>
+</html>
