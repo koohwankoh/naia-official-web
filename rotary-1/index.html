@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>엔인공지능에이전트연구소 · AI 실습 자료 | 1강 마이로타리와 AI 첫걸음</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      background-color: #F7F8FA;
+      color: #1E293B;
+    }
+    .copy-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .copy-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(10, 34, 70, 0.08);
+      border-color: #93C5FD;
+    }
+    .output-card {
+      background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 1.5px solid #F59E0B;
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.08);
+    }
+    .toast-enter {
+      animation: toastSlide 0.25s ease-out forwards;
+    }
+    @keyframes toastSlide {
+      from { opacity: 0; transform: translate(-50%, 16px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 bg-[#0A2246] text-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="bg-white/95 rounded-lg px-2.5 py-1 flex items-center justify-center shadow-sm">
+          <img src="data:image/png;base64,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" alt="국제로타리 로고" class="h-7 w-auto object-contain" />
+        </div>
+      </div>
+      <div class="text-sm sm:text-base font-bold tracking-tight text-amber-300">
+        엔인공지능에이전트연구소 · AI 실습 자료
+      </div>
+      <div class="text-xs sm:text-sm font-medium bg-white/10 border border-white/20 px-3 py-1.5 rounded-full text-slate-100">
+        1강 | 마이로타리와 AI 첫걸음
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
+      <div class="lg:col-span-2 bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#0A2246] border border-blue-200">
+              국제로타리 3650지구 제1기 AI 실전 활용 교육
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+              2026. 11. 16(월) 18:30 ~ 20:30
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0A2246] tracking-tight mb-2">
+            마이로타리와 AI 첫걸음 실습실
+          </h1>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            수업 중 스마트폰이나 노트북에서 긴 프롬프트를 직접 입력하실 필요 없이, 아래 카드의 <strong class="text-[#0A2246]">[복사하기]</strong> 버튼을 눌러 ChatGPT·Gemini·NotebookLM에 바로 붙여넣어 실습하실 수 있습니다.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs sm:text-sm text-slate-600">
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-[#0A2246] inline-block"></span> 복사 실습 카드 <strong>7종</strong> (12·14·20·26·27·30·31쪽)</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-amber-400 inline-block"></span> 결과 산출물 카드 <strong>2종</strong> (13·15쪽 · 참고용)</span>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-6 bg-gradient-to-br from-[#0A2246] via-[#12356B] to-[#1E4E94] text-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-widest text-amber-300 mb-2">ROTARY 3650 · SESSION 01</div>
+          <h2 class="text-xl font-bold leading-snug mb-2">원클릭 복사 &amp; 결과 확인</h2>
+          <p class="text-blue-100 text-sm leading-relaxed">
+            노란색 <span class="text-amber-300 font-semibold">결과 산출물</span> 카드는 복사용이 아니며, 실습을 수행했을 때 나오는 완성 예시를 확인하는 용도입니다.
+          </p>
+        </div>
+        <div class="mt-5 flex items-center justify-between text-xs text-blue-200 border-t border-white/15 pt-3">
+          <span>대괄호 [ ] 부분만 내 정보로 수정</span>
+          <span class="font-semibold text-amber-300">V3.2 기준</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STICKY SEARCH & FILTER BAR -->
+    <section class="sticky top-[62px] z-30 bg-white/95 backdrop-blur rounded-2xl p-3 sm:p-4 border border-slate-200 shadow-sm space-y-3">
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+        <div class="relative flex-1">
+          <input id="searchInput" type="text" placeholder="장표 번호(예: 12, 26) 또는 키워드 검색..."
+            class="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0A2246] focus:border-transparent" />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+          </svg>
+        </div>
+        <div id="filterPills" class="flex flex-wrap gap-1.5">
+          <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-[#0A2246] text-white transition">전체 (9)</button>
+          <button data-filter="copy" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">복사 실습 (7)</button>
+          <button data-filter="output" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 hover:bg-amber-200 transition">결과 산출물 (2)</button>
+          <button data-filter="sec4" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">4. 프롬프트</button>
+          <button data-filter="sec5" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">5. 기록·메모</button>
+          <button data-filter="sec6" class="filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">6. Gemini 노트북</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE BANNER -->
+    <div class="rounded-xl bg-blue-50 border border-blue-200 px-4 py-3 text-xs sm:text-sm text-[#0A2246] flex flex-wrap items-center justify-between gap-2">
+      <div>
+        <strong>실습 방법:</strong> 흰색 카드에서 <strong>[복사하기]</strong>를 누른 뒤 AI 대화창에 붙여넣기(Ctrl+V 또는 길게 눌러 붙여넣기) 하세요. 노란색 카드는 <strong>결과 확인 전용</strong>입니다.
+      </div>
+      <span id="visibleCount" class="font-semibold text-blue-800">총 9개 항목 표시 중</span>
+    </div>
+
+    <!-- CARDS CONTAINER -->
+    <div id="cardsContainer" class="space-y-8"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A2246] text-slate-200 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center space-y-1.5">
+      <p class="text-sm font-semibold text-white">엔인공지능에이전트연구소 고구환 대표 | 마이로타리와 AI 첫걸음</p>
+      <p class="text-xs text-slate-300">※ 국제로타리 3650지구 제1기 AI 실전 활용 교육 실습용 페이지입니다. 대괄호 [ ] 안의 내용은 본인 정보로 수정해 사용하세요.</p>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0A2246] text-white px-5 py-2.5 rounded-full shadow-lg text-sm font-semibold border border-amber-300/60">
+    클립보드에 복사되었습니다!
+  </div>
+
+  <script>
+    const ITEMS = [
+      {
+        id: "p12",
+        page: 12,
+        type: "copy",
+        section: "sec4",
+        sectionTitle: "4. 프롬프트 실습 (12~15쪽)",
+        badge: "12쪽 · 복사 실습",
+        tag: "지시어 #1",
+        title: "[실습 #1] 로타리 1분 자기소개 & 건배사 프롬프트",
+        note: "대괄호 [ ] 안의 내 소속 클럽과 직책, 본업만 바꿔 실행해 보세요.",
+        text: `너는 국제로타리 3650지구 회원의 스피치·홍보 전문 비서야.
+
+나의 소속은 [서울한강로타리클럽]이고, 클럽 직책은 [부회장], 본업은 [건축설계 및 감리 법인 대표]야.
+다가오는 지구 합동 주회와 클럽 모임에서 회원들에게 나를 따뜻하고 품격 있게 소개할 수 있는 '1분 인사말'과 '초아의 봉사 건배사'를 작성해 줘.
+
+출력 형식: ① 반가운 환영과 감사 인사
+                     ② 내 비즈니스 전문성과 로타리 봉사 다짐의 자연스러운 연결, 
+                     ③ 회원이 함께 외칠 수 있는 선창/후창 건배사 순서로 12줄 이내의 정중한 
+                          경어체 (~입니다, ~합니다)로 작성해 줘.`
+      },
+      {
+        id: "p13",
+        page: 13,
+        type: "output",
+        section: "sec4",
+        sectionTitle: "4. 프롬프트 실습 (12~15쪽)",
+        badge: "13쪽 · 결과 산출물",
+        tag: "실습 #1 완성 예시",
+        title: "[산출물 #1] 로타리 1분 자기소개 & 건배사 결과",
+        note: "복사용이 아니라, 12쪽 프롬프트를 실행했을 때 출력되는 결과 예시입니다.",
+        text: `존경하는 국제로타리 3650지구 총재님과 여러 클럽 회장님, 그리고 사랑하는 서울한강로타리클럽 회원 여러분, 반갑습니다.
+
+이렇게 뜻깊은 지구 합동 주회 자리에서 여러분과 귀한 인연을 맺게 되어 진심으로 영광입니다. 저는 서울한강로타리클럽 부회장을 맡고 있으며, 건축설계 및 감리 법인을 운영하고 있습니다. 제 본업인 건축은 튼튼한 기초 위에 사람을 위한 안전하고 아름다운 공간을 세우는 일입니다. 로타리 봉사 역시 신뢰라는 주춧돌 위에 이웃의 삶을 지탱하는 희망의 집을 짓는 과정이라고 생각합니다. 부회장으로서 클럽의 화합을 굳건히 다지고, 제가 가진 건축 전문성으로 지역사회에 따뜻한 보금자리를 선물하는 초아의 봉사를 실천하겠습니다.
+
+여러분의 지혜와 열정을 본받아 한 걸음 더 성장하는 로타리안이 되겠습니다. 모두 잔을 채워 주시기 바랍니다.
+
+제가 "튼튼한 설계로!"라고 선창하면, 여러분께서는 "행복한 봉사를!"이라고 힘차게 화답해 주시면 감사하겠습니다.
+
+선창: 튼튼한 설계로!
+후창: 행복한 봉사를!
+
+감사합니다.`
+      },
+      {
+        id: "p14",
+        page: 14,
+        type: "copy",
+        section: "sec4",
+        sectionTitle: "4. 프롬프트 실습 (12~15쪽)",
+        badge: "14쪽 · 복사 실습",
+        tag: "지시어 #2",
+        title: "[실습 #2] 거친 주회 메모 → 공식 주회 회의록 프롬프트",
+        note: "대괄호 [ ] 안의 클럽명을 바꿔 실행하면 아래 메모가 공식 회의록으로 변환됩니다.",
+        text: `너는 국제로타리 3650지구 [서울한강로타리클럽]의 베테랑 총무이자 문서 작성 전문가야.
+
+아래에 제공하는 [주회 메모]만을 바탕으로 클럽 공식 보관용 주회 회의록을 일목요연하게 작성해 줘.
+
+필수 포함 항목 (5단 구성): ① 주회 기본 개요(회차·일시·장소·참석인원 및 성원 보고), ② 회장 인사말 및 총재 월신 요약, 
+         ③ 클럽 주요 보고 및 로타리재단 기부(PHF·봉사성금) 현황, ④ 안건 토의 및 결의사항(예산·일정·담당자), ⑤ 차주 주회 및 봉사 일정 안내
+
+2. 문체 및 가독성 규칙: 모든 항목은 행정 문서 표준인 깔끔한 개조식(~함, ~음)으로 작성하고, 날짜·금액·인원수·결의사항 등 핵심 정보는 굵은 글씨로 강조해 줘.
+
+3. 사실 확인(환각 금지) 규칙: 제공된 메모에 없는 참석자 성명, 기부 금액, 발언 내용은 절대 임의로 지어내지 마라. 추가 확인이 필요한 항목이 있다면 끝에 [총무 확인 필요]로만 표시해 줘.
+
+제1285회 주회(2026.11.12. 12:00, 더플라자호텔 / 재적 50명 중 34명 참석), 김철수 회장 하반기 봉사 참여 독려 및 총재 월신 '지역사회와 함께하는 환경봉사' 공유, 이영희 회원 PHF 1,000달러 기부 약정(봉사성금 내역은 추후 정산). 안건 '연말 독거어르신 김장 나눔 봉사'는 12월 5일 진행하기로 만장일치 의결하였으며, 총예산 300만 원 집행 승인(담당 위원장 미정). 차주 제1286회 주회는 11월 19일 동일 장소에서 외부 초청 강연으로 진행되며, 11월 22일 한강 플로깅 봉사 집결 시간은 추후 재공지하기로 함`
+      },
+      {
+        id: "p15",
+        page: 15,
+        type: "output",
+        section: "sec4",
+        sectionTitle: "4. 프롬프트 실습 (12~15쪽)",
+        badge: "15쪽 · 결과 산출물",
+        tag: "실습 #2 완성 예시",
+        title: "[산출물 #2] 제1285회 주회 회의록 완성 결과",
+        note: "복사용이 아니라, 14쪽 프롬프트를 실행했을 때 출력되는 회의록 결과 예시입니다.",
+        text: `국제로타리 3650지구 서울한강로타리클럽 제1285회 주회 회의록
+① 주회 기본 개요
+회차: 제1285회 주회
+일시: 2026년 11월 12일(목) 12:00
+장소: 더플라자호텔
+참석인원 및 성원 보고: 재적 50명 중 34명 참석으로 성원 보고함
+
+② 회장 인사말 및 총재 월신 요약
+회장 인사말: 김철수 회장이 하반기 봉사활동에 대한 회원들의 적극적인 참여를 독려함
+총재 월신 요약: 총재 월신 주요 테마인 '지역사회와 함께하는 환경봉사' 내용을 회원들과 공유함
+
+③ 클럽 주요 보고 및 로타리재단 기부(PHF·봉사성금) 현황
+로타리재단(PHF) 기부: 이영희 회원이 PHF 1,000달러 기부를 약정함
+봉사성금 현황: 당일 모금된 봉사성금 세부 내역은 추후 정산하여 보고하기로 함 [총무 확인 필요]
+
+④ 안건 토의 및 결의사항
+상정 안건: '연말 독거어르신 김장 나눔 봉사' 추진 건
+행사 일정: 2026년 12월 5일 진행하기로 만장일치 의결함
+예산 승인: 총예산 300만 원 집행을 원안대로 승인함
+담당자 지정: 행사 주관 담당 위원장은 추후 선임하기로 함 [총무 확인 필요]
+
+⑤ 차주 주회 및 봉사 일정 안내
+차주 주회 안내: 제1286회 주회는 2026년 11월 19일 동일 장소(더플라자호텔)에서 외부 초청 강연으로 진행함
+봉사 일정 안내: 2026년 11월 22일 예정된 한강 플로깅 봉사의 세부 집결 시간은 추후 재공지하기로 함 [총무 확인 필요]`
+      },
+      {
+        id: "p20",
+        page: 20,
+        type: "copy",
+        section: "sec5",
+        sectionTitle: "5. 산출물 기록 및 메모 (20쪽)",
+        badge: "20쪽 · 복사 실습",
+        tag: "Keep · 문서 저장용",
+        title: "산출물 또는 메모 기록하기 (구글 Keep·Docs 저장용)",
+        note: "구글 Keep이나 구글 문서에 제목·본문을 저장해 두는 실습용 텍스트입니다.",
+        text: `국제로타리 3650지구 서울한강로타리클럽 제1285회 주회 회의록
+
+너는 국제로타리 3650지구 [서울한강로타리클럽]의 베테랑 총무이자 문서 작성 전문가야.
+
+아래에 제공하는 [주회 메모]만을 바탕으로 클럽 공식 보관용 주회 회의록을 일목요연하게 작성해 줘.
+
+필수 포함 항목 (5단 구성): ① 주회 기본 개요(회차·일시·장소·참석인원 및 성원 보고), ② 회장 인사말 및 총재 월신 요약, 
+         ③ 클럽 주요 보고 및 로타리재단 기부(PHF·봉사성금) 현황, ④ 안건 토의 및 결의사항(예산·일정·담당자), ⑤ 차주 주회 및 봉사 일정 안내
+
+2. 문체 및 가독성 규칙: 모든 항목은 행정 문서 표준인 깔끔한 개조식(~함, ~음)으로 작성하고, 날짜·금액·인원수·결의사항 등 핵심 정보는 굵은 글씨로 강조해 줘.
+
+3. 사실 확인(환각 금지) 규칙: 제공된 메모에 없는 참석자 성명, 기부 금액, 발언 내용은 절대 임의로 지어내지 마라. 추가 확인이 필요한 항목이 있다면 끝에 [총무 확인 필요]로만 표시해 줘.
+
+제1285회 주회(2026.11.12. 12:00, 더플라자호텔 / 재적 50명 중 34명 참석), 김철수 회장 하반기 봉사 참여 독려 및 총재 월신 '지역사회와 함께하는 환경봉사' 공유, 이영희 회원 PHF 1,000달러 기부 약정(봉사성금 내역은 추후 정산). 안건 '연말 독거어르신 김장 나눔 봉사'는 12월 5일 진행하기로 만장일치 의결하였으며, 총예산 300만 원 집행 승인(담당 위원장 미정). 차주 제1286회 주회는 11월 19일 동일 장소에서 외부 초청 강연으로 진행되며, 11월 22일 한강 플로깅 봉사 집결 시간은 추후 재공지하기로 함`
+      },
+      {
+        id: "p26",
+        page: 26,
+        type: "copy",
+        section: "sec6",
+        sectionTitle: "6. Gemini 노트북(NotebookLM) 활용 (26~31쪽)",
+        badge: "26쪽 · 복사 실습",
+        tag: "소스 붙여넣기",
+        title: "Gemini 노트북 [복사된 텍스트] 붙여넣기용 회의록",
+        note: "NotebookLM [+ 소스 추가] → [복사된 텍스트] 창에 그대로 붙여넣고 [삽입]을 누르세요.",
+        text: `국제로타리 3650지구 서울한강로타리클럽 제1285회 주회 회의록
+① 주회 기본 개요
+회차: 제1285회 주회
+일시: 2026년 11월 12일(목) 12:00
+장소: 더플라자호텔
+참석인원 및 성원 보고: 재적 50명 중 34명 참석으로 성원 보고함
+② 회장 인사말 및 총재 월신 요약
+회장 인사말: 김철수 회장이 하반기 봉사활동에 대한 회원들의 적극적인 참여를 독려함
+총재 월신 요약: 총재 월신 주요 테마인 '지역사회와 함께하는 환경봉사' 내용을 회원들과 공유함
+③ 클럽 주요 보고 및 로타리재단 기부(PHF·봉사성금) 현황
+로타리재단(PHF) 기부: 이영희 회원이 PHF 1,000달러 기부를 약정함
+봉사성금 현황: 당일 모금된 봉사성금 세부 내역은 추후 정산하여 보고하기로 함 [총무 확인 필요]
+④ 안건 토의 및 결의사항
+상정 안건: '연말 독거어르신 김장 나눔 봉사' 추진 건
+행사 일정: 2026년 12월 5일 진행하기로 만장일치 의결함
+예산 승인: 총예산 300만 원 집행을 원안대로 승인함
+담당자 지정: 행사 주관 담당 위원장은 추후 선임하기로 함 [총무 확인 필요]
+⑤ 차주 주회 및 봉사 일정 안내
+차주 주회 안내: 제1286회 주회는 2026년 11월 19일 동일 장소(더플라자호텔)에서 외부 초청 강연으로 진행함
+봉사 일정 안내: 2026년 11월 22일 예정된 한강 플로깅 봉사의 세부 집결 시간은 추후 재공지하기로 함 [총무 확인 필요]`
+      },
+      {
+        id: "p27",
+        page: 27,
+        type: "copy",
+        section: "sec6",
+        sectionTitle: "6. Gemini 노트북(NotebookLM) 활용 (26~31쪽)",
+        badge: "27쪽 · 복사 실습",
+        tag: "질문창 입력",
+        title: "Gemini 노트북 질문창 요약 요청",
+        note: "소스 삽입 후 화면 아래 질문창에 붙여넣고 파란색 화살표(↑)를 누르세요.",
+        text: `요약 정리해줘`
+      },
+      {
+        id: "p30",
+        page: 30,
+        type: "copy",
+        section: "sec6",
+        sectionTitle: "6. Gemini 노트북(NotebookLM) 활용 (26~31쪽)",
+        badge: "30쪽 · 복사 실습",
+        tag: "슬라이드 맞춤설정",
+        title: "스튜디오 [슬라이드 자료] 맞춤설정 지시어",
+        note: "우측 스튜디오 → [슬라이드 자료] 맞춤설정 설명 칸에 붙여넣고 [지금 생성]을 누르세요.",
+        text: `요약 정리해서 10장 보고용 슬라이드를 만들어줘`
+      },
+      {
+        id: "p31",
+        page: 31,
+        type: "copy",
+        section: "sec6",
+        sectionTitle: "6. Gemini 노트북(NotebookLM) 활용 (26~31쪽)",
+        badge: "31쪽 · 복사 실습",
+        tag: "인포그래픽 맞춤설정",
+        title: "스튜디오 [인포그래픽] 맞춤설정 지시어",
+        note: "우측 스튜디오 → [인포그래픽] 맞춤설정 설명 칸(한국어·가로)에 붙여넣고 [지금 생성]을 누르세요.",
+        text: `초보자도 이해하기 쉬운 만화스타일로 만들어줘`
+      }
+    ];
+
+    let currentFilter = "all";
+    let searchQuery = "";
+    let toastTimer = null;
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.remove("hidden");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.add("hidden"), 2000);
+    }
+
+    function copyText(text, btn) {
+      const done = () => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 복사 완료!`;
+        btn.classList.remove("bg-[#0A2246]", "hover:bg-[#143970]");
+        btn.classList.add("bg-emerald-600");
+        showToast("클립보드에 복사되었습니다!");
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.classList.remove("bg-emerald-600");
+          btn.classList.add("bg-[#0A2246]", "hover:bg-[#143970]");
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); cb(); } catch (e) { showToast("직접 드래그하여 복사해 주세요."); }
+      document.body.removeChild(ta);
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function render() {
+      const q = searchQuery.trim().toLowerCase();
+      const filtered = ITEMS.filter(item => {
+        const matchFilter =
+          currentFilter === "all" ||
+          (currentFilter === "copy" && item.type === "copy") ||
+          (currentFilter === "output" && item.type === "output") ||
+          item.section === currentFilter;
+        const matchQuery = !q ||
+          String(item.page).includes(q) ||
+          item.title.toLowerCase().includes(q) ||
+          item.text.toLowerCase().includes(q) ||
+          item.tag.toLowerCase().includes(q);
+        return matchFilter && matchQuery;
+      });
+
+      document.getElementById("visibleCount").textContent = `총 ${filtered.length}개 항목 표시 중`;
+      const container = document.getElementById("cardsContainer");
+      container.innerHTML = "";
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="bg-white rounded-2xl p-10 text-center text-slate-500 border border-slate-200">검색 조건에 맞는 실습 항목이 없습니다.</div>`;
+        return;
+      }
+
+      const groups = [];
+      filtered.forEach(item => {
+        let g = groups.find(x => x.section === item.section);
+        if (!g) {
+          g = { section: item.section, title: item.sectionTitle, items: [] };
+          groups.push(g);
+        }
+        g.items.push(item);
+      });
+
+      groups.forEach(g => {
+        const secEl = document.createElement("section");
+        secEl.className = "space-y-4";
+        secEl.innerHTML = `<h3 class="text-lg sm:text-xl font-extrabold text-[#0A2246] flex items-center gap-2"><span class="w-1.5 h-5 bg-[#F59E0B] rounded-full inline-block"></span>${g.title}</h3>`;
+
+        const grid = document.createElement("div");
+        grid.className = "grid grid-cols-1 md:grid-cols-2 gap-5";
+
+        g.items.forEach(item => {
+          const isOut = item.type === "output";
+          const card = document.createElement("article");
+          card.className = (isOut ? "output-card" : "copy-card") + " rounded-2xl p-5 flex flex-col justify-between";
+
+          const badgeCls = isOut
+            ? "bg-amber-200/80 text-amber-950 border border-amber-400"
+            : "bg-blue-50 text-[#0A2246] border border-blue-200";
+          const tagCls = isOut
+            ? "bg-white/80 text-amber-900 border border-amber-300"
+            : "bg-slate-100 text-slate-700";
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold ${badgeCls}">${item.badge}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium ${tagCls}">${item.tag}</span>
+              </div>
+              <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-1">${item.title}</h4>
+              <p class="text-xs text-slate-600 mb-3">${item.note}</p>
+              <pre class="whitespace-pre-wrap break-words text-xs sm:text-sm leading-relaxed rounded-xl p-3.5 ${isOut ? 'bg-white/85 border border-amber-300/80 text-slate-800' : 'bg-slate-50 border border-slate-200 text-slate-800'} font-sans max-h-72 overflow-y-auto">${escapeHtml(item.text)}</pre>
+            </div>
+            <div class="mt-4 pt-3 border-t ${isOut ? 'border-amber-300/60' : 'border-slate-100'} flex items-center justify-between">
+              <span class="text-xs font-medium ${isOut ? 'text-amber-900' : 'text-slate-500'}">${isOut ? '※ 결과 확인용 (복사 불필요)' : '버튼을 눌러 바로 복사하세요'}</span>
+              ${isOut ? '<span class="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-950 border border-amber-400">결과 산출물</span>' : `<button data-copy-id="${item.id}" class="copy-btn inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-[#0A2246] hover:bg-[#143970] text-white shadow-sm transition cursor-pointer"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>복사하기</button>`}
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        secEl.appendChild(grid);
+        container.appendChild(secEl);
+      });
+
+      container.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-copy-id");
+          const item = ITEMS.find(x => x.id === id);
+          if (item) copyText(item.text, btn);
+        });
+      });
+    }
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      render();
+    });
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentFilter = btn.getAttribute("data-filter");
+        document.querySelectorAll(".filter-btn").forEach(b => {
+          const f = b.getAttribute("data-filter");
+          b.className = "filter-btn px-3 py-1.5 rounded-full text-xs font-semibold transition " + (
+            b === btn
+              ? "bg-[#0A2246] text-white"
+              : (f === "output" ? "bg-amber-100 text-amber-900 hover:bg-amber-200" : "bg-slate-100 text-slate-700 hover:bg-slate-200")
+          );
+        });
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
