@@ -201,6 +201,19 @@
               <button onclick="navigateMenuDriven('edu', 'AI컨설팅')" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-blue-500/15 text-slate-200 hover:text-blue-300 text-xs font-medium transition text-left">
                 <i class="fa-solid fa-diagram-project text-cyan-400 w-4 text-center"></i> <span>AI컨설팅</span>
               </button>
+              <div class="relative group/sub">
+                <button type="button" onclick="document.getElementById('desktopEduPracticeSub').classList.toggle('hidden')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-blue-500/15 text-slate-200 hover:text-amber-300 text-xs font-medium transition text-left">
+                  <span class="flex items-center gap-2.5"><i class="fa-solid fa-laptop-code text-amber-400 w-4 text-center"></i> <span>AI교육실습</span></span>
+                  <i class="fa-solid fa-chevron-right text-[9px] text-slate-400"></i>
+                </button>
+                <div id="desktopEduPracticeSub" class="hidden group-hover/sub:block absolute left-full top-0 ml-1 w-56 rounded-2xl bg-slate-950/98 border border-amber-500/40 shadow-2xl py-2 px-2 z-50 space-y-1">
+                  <div class="px-3 py-1 text-[10px] font-extrabold text-amber-400 uppercase tracking-wider border-b border-slate-800/80 mb-1">PRACTICE LAB</div>
+                  <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-amber-500/15 text-slate-200 hover:text-amber-300 text-xs font-semibold transition">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-amber-400"></i> <span>국제로타리3650지구</span></span>
+                    <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-[10px] text-amber-300 font-bold">1강 ↗</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -366,6 +379,13 @@
               <div class="flex flex-wrap gap-1.5 pt-1">
                 <button onclick="navigateMenuDriven('edu', 'AI교육 설계 및 강의')" class="px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-blue-500/20 border border-slate-700 text-[11px] text-slate-200">· AI교육 설계 및 강의</button>
                 <button onclick="navigateMenuDriven('edu', 'AI컨설팅')" class="px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-blue-500/20 border border-slate-700 text-[11px] text-slate-200">· AI컨설팅</button>
+                <button type="button" onclick="document.getElementById('mobileEduPracticeSub').classList.toggle('hidden')" class="px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-[11px] text-amber-300 font-bold">· AI교육실습 ▾</button>
+              </div>
+              <div id="mobileEduPracticeSub" class="hidden pt-1.5 pl-2 border-l-2 border-amber-500/40 space-y-1">
+                <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-[11px] font-bold text-amber-300 hover:bg-amber-500/15">
+                  <span><i class="fa-solid fa-gear mr-1"></i> 국제로타리3650지구 (1강 실습)</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
               </div>
             </div>
 
@@ -2332,7 +2352,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     const SUB_CATEGORIES_MAP = {
       about: ['CEO 인사말', '회사 조직도', 'CI 로고 소개', '미래 비전', '3개년 사업 성장 목표'],
       trends: ['AI트랜드', 'AI신기술동향'],
-      edu: ['AI교육 설계 및 강의', 'AI컨설팅'],
+      edu: ['AI교육 설계 및 강의', 'AI컨설팅', 'AI교육실습'],
       media: ['AI 도서출판 컨설팅'],
       music: ['AI영상 제작', 'AI 작사·작곡·뮤직비디오 제작'],
       wellness: ['건강한 삶', '웰니스'],
@@ -2831,7 +2851,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         desc: '챗봇을 넘어선 AI 워커(Worker), 업무 설계 패러다임, AI 브라우저 전쟁 및 환각 검증 체계를 다룹니다.'
       },
       edu: {
-        title: '[AI교육·컨설팅] AI교육 설계 및 강의 · AI컨설팅',
+        title: '[AI교육·컨설팅] AI교육 설계 및 강의 · AI컨설팅 · AI교육실습',
         desc: 'G-AIGrapher 마스터 인증 과정, 제7기 생성형 AI 실전 마스터 과정 및 기업 맞춤형 AX 컨설팅입니다.'
       },
       media: {
