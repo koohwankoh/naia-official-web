@@ -218,16 +218,87 @@
       background-color: #EFF6FF !important;
       border-color: #BFDBFE !important;
     }
-    body.koist-theme #menuDrivenStatusBanner {
-      background-image: none !important;
-      background-color: #EFF6FF !important;
-      border-color: #93C5FD !important;
+    /* Shared category banner across desktop and mobile navigation. */
+    #menuDrivenStatusBanner:not(.hidden) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      padding: 1.125rem 1.25rem;
+      background: linear-gradient(115deg, #142b46, #1e3a60);
+      border: 1px solid #45688c;
+      border-radius: 1rem;
+      box-shadow: 0 6px 18px rgb(15 23 42 / 12%);
     }
-    body.koist-theme #menuDrivenBannerTitle {
-      color: #1E40AF !important;
+    .menu-banner-copy {
+      display: flex;
+      align-items: flex-start;
+      flex: 1 1 30rem;
+      gap: .875rem;
+      min-width: 0;
     }
-    body.koist-theme #menuDrivenBannerDesc {
-      color: #1E293B !important;
+    .menu-banner-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 2.5rem;
+      height: 2.5rem;
+      border: 1px solid #577da0;
+      border-radius: .75rem;
+      background: #284e70;
+      color: #ddf4ff;
+    }
+    #menuDrivenBannerTitle {
+      color: #ffffff;
+      font-size: clamp(1.0625rem, 1rem + .35vw, 1.25rem);
+      line-height: 1.45;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+    #menuDrivenBannerDesc {
+      margin-top: .25rem;
+      color: #dbe8f5;
+      font-size: 1rem;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+    .menu-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .menu-banner-action {
+      min-height: 44px;
+      padding: .5rem .875rem;
+      border: 1px solid transparent;
+      border-radius: .625rem;
+      font-size: .875rem;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+    }
+    .menu-banner-action--write { background: #fcd57c; color: #382500; }
+    .menu-banner-action--write:hover { background: #ffe4a5; }
+    .menu-banner-action--all { background: #eaf3ff; color: #153351; }
+    .menu-banner-action--all:hover { background: #ffffff; }
+    .menu-banner-action:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+    #subpageBannerDesc {
+      color: #e2edf9;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    #subpageTabsContainer button,
+    #subCategoryFilterBar button {
+      font-size: .875rem;
+      min-height: 44px;
+    }
+    @media (max-width: 480px) {
+      #menuDrivenStatusBanner:not(.hidden) { padding: 1rem; }
+      .menu-banner-actions { width: 100%; }
+      .menu-banner-action { flex: 1 1 8rem; }
     }
     /* Footer: KOIST soft icy sky-blue with crisp dark readable text */
     body.koist-theme footer {
@@ -653,7 +724,7 @@
           <div>
             <div id="subpageBreadcrumb" class="text-[11px] font-bold uppercase tracking-widest text-cyan-300 mb-1">HOME &gt; NAIA</div>
             <h2 id="subpageBannerTitle" class="text-2xl sm:text-3xl font-extrabold text-white">페이지 제목</h2>
-            <p id="subpageBannerDesc" class="text-xs sm:text-sm text-slate-200 mt-1">안내 설명</p>
+            <p id="subpageBannerDesc" class="mt-1">안내 설명</p>
           </div>
           <button type="button" onclick="showHomePage(event)" class="self-start sm:self-center px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/20">
             <i class="fa-solid fa-house"></i> 홈으로
@@ -964,10 +1035,10 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">02 // Business Areas & Catalog</span>
-            <h2 class="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-white mt-1 lg:whitespace-nowrap">
+            <h2 class="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-white mt-1 ">
               엔인공지능에이전트연구소 7대 사업영역 & <span class="gradient-text-cyan">솔루션 카탈로그</span>
             </h2>
-            <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+            <p class="text-slate-400 text-base leading-relaxed mt-2 max-w-2xl">
               인공지능의 자율 실행(Agentic AI)과 인문·예술의 창조적 영성(Creative Soul)이 융합된 7대 포트폴리오를 탐색하고 원하는 솔루션을 맞춤 도입하십시오.
             </p>
           </div>
@@ -1026,21 +1097,21 @@
         </div>
 
         <!-- Active Menu-Driven Banner -->
-        <div id="menuDrivenStatusBanner" class="hidden p-4 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-between flex-wrap gap-3 shadow-lg">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-bold">
+        <div id="menuDrivenStatusBanner" class="hidden" role="region" aria-labelledby="menuDrivenBannerTitle">
+          <div class="menu-banner-copy">
+            <span class="menu-banner-icon" aria-hidden="true">
               <i class="fa-solid fa-filter"></i>
             </span>
             <div>
-              <div class="text-xs text-cyan-300 font-bold" id="menuDrivenBannerTitle">선택된 메뉴 영역</div>
-              <div class="text-[11px] text-slate-300" id="menuDrivenBannerDesc">해당 사업영역의 핵심 솔루션 및 게시물입니다.</div>
+              <h3 id="menuDrivenBannerTitle">선택된 메뉴 영역</h3>
+              <p id="menuDrivenBannerDesc">해당 사업영역의 핵심 솔루션 및 게시물입니다.</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
-            <button onclick="openAdminEditorShortcut()" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition">
-              <i class="fa-solid fa-pen-nib mr-1"></i> 이 메뉴에 새 글쓰기
+          <div class="menu-banner-actions">
+            <button type="button" onclick="openAdminEditorShortcut()" class="menu-banner-action menu-banner-action--write">
+              <i class="fa-solid fa-pen-nib mr-1" aria-hidden="true"></i> 이 메뉴에 새 글쓰기
             </button>
-            <button onclick="navigateMenuDriven('all', 'all')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-800 transition">
+            <button type="button" onclick="navigateMenuDriven('all', 'all')" class="menu-banner-action menu-banner-action--all">
               전체 모두 보기
             </button>
           </div>
@@ -3672,11 +3743,11 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
                 <span class="text-slate-400 text-[11px] font-medium">${item.badge}</span>
               </div>
 
-              <h3 class="text-base font-bold text-white group-hover:text-cyan-400 leading-snug cursor-pointer" onclick="openCatalogDetail('${item.id}')">
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 leading-snug cursor-pointer" onclick="openCatalogDetail('${item.id}')">
                 ${item.title}
               </h3>
 
-              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+              <p class="text-base text-slate-300 leading-relaxed line-clamp-3">
                 ${item.desc}
               </p>
 
