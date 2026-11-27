@@ -203,27 +203,52 @@
     body.koist-theme .koist-surface .bg-gradient-to-r.from-purple-500 {
       color: #FFFFFF !important;
     }
-    /* Footer: KOIST soft icy sky-blue */
-    body.koist-theme footer {
-      background-color: #EFF6FF !important;
-      border-top: 1px solid #DBEAFE !important;
-      color: #334155 !important;
+    /* Additional koist-surface light overrides */
+    body.koist-theme .koist-surface .bg-slate-800,
+    body.koist-theme .koist-surface .bg-slate-950\/50 {
+      background-color: #F1F5F9 !important;
     }
-    body.koist-theme footer .text-white {
+    body.koist-theme .koist-surface .text-slate-100 {
       color: #0F172A !important;
     }
+    /* Footer: KOIST soft icy sky-blue with crisp dark readable text */
+    body.koist-theme footer {
+      background-color: #EFF6FF !important;
+      border-top: 1px solid #BFDBFE !important;
+      color: #1E293B !important;
+    }
+    body.koist-theme footer .text-white,
+    body.koist-theme footer strong {
+      color: #0F172A !important;
+    }
+    body.koist-theme footer .text-slate-200,
+    body.koist-theme footer .text-slate-300,
     body.koist-theme footer .text-slate-400,
     body.koist-theme footer .text-slate-500 {
-      color: #475569 !important;
+      color: #1E293B !important;
     }
-    body.koist-theme footer a.hover\:text-cyan-400 {
+    body.koist-theme footer .text-slate-600 {
+      color: #94A3B8 !important;
+    }
+    body.koist-theme footer .text-cyan-300,
+    body.koist-theme footer .text-cyan-400,
+    body.koist-theme footer a {
       color: #1D4ED8 !important;
+    }
+    body.koist-theme footer button:hover,
+    body.koist-theme footer a:hover {
+      color: #1E40AF !important;
+    }
+    body.koist-theme footer .border-slate-800\/80,
+    body.koist-theme footer .border-slate-800,
+    body.koist-theme footer .border-slate-700 {
+      border-color: #CBD5E1 !important;
     }
     body.koist-theme footer .bg-slate-900\/60,
     body.koist-theme footer .bg-slate-900 {
       background-color: #FFFFFF !important;
       border-color: #CBD5E1 !important;
-      color: #1E293B !important;
+      color: #0F172A !important;
     }
   </style>
 </head>
@@ -706,7 +731,7 @@
     </section>
 
     <!-- 2. ABOUT NAIA, NAME MEANING & CI LOGO EXPLANATION -->
-    <section id="sec-about" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
+    <section id="sec-about" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-12">
         <div class="text-center max-w-3xl mx-auto space-y-3">
           <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">01 // Brand Identity & CI Symbolism</span>
@@ -838,7 +863,7 @@
     </section>
 
     <!-- 2-B. FUTURE VISION SECTION -->
-    <section id="sec-vision-section" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
+    <section id="sec-vision-section" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-12">
         <!-- 3 Pillars Grid (AAA): FUTURE VISION -->
         <div id="sec-vision" class="scroll-mt-24"></div>
@@ -916,12 +941,12 @@
     </section>
 
     <!-- 3. INTERACTIVE 7 CORE BUSINESS AREAS & CATALOG SECTION -->
-    <section id="sec-catalog" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
+    <section id="sec-catalog" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">02 // Business Areas & Catalog</span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">
+            <h2 class="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-white mt-1 lg:whitespace-nowrap">
               엔인공지능에이전트연구소 7대 사업영역 & <span class="gradient-text-cyan">솔루션 카탈로그</span>
             </h2>
             <p class="text-slate-400 text-sm mt-2 max-w-2xl">
@@ -1019,7 +1044,7 @@
     </section>
 
     <!-- 4. WAKEUP NEWS & MEDIA SPECIAL REPORT SHOWCASE -->
-    <section id="sec-media" class="hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/50" style="display: none;">
+    <section id="sec-media" class="koist-surface hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/50" style="display: none;">
       <div id="sec-trends"></div>
       <div class="max-w-7xl mx-auto space-y-14">
         
@@ -1110,7 +1135,7 @@
     </section>
 
     <!-- 5. FINANCIAL GROWTH ROADMAP (2026-2028) -->
-    <section id="sec-growth" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
+    <section id="sec-growth" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
@@ -1165,7 +1190,7 @@
     </section>
 
     <!-- 6. ORGANIZATION & LEADERSHIP (v1.4) -->
-    <section id="sec-ceo" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
+    <section id="sec-ceo" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-10">
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -1261,7 +1286,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     </section>
 
     <!-- 6-B. ORGANIZATION STRUCTURE SECTION -->
-    <section id="sec-org" class="hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
+    <section id="sec-org" class="koist-surface hidden scroll-mt-20 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-950/40" style="display: none;">
       <div class="max-w-7xl mx-auto">
         <!-- Structured Org Chart (Text/Card Hierarchy, Total 43 Members) -->
         <div class="glass-card p-6 sm:p-8 rounded-2xl border-slate-800 space-y-6">
@@ -1530,7 +1555,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     </section>
 
     <!-- 7. GABIA DOMAIN & GITHUB PAGES STAGING GUIDE -->
-    <section id="sec-domain" class="hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
+    <section id="sec-domain" class="koist-surface hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="text-center max-w-3xl mx-auto space-y-3">
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">06 // Deployment & Staging</span>
@@ -1580,7 +1605,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     </section>
 
     <!-- 8. CONTACT & INQUIRY FORM -->
-    <section id="sec-contact" class="hidden py-16 px-4 sm:px-6 lg:px-8 bg-slate-950/60" style="display: none;">
+    <section id="sec-contact" class="koist-surface hidden py-16 px-4 sm:px-6 lg:px-8 bg-slate-950/60" style="display: none;">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div class="lg:col-span-5 space-y-6">
           <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">07 // Get In Touch</span>
@@ -3390,8 +3415,8 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         const savedInq = localStorage.getItem('naia_inquiries_v4');
         inquiriesData = savedInq ? JSON.parse(savedInq) : SAMPLE_INITIAL_INQUIRIES;
 
-        const savedTheme = localStorage.getItem('naia_theme');
-        if (savedTheme) applyTheme(savedTheme);
+        const savedTheme = localStorage.getItem('naia_theme_v3');
+        if (savedTheme === 'dark') document.body.classList.remove('koist-theme');
 
         const savedCeo = localStorage.getItem('naia_ceo_config_v3');
         if (savedCeo) {
