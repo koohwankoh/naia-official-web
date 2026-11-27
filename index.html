@@ -211,6 +211,24 @@
     body.koist-theme .koist-surface .text-slate-100 {
       color: #0F172A !important;
     }
+    body.koist-theme .koist-surface [class*="from-slate-9"],
+    body.koist-theme .koist-surface [class*="from-cyan-950"],
+    body.koist-theme .koist-surface [class*="from-blue-950"] {
+      background-image: none !important;
+      background-color: #EFF6FF !important;
+      border-color: #BFDBFE !important;
+    }
+    body.koist-theme #menuDrivenStatusBanner {
+      background-image: none !important;
+      background-color: #EFF6FF !important;
+      border-color: #93C5FD !important;
+    }
+    body.koist-theme #menuDrivenBannerTitle {
+      color: #1E40AF !important;
+    }
+    body.koist-theme #menuDrivenBannerDesc {
+      color: #1E293B !important;
+    }
     /* Footer: KOIST soft icy sky-blue with crisp dark readable text */
     body.koist-theme footer {
       background-color: #EFF6FF !important;
@@ -765,7 +783,7 @@
           <!-- N-A-I-A Acronym Pillar Cards -->
           <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <!-- N Pillar (Special Focus) -->
-            <div class="p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-cyan-500/50 space-y-2.5 relative shadow-lg shadow-cyan-500/10">
+            <div class="p-5 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-2.5 relative shadow-lg shadow-cyan-500/10">
               <div class="flex items-center justify-between">
                 <span class="text-3xl font-black text-cyan-400 font-display">N</span>
                 <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-[10px] text-cyan-300 font-bold border border-cyan-500/30">CORE KEY</span>
@@ -1008,7 +1026,7 @@
         </div>
 
         <!-- Active Menu-Driven Banner -->
-        <div id="menuDrivenStatusBanner" class="hidden p-4 rounded-2xl bg-gradient-to-r from-cyan-950/80 via-slate-900/90 to-blue-950/80 border border-cyan-500/40 flex items-center justify-between flex-wrap gap-3 shadow-lg">
+        <div id="menuDrivenStatusBanner" class="hidden p-4 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-between flex-wrap gap-3 shadow-lg">
           <div class="flex items-center gap-3">
             <span class="w-8 h-8 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-bold">
               <i class="fa-solid fa-filter"></i>
@@ -1209,7 +1227,7 @@
         </div>
 
         <!-- CEO OFFICIAL GREETING & PROFILE SHOWCASE -->
-        <div id="landingCeoSection" class="scroll-mt-24 glass-card p-6 sm:p-8 rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-blue-950/40 shadow-2xl relative overflow-hidden">
+        <div id="landingCeoSection" class="scroll-mt-24 glass-card p-6 sm:p-8 rounded-3xl border border-cyan-500/30 bg-white border-slate-200 shadow-2xl relative overflow-hidden">
           <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
