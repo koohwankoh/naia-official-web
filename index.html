@@ -844,7 +844,7 @@
             웨이크업뉴스 <span class="gradient-text-gold">기획특집 [AI퍼스트] & 생활문학</span> 20선
           </h2>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            나인빛·고구환 기자의 <a href="https://www.wakeupnews.co.kr" target="_blank" class="text-amber-300 hover:underline">웨이크업뉴스</a> 심층 연재 기사입니다. 분야별 최신 기사 1편을 기본 게시하며, <strong class="text-white">.....more.....</strong>를 클릭하시면 지난 9편의 3줄 요약과 원문 직통 링크를 모두 확인하실 수 있습니다.
+            나인빛·고구환 기자의 <a href="https://www.wakeupnews.co.kr" target="_blank" class="text-amber-300 hover:underline">웨이크업뉴스</a> 심층 연재 기사입니다. 초기 화면을 단순하게 유지하기 위해 기본 접힘 상태로 제공되며, <strong class="text-white">.....more.....</strong>를 클릭하시면 최신 기사 및 지난 연재 10편의 3줄 요약과 원문 직통 링크를 모두 확인하실 수 있습니다.
           </p>
         </div>
 
@@ -868,23 +868,19 @@
             </a>
           </div>
 
-          <!-- Featured Latest Article (Spec 1) -->
-          <div id="featuredSpecialArticleContainer">
-            <!-- Dynamically populated via renderArticlesSections() -->
-          </div>
-
           <!-- Toggle More Button for Special Articles -->
-          <div class="pt-2">
+          <div class="pt-1">
             <button id="btnToggleSpecial" onclick="toggleMoreSection('special')" class="w-full py-3.5 px-4 rounded-2xl border border-amber-500/40 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 hover:from-amber-500/20 hover:to-amber-500/30 text-amber-300 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-3 shadow-lg shadow-amber-500/5 group">
               <i class="fa-solid fa-ellipsis text-amber-400"></i>
-              <span id="lblToggleSpecial">..... more (기획특집 지난 연재 9편 더보기) .....</span>
+              <span id="lblToggleSpecial">..... more (기획특집 최근 연재 10편 보기) .....</span>
               <i id="icoToggleSpecial" class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition"></i>
             </button>
           </div>
 
-          <!-- Collapsible Grid for Remaining 9 Special Articles -->
-          <div id="gridMoreSpecial" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 animate-fade-in">
-            <!-- Dynamically populated via renderArticlesSections() -->
+          <!-- Collapsible Panel: Hidden on initial load, opens on click -->
+          <div id="panelMoreSpecial" class="hidden space-y-6 pt-2 animate-fade-in">
+            <div id="featuredSpecialArticleContainer"></div>
+            <div id="gridMoreSpecial" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
           </div>
         </div>
 
@@ -908,23 +904,19 @@
             </a>
           </div>
 
-          <!-- Featured Latest Article (Lit 1) -->
-          <div id="featuredLitArticleContainer">
-            <!-- Dynamically populated via renderArticlesSections() -->
-          </div>
-
           <!-- Toggle More Button for Literature Articles -->
-          <div class="pt-2">
+          <div class="pt-1">
             <button id="btnToggleLit" onclick="toggleMoreSection('lit')" class="w-full py-3.5 px-4 rounded-2xl border border-purple-500/40 bg-gradient-to-r from-purple-500/10 via-purple-500/20 to-purple-500/10 hover:from-purple-500/20 hover:to-purple-500/30 text-purple-300 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-3 shadow-lg shadow-purple-500/5 group">
               <i class="fa-solid fa-ellipsis text-purple-400"></i>
-              <span id="lblToggleLit">..... more (생활문학 지난 연재 9편 더보기) .....</span>
+              <span id="lblToggleLit">..... more (생활문학 최근 연재 10편 보기) .....</span>
               <i id="icoToggleLit" class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition"></i>
             </button>
           </div>
 
-          <!-- Collapsible Grid for Remaining 9 Literature Articles -->
-          <div id="gridMoreLit" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 animate-fade-in">
-            <!-- Dynamically populated via renderArticlesSections() -->
+          <!-- Collapsible Panel: Hidden on initial load, opens on click -->
+          <div id="panelMoreLit" class="hidden space-y-6 pt-2 animate-fade-in">
+            <div id="featuredLitArticleContainer"></div>
+            <div id="gridMoreLit" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
           </div>
         </div>
 
@@ -3116,9 +3108,11 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       if (tabAllCount) tabAllCount.textContent = catalogData.length;
 
       const filtered = catalogData.filter(item => {
-        const matchCat = currentCategory === 'all' || item.category === currentCategory;
-        const matchSub = currentSubCategory === 'all' || item.subCategory === currentSubCategory || (item.badge && item.badge.includes(currentSubCategory));
         const q = searchQuery.toLowerCase().trim();
+        const matchCat = currentCategory === 'all'
+          ? (q ? true : (item.category !== 'trends' && item.category !== 'humanities'))
+          : item.category === currentCategory;
+        const matchSub = currentSubCategory === 'all' || item.subCategory === currentSubCategory || (item.badge && item.badge.includes(currentSubCategory));
         const matchSearch = !q || 
           item.title.toLowerCase().includes(q) || 
           item.desc.toLowerCase().includes(q) || 
@@ -3314,19 +3308,19 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     function toggleMoreSection(kind) {
       if (kind === 'special') {
         isSpecialMoreOpen = !isSpecialMoreOpen;
-        const grid = document.getElementById('gridMoreSpecial');
+        const panel = document.getElementById('panelMoreSpecial');
         const lbl = document.getElementById('lblToggleSpecial');
         const ico = document.getElementById('icoToggleSpecial');
-        if (grid) grid.classList.toggle('hidden', !isSpecialMoreOpen);
-        if (lbl) lbl.textContent = isSpecialMoreOpen ? '..... 접기 (기획특집 지난 연재 9편 닫기) .....' : '..... more (기획특집 지난 연재 9편 더보기) .....';
+        if (panel) panel.classList.toggle('hidden', !isSpecialMoreOpen);
+        if (lbl) lbl.textContent = isSpecialMoreOpen ? '..... 접기 (기획특집 10편 닫기) .....' : '..... more (기획특집 최근 연재 10편 보기) .....';
         if (ico) ico.className = isSpecialMoreOpen ? 'fa-solid fa-chevron-up transition' : 'fa-solid fa-chevron-down transition';
       } else if (kind === 'lit') {
         isLitMoreOpen = !isLitMoreOpen;
-        const grid = document.getElementById('gridMoreLit');
+        const panel = document.getElementById('panelMoreLit');
         const lbl = document.getElementById('lblToggleLit');
         const ico = document.getElementById('icoToggleLit');
-        if (grid) grid.classList.toggle('hidden', !isLitMoreOpen);
-        if (lbl) lbl.textContent = isLitMoreOpen ? '..... 접기 (생활문학 지난 연재 9편 닫기) .....' : '..... more (생활문학 지난 연재 9편 더보기) .....';
+        if (panel) panel.classList.toggle('hidden', !isLitMoreOpen);
+        if (lbl) lbl.textContent = isLitMoreOpen ? '..... 접기 (생활문학 10편 닫기) .....' : '..... more (생활문학 최근 연재 10편 보기) .....';
         if (ico) ico.className = isLitMoreOpen ? 'fa-solid fa-chevron-up transition' : 'fa-solid fa-chevron-down transition';
       }
     }
