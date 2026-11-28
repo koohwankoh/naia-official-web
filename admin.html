@@ -455,20 +455,41 @@
                 <i class="fa-solid fa-diagram-project text-cyan-400 w-4 text-center"></i> <span>AI컨설팅</span>
               </button>
               <div class="relative group/sub">
+                <button type="button" onclick="showEduProgressPage()" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 text-xs font-medium transition text-left">
+                  <span class="flex items-center gap-2.5"><i class="fa-solid fa-chalkboard-user text-emerald-500 w-4 text-center"></i> <span>AI교육진행</span></span>
+                  <i class="fa-solid fa-chevron-right text-[9px] text-slate-400"></i>
+                </button>
+                <div id="desktopEduProgressSub" class="hidden group-hover/sub:block absolute left-full top-0 pl-1.5 z-50">
+                  <div class="w-64 rounded-2xl bg-white border border-slate-200 shadow-2xl text-slate-800 py-2 px-2 space-y-1">
+                    <div class="px-3 py-1 text-[10px] font-extrabold text-emerald-600 uppercase tracking-wider border-b border-slate-200 mb-1">ONGOING PROGRAMS</div>
+                    <button type="button" onclick="showEduProgressPage('edu-card-ict')" class="w-full text-left flex items-center justify-between px-3 py-2 rounded-xl text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 text-xs font-semibold transition">
+                      <span class="flex items-center gap-2"><i class="fa-solid fa-rocket text-emerald-500"></i> <span>AI 실전 마스터 과정</span></span>
+                      <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px] text-emerald-700 font-bold">ICT포럼</span>
+                    </button>
+                    <button type="button" onclick="showEduProgressPage('edu-card-rotary')" class="w-full text-left flex items-center justify-between px-3 py-2 rounded-xl text-slate-700 hover:text-blue-700 hover:bg-blue-50 text-xs font-semibold transition">
+                      <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-blue-500"></i> <span>국제로타리3650지구</span></span>
+                      <span class="px-1.5 py-0.5 rounded bg-blue-100 text-[10px] text-blue-700 font-bold">AI실전교육</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="relative group/sub">
                 <button type="button" onclick="document.getElementById('desktopEduPracticeSub').classList.toggle('hidden')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-blue-500/15 text-slate-700 hover:text-amber-700 hover:bg-amber-50 text-xs font-medium transition text-left">
                   <span class="flex items-center gap-2.5"><i class="fa-solid fa-laptop-code text-amber-400 w-4 text-center"></i> <span>AI교육실습</span></span>
                   <i class="fa-solid fa-chevron-right text-[9px] text-slate-400"></i>
                 </button>
-                <div id="desktopEduPracticeSub" class="hidden group-hover/sub:block absolute left-full top-0 ml-1 w-56 rounded-2xl bg-white border border-slate-200 shadow-2xl text-slate-800 py-2 px-2 z-50 space-y-1">
-                  <div class="px-3 py-1 text-[10px] font-extrabold text-amber-400 uppercase tracking-wider border-b border-slate-200 mb-1">PRACTICE LAB</div>
-                  <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-amber-500/15 text-slate-700 hover:text-amber-700 hover:bg-amber-50 text-xs font-semibold transition">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-amber-500"></i> <span>국제로타리3650지구</span></span>
-                    <span class="px-1.5 py-0.5 rounded bg-amber-100 text-[10px] text-amber-700 font-bold">1강 ↗</span>
-                  </a>
-                  <a href="https://www.naia.kr/rotary-3" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-amber-500/15 text-slate-700 hover:text-amber-700 hover:bg-amber-50 text-xs font-semibold transition">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-amber-500"></i> <span>국제로타리3650지구</span></span>
-                    <span class="px-1.5 py-0.5 rounded bg-amber-100 text-[10px] text-amber-700 font-bold">3강 ↗</span>
-                  </a>
+                <div id="desktopEduPracticeSub" class="hidden group-hover/sub:block absolute left-full top-0 pl-1.5 z-50">
+                  <div class="w-56 rounded-2xl bg-white border border-slate-200 shadow-2xl text-slate-800 py-2 px-2 space-y-1">
+                    <div class="px-3 py-1 text-[10px] font-extrabold text-amber-500 uppercase tracking-wider border-b border-slate-200 mb-1">PRACTICE LAB</div>
+                    <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-700 hover:text-amber-700 hover:bg-amber-50 text-xs font-semibold transition">
+                      <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-amber-500"></i> <span>국제로타리3650지구</span></span>
+                      <span class="px-1.5 py-0.5 rounded bg-amber-100 text-[10px] text-amber-700 font-bold">1강 ↗</span>
+                    </a>
+                    <a href="https://www.naia.kr/rotary-3" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-700 hover:text-amber-700 hover:bg-amber-50 text-xs font-semibold transition">
+                      <span class="flex items-center gap-2"><i class="fa-solid fa-gear text-amber-500"></i> <span>국제로타리3650지구</span></span>
+                      <span class="px-1.5 py-0.5 rounded bg-amber-100 text-[10px] text-amber-700 font-bold">3강 ↗</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -636,7 +657,16 @@
               <div class="flex flex-wrap gap-1.5 pt-1">
                 <button onclick="navigateMenuDriven('edu', 'AI교육 설계 및 강의')" class="px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-blue-500/20 border border-slate-700 text-[11px] text-slate-200">· AI교육 설계 및 강의</button>
                 <button onclick="navigateMenuDriven('edu', 'AI컨설팅')" class="px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-blue-500/20 border border-slate-700 text-[11px] text-slate-200">· AI컨설팅</button>
+                <button type="button" onclick="document.getElementById('mobileEduProgressSub').classList.toggle('hidden')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-[11px] text-emerald-300 font-bold">· AI교육진행 ▾</button>
                 <button type="button" onclick="document.getElementById('mobileEduPracticeSub').classList.toggle('hidden')" class="px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-[11px] text-amber-300 font-bold">· AI교육실습 ▾</button>
+              </div>
+              <div id="mobileEduProgressSub" class="hidden pt-1.5 pl-2 border-l-2 border-emerald-500/40 space-y-1">
+                <button type="button" onclick="showEduProgressPage('edu-card-ict')" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-[11px] font-bold text-emerald-300 hover:bg-emerald-500/15 text-left">
+                  <span>· AI 실전 마스터 과정 (동북아공동체ICT포럼)</span>
+                </button>
+                <button type="button" onclick="showEduProgressPage('edu-card-rotary')" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-[11px] font-bold text-blue-300 hover:bg-blue-500/15 text-left">
+                  <span>· 국제로타리클럽 3650지구 AI 실전교육</span>
+                </button>
               </div>
               <div id="mobileEduPracticeSub" class="hidden pt-1.5 pl-2 border-l-2 border-amber-500/40 space-y-1">
                 <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-[11px] font-bold text-amber-300 hover:bg-amber-500/15">
@@ -1652,6 +1682,146 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     </section>
 
     <!-- 7. GABIA DOMAIN & GITHUB PAGES STAGING GUIDE -->
+    <!-- AI교육진행 전용 섹션 (v3.1.3) -->
+    <section id="sec-edu-progress" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+          <div>
+            <div class="text-xs font-extrabold text-[#1D63DC] uppercase tracking-widest mb-1.5">AI EDUCATION IN PROGRESS // 현재 진행 중인 AI 실전 교육</div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">AI교육진행 — 주요 실전 교육 과정 안내</h2>
+            <p class="text-sm text-slate-600 mt-1.5">동북아공동체ICT포럼과 국제로타리클럽 3650지구에서 진행 중인 핵심 AI 실전 교육 과정을 안내합니다.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="#edu-card-ict" onclick="document.getElementById('edu-card-ict').scrollIntoView({behavior:'smooth'}); return false;" class="px-3.5 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold hover:bg-emerald-100 transition">1. AI 실전 마스터 과정</a>
+            <a href="#edu-card-rotary" onclick="document.getElementById('edu-card-rotary').scrollIntoView({behavior:'smooth'}); return false;" class="px-3.5 py-2 rounded-xl bg-blue-50 border border-blue-200 text-[#1D63DC] text-xs font-bold hover:bg-blue-100 transition">2. 국제로타리 3650지구 교육</a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- 과정 1: AI 실전 마스터 과정 (동북아공동체ICT포럼) -->
+          <article id="edu-card-ict" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-7 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+              <div>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold mb-2">동북아공동체ICT포럼 · 10주 완성</span>
+                <h3 class="text-xl font-extrabold text-slate-900">생성형 AI 실전 마스터 과정 (제7기)</h3>
+                <p class="text-xs text-slate-500 mt-1">2026년 초거대 AI &amp; 생성테크 교육 · 업무생산성 개선 및 비즈니스 실습 위주 과정</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-slate-900">📅 교육기간 및 시간</div>
+                <p class="text-slate-600 leading-relaxed">2026.10.14(수) ~ 12.16(수)<br>주 1회(총 10회), 매주 수 18:30~20:30<br><span class="text-emerald-700 font-semibold">온라인(Zoom) 수업 및 강의 동영상 제공</span></p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-slate-900">📍 교육장소 · 모집</div>
+                <p class="text-slate-600 leading-relaxed">천도교 수운회관 1303호 위데이터랩 강의실<br>(종로구 삼일대로 457, 안국역 5출구 130m)<br><span class="text-slate-800 font-semibold">선착순 40명</span> (정부·기업·공공·개인·대학생)</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-slate-900">🏛️ 주최/주관 · 후원</div>
+                <p class="text-slate-600 leading-relaxed">주최/주관: 한국디지털융합진흥원, 동북아공동체ICT포럼<br>후원: 한국IT전문가협회·디지털융합교육원·한국정보통신공사협회 (협찬: 전자신문)</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div class="font-bold text-slate-900">💳 수강료 · 수료 혜택</div>
+                <p class="text-slate-600 leading-relaxed">60만 원 (회원 10%, 3인이상 20%, 수료생 30% 할인)<br>70% 이상 수료증, 오픈채팅 Q&amp;A, 자서전(공저)·생성형AI자격증 연계</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">10주 핵심 커리큘럼 (매 강의 파트너 강사 실습 지원)</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-700">
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>1강(10.14)</strong> AI/AX 트렌드 이해 및 전략 <span class="text-slate-500">· 정규진</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>2강(10.21)</strong> AI 글쓰기·에세이/자서전 출판 <span class="text-slate-500">· 이신우</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>3강(10.28)</strong> AI 이미지와 브랜딩 콘텐츠 제작 <span class="text-slate-500">· 김윤선</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>4강(11.04)</strong> 비즈니스 문서 및 PPT 발표 실전 <span class="text-slate-500">· 김유성</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>5강(11.11)</strong> 챗봇/스킬 및 업무 자동화 <span class="text-slate-500">· 고구환</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>6강(11.18)</strong> 바이브코딩 및 AI 에이전트 입문 <span class="text-slate-500">· 윤성임</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>7강(11.25)</strong> AI 에이전트 구축 실전 <span class="text-slate-500">· 최규문</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>8강(12.02)</strong> AI 홍보 영상 제작 <span class="text-slate-500">· 이승주</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>9강(12.09)</strong> 엑셀 AI 데이터 분석·시각화 실전 <span class="text-slate-500">· 김숙명</span></div>
+                <div class="px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-100"><strong>10강(12.16)</strong> 프로젝트 및 자서전 발표 / 수료 <span class="text-slate-500">· 고구환</span></div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+              <span>📞 문의: 010-2378-2060 (구교광 부회장) · 02-598-8177 (고구환 기술원장)</span>
+              <button type="button" onclick="showContactPage()" class="px-3.5 py-2 rounded-xl bg-[#1D63DC] text-white font-bold hover:bg-blue-700 transition">수강·도입 문의하기 →</button>
+            </div>
+          </article>
+
+          <!-- 과정 2: 국제로타리클럽 3650지구 AI 실전교육 -->
+          <article id="edu-card-rotary" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-7 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+              <div>
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-100 text-[#1D63DC] text-[11px] font-extrabold mb-2">국제로타리 3650지구 · 제1기 5회차 실습</span>
+                <h3 class="text-xl font-extrabold text-slate-900">국제로타리클럽 3650지구 AI 실전 활용 교육</h3>
+                <p class="text-xs text-slate-500 mt-1">매회 직접 만들고, 로타리 활동에 바로 활용하는 실전 완성형 커리큘럼</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">5회차 교육과정 &amp; 완성 결과물</h4>
+              <div class="space-y-2 text-xs">
+                <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <div class="flex items-center justify-between font-bold text-slate-900">
+                    <span>01회차 (11.16 월) · AI 첫걸음 — 회의록과 공지문 작성</span>
+                    <span class="text-[#1D63DC]">고구환</span>
+                  </div>
+                  <p class="text-slate-600 mt-1">생성형 AI 기초 · 마이로타리 이해 · NotebookLM 문서 요약 → <strong>완성 결과물:</strong> 클럽 주회 회의록·공지문</p>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <div class="flex items-center justify-between font-bold text-slate-900">
+                    <span>02회차 (11.30 월) · AI 글쓰기 — 봉사 스토리와 자서전</span>
+                    <span class="text-[#1D63DC]">이신우</span>
+                  </div>
+                  <p class="text-slate-600 mt-1">AI 음성 인터뷰 · 에세이와 자서전 기획 · 봉사활동 스토리텔링 → <strong>완성 결과물:</strong> 개인 에세이 초고·자서전 목차·봉사활동 소개글</p>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <div class="flex items-center justify-between font-bold text-slate-900">
+                    <span>03회차 (12.14 월) · AI 기획력 — 봉사계획서와 PPT 제작</span>
+                    <span class="text-[#1D63DC]">고구환</span>
+                  </div>
+                  <p class="text-slate-600 mt-1">비즈니스·봉사사업 기획 · AI 사업계획서 및 발표자료 제작 → <strong>완성 결과물:</strong> 봉사사업 제안서·발표용 PPT</p>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <div class="flex items-center justify-between font-bold text-slate-900">
+                    <span>04회차 (12.28 월) · AI 콘텐츠 — 카드뉴스와 홍보영상</span>
+                    <span class="text-[#1D63DC]">이승주</span>
+                  </div>
+                  <p class="text-slate-600 mt-1">AI 이미지·카드뉴스 제작 · 숏폼 영상 제작 및 편집 기초 → <strong>완성 결과물:</strong> 봉사 홍보 카드뉴스·60초 영상 시안</p>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-50/60 border border-blue-100">
+                  <div class="flex items-center justify-between font-bold text-slate-900">
+                    <span>05회차 (2027.1.11 월) · 나만의 AI 업무 도우미 만들기</span>
+                    <span class="text-[#1D63DC]">고구환</span>
+                  </div>
+                  <p class="text-slate-600 mt-1">클럽용 맞춤 AI 업무 도우미 구성 · 반복 행정업무 효율화 → <strong>완성 결과물:</strong> 클럽 운영용 AI 업무 도우미</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+              <div class="font-bold text-slate-900">👨‍🏫 주요 강사진 및 실습 지원</div>
+              <p class="text-slate-600 leading-relaxed">
+                <strong>고구환</strong>(AI 활용·업무 자동화 / 동북아공동체ICT포럼 기술원장) ·
+                <strong>이신우</strong>(AI 글쓰기·출판·바이브코딩 / 미래이음연구소 소장) ·
+                <strong>이승주</strong>(AI 콘텐츠·영상 제작 / AI크리에이팅연구소 대표) ·
+                <strong>실습 지원:</strong> 김예서 · 서미화
+              </p>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div class="flex flex-wrap gap-2">
+                <a href="https://www.naia.kr/rotary-1" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-amber-100 text-amber-800 font-bold hover:bg-amber-200 transition">1강 실습실 ↗</a>
+                <a href="https://www.naia.kr/rotary-3" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-amber-100 text-amber-800 font-bold hover:bg-amber-200 transition">3강 실습실 ↗</a>
+              </div>
+              <button type="button" onclick="showContactPage()" class="px-3.5 py-2 rounded-xl bg-[#1D63DC] text-white font-bold hover:bg-blue-700 transition">교육 도입 문의 →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="sec-domain" class="koist-surface hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800" style="display: none;">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="text-center max-w-3xl mx-auto space-y-3">
@@ -2634,7 +2804,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     const SUB_CATEGORIES_MAP = {
       about: ['CEO 인사말', '회사 조직도', 'CI 로고 소개', '미래 비전', '3개년 사업 성장 목표'],
       trends: ['AI트랜드', 'AI신기술동향'],
-      edu: ['AI교육 설계 및 강의', 'AI컨설팅', 'AI교육실습'],
+      edu: ['AI교육 설계 및 강의', 'AI컨설팅', 'AI교육진행', 'AI교육실습'],
       media: ['AI 도서출판 컨설팅'],
       music: ['AI영상 제작', 'AI 작사·작곡·뮤직비디오 제작'],
       wellness: ['건강한 삶', '웰니스'],
@@ -3133,7 +3303,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         desc: '챗봇을 넘어선 AI 워커(Worker), 업무 설계 패러다임, AI 브라우저 전쟁 및 환각 검증 체계를 다룹니다.'
       },
       edu: {
-        title: '[AI교육·컨설팅] AI교육 설계 및 강의 · AI컨설팅 · AI교육실습',
+        title: '[AI교육·컨설팅] AI교육 설계 및 강의 · AI컨설팅 · AI교육진행 · AI교육실습',
         desc: 'G-AIGrapher 마스터 인증 과정, 제7기 생성형 AI 실전 마스터 과정 및 기업 맞춤형 AX 컨설팅입니다.'
       },
       media: {
@@ -3243,7 +3413,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
 
     const ALL_PAGE_SECTIONS = [
       'sec-hero', 'sec-about', 'sec-vision-section', 'sec-catalog',
-      'sec-media', 'sec-growth', 'sec-ceo', 'sec-org', 'sec-security', 'sec-domain', 'sec-contact'
+      'sec-media', 'sec-growth', 'sec-ceo', 'sec-org', 'sec-security', 'sec-edu-progress', 'sec-domain', 'sec-contact'
     ];
 
     function showOnlySections(visibleIds) {
@@ -3289,6 +3459,27 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       if (kind === 'lit' && !isLitMoreOpen) toggleMoreSection('lit');
     }
 
+
+    function showEduProgressPage(focusCardId, e) {
+      if (e) e.preventDefault();
+      closeMobileMenu();
+      if (currentMainView !== 'landing') switchMainView('landing');
+      document.querySelectorAll('.top-nav-item').forEach(navBtn => {
+        const active = navBtn.getAttribute('data-nav') === 'edu';
+        navBtn.classList.toggle('bg-slate-900', active);
+        navBtn.classList.toggle('text-cyan-400', active);
+        navBtn.classList.toggle('border', active);
+        navBtn.classList.toggle('border-cyan-500/40', active);
+      });
+      renderKoistSubpageBar('edu', 'AI교육진행', 'AI교육진행 — 주요 실전 교육 과정 안내');
+      showOnlySections(['sec-edu-progress']);
+      if (focusCardId) {
+        setTimeout(() => {
+          const card = document.getElementById(focusCardId);
+          if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      }
+    }
     function showSecurityPage(e) {
       if (e) e.preventDefault();
       closeMobileMenu();
@@ -3327,6 +3518,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
     }
 
     function navigateMenuDriven(catKey, subKey = 'all') {
+      if (catKey === 'edu' && subKey === 'AI교육진행') { showEduProgressPage(); return; }
       if (catKey === 'security') {
         showSecurityPage();
         return;
