@@ -373,9 +373,7 @@
         <button id="btnThemeToggle" class="p-1 px-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700" title="다크/라이트 테마 전환">
           <i class="fa-solid fa-moon" id="themeIcon"></i>
         </button>
-        <button id="btnExportHtml" class="px-2.5 py-1 rounded bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/40 text-xs font-medium transition flex items-center gap-1" title="현재 수정사항이 반영된 HTML 단일 파일 저장">
-          <i class="fa-solid fa-download"></i> <span class="hidden sm:inline">HTML 저장</span>
-        </button>
+
       </div>
     </div>
   </aside>
@@ -822,11 +820,11 @@
     <!-- 1. HERO SECTION -->
     <section id="sec-hero" class="relative overflow-hidden py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
       <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-cyan-500/15 via-blue-600/20 to-purple-600/15 blur-3xl pointer-events-none rounded-full"></div>
-      <!-- 은은한 상단 NA 모노그램 워터마크 배경 (v3.2.2) -->
+      <!-- 은은한 상단 NA 모노그램 워터마크 배경 (v3.2.3) -->
       <div class="pointer-events-none select-none absolute inset-0 overflow-hidden z-0">
         <img src="./assets/na_monogram_bg.png" alt="" aria-hidden="true" class="na-watermark-float absolute left-[52%] top-[52%] w-[520px] sm:w-[680px] lg:w-[780px] max-w-none opacity-[0.06] drop-shadow-xl" />
       </div>
-      <!-- 실시간 Three.js 3D 입체 오브젝트 캔버스 (v3.2.2) -->
+      <!-- 실시간 Three.js 3D 입체 오브젝트 캔버스 (v3.2.3) -->
       <canvas id="hero3dCanvas" class="pointer-events-none absolute inset-0 w-full h-full z-[1] opacity-100"></canvas>
       
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -879,7 +877,7 @@
           </div>
         </div>
 
-        <!-- Hero Graphic (프레임 없는 투명 NA 심볼 & 3D 구형 직접 투과, v3.2.2) -->
+        <!-- Hero Graphic (프레임 없는 투명 NA 심볼 & 3D 구형 직접 투과, v3.2.3) -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative max-w-md w-full text-center space-y-4 py-4">
             <div class="relative w-56 h-36 mx-auto flex items-center justify-center">
@@ -1404,11 +1402,9 @@
                   대표이사 고구환
                 </h3>
                 <p id="landingCeoTitle" class="text-xs text-cyan-300 font-medium">
-                  CEO / Ninebeat (주식회사 나이아 & 연구소)
+                  CEO &amp; Founder (Ninebeat)
                 </p>
-                <p id="landingCosName" class="text-[11px] text-slate-400 mt-1">
-                  직속: 비서실장 한비서 (COS / Hannah Han)
-                </p>
+                <p id="landingCosName" class="hidden" style="display: none;"></p>
               </div>
             </div>
 
@@ -1488,7 +1484,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div class="p-3 rounded-lg bg-slate-950/70 border border-slate-800">
-                  <div class="font-bold text-white">대표이사 CEO · 나인빛</div>
+                  <div class="font-bold text-white">대표이사 CEO · 고구환</div>
                   <div class="text-slate-400 mt-0.5">연구소 총괄, 비전·전략 수립, 주요 대외 협력</div>
                 </div>
                 <div class="p-3 rounded-lg bg-slate-950/70 border border-slate-800">
@@ -1885,7 +1881,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.2.2) -->
+    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.2.3) -->
     <section id="sec-video-nea" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -1942,7 +1938,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.2.2) -->
+    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.2.3) -->
     <section id="sec-music-cafe" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -2000,7 +1996,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.2.2) -->
+    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.2.3) -->
     <section id="sec-pub-tao" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -2245,7 +2241,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
               <span><strong>대표이메일:</strong> <a href="mailto:khkoh220@naver.com" class="text-cyan-400 hover:underline">khkoh220@naver.com</a></span>
             </div>
             <div class="flex flex-wrap gap-x-4 gap-y-1">
-              <span><strong>발행·편집인:</strong> <span id="landingFooterCeo">고구환</span></span>
+              <span><strong>발행·편집인:</strong> <span id="landingFooterCeo">고구환 (CEO &amp; Founder, Ninebeat)</span></span>
               <span><strong>편집국장·청소년보호책임자:</strong> 신홍보 (홍보실장)</span>
               <span><strong>공식 도메인:</strong> <a href="https://www.naia.kr" class="text-cyan-400 hover:underline">www.naia.kr</a> (가비아 등록 완료)</span>
             </div>
@@ -2257,11 +2253,11 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
         </div>
 
 
-        <!-- WIDE BETA NOTICE BANNER (v3.2.2) -->
-        <div class="w-full px-5 py-3.5 rounded-2xl bg-[#0B2545] border border-sky-400/50 text-center shadow-sm">
-          <p class="text-[11.5px] sm:text-xs text-sky-300 font-medium lg:whitespace-nowrap overflow-x-auto">
-            <i class="fa-solid fa-circle-info mr-1.5 text-sky-300"></i>
-            본 사이트는 자율 AI 멀티 에이전트 협업 연구 및 기술 쇼케이스를 위한 <strong class="text-sky-200 font-extrabold">엔인공지능에이전트연구소의 공식 가오픈(Beta) 공간</strong>입니다. (공식 법인이 아닌 AI 가상 에이전트 연구 조직)
+        <!-- WIDE BETA NOTICE BANNER (v3.2.3) -->
+        <div class="w-full px-5 py-3.5 rounded-2xl bg-[#0B2545] border border-cyan-400/50 text-center shadow-sm">
+          <p class="text-[11.5px] sm:text-xs font-medium lg:whitespace-nowrap overflow-x-auto" style="color: #67e8f9 !important;">
+            <i class="fa-solid fa-circle-info mr-1.5" style="color: #67e8f9 !important;"></i>
+            본 사이트는 자율 AI 멀티 에이전트 협업 연구 및 기술 쇼케이스를 위한 <span class="font-bold" style="color: #67e8f9 !important;">엔인공지능에이전트연구소의 공식 가오픈(Beta) 공간</span>입니다. (공식 법인이 아닌 AI 가상 에이전트 연구 조직)
           </p>
         </div>
 
@@ -4736,7 +4732,7 @@ function closeArticleModal() {
         applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
       });
 
-      document.getElementById('btnExportHtml').addEventListener('click', exportCurrentHtml);
+      const _btnExp = document.getElementById('btnExportHtml'); if (_btnExp) _btnExp.addEventListener('click', exportCurrentHtml);
 
       // Mobile menu handled via inline toggleMobileMenu()
 
@@ -4926,7 +4922,7 @@ function closeArticleModal() {
       }
     });
   
-    // v3.2.2: 첫 페이지(#sec-hero) Three.js 실시간 3D 입체 오브젝트 (투명 NA 로고 뒤 선명한 3D 코어 구형 & 궤도)
+    // v3.2.3: 첫 페이지(#sec-hero) Three.js 실시간 3D 입체 오브젝트 (투명 NA 로고 뒤 선명한 3D 코어 구형 & 궤도)
     function initHero3DScene() {
       const canvas = document.getElementById('hero3dCanvas');
       const hero = document.getElementById('sec-hero');
