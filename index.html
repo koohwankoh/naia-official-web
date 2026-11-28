@@ -339,7 +339,16 @@
       border-color: #CBD5E1 !important;
       color: #0F172A !important;
     }
+  
+    @keyframes naWatermarkFloat {
+      0%, 100% { transform: translate(-50%, -50%) perspective(900px) rotateY(-4deg) rotateX(2deg) translateY(0px); }
+      50% { transform: translate(-50%, -50%) perspective(900px) rotateY(4deg) rotateX(-2deg) translateY(-10px); }
+    }
+    .na-watermark-float {
+      animation: naWatermarkFloat 11s ease-in-out infinite;
+    }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body class="koist-theme min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
 
@@ -818,6 +827,12 @@
     <!-- 1. HERO SECTION -->
     <section id="sec-hero" class="relative overflow-hidden py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
       <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-cyan-500/15 via-blue-600/20 to-purple-600/15 blur-3xl pointer-events-none rounded-full"></div>
+      <!-- 은은한 상단 NA 모노그램 워터마크 배경 (v3.1.8) -->
+      <div class="pointer-events-none select-none absolute inset-0 overflow-hidden z-0">
+        <img src="./assets/na_monogram_bg.png" alt="" aria-hidden="true" class="na-watermark-float absolute left-[52%] top-[52%] w-[520px] sm:w-[680px] lg:w-[780px] max-w-none opacity-[0.11] drop-shadow-2xl" />
+      </div>
+      <!-- 실시간 Three.js 3D 입체 오브젝트 캔버스 (v3.1.8) -->
+      <canvas id="hero3dCanvas" class="pointer-events-none absolute inset-0 w-full h-full z-[1] opacity-85"></canvas>
       
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -1879,7 +1894,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.1.7) -->
+    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.1.8) -->
     <section id="sec-video-nea" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -1936,7 +1951,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.1.7) -->
+    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.1.8) -->
     <section id="sec-music-cafe" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -1994,7 +2009,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.1.7) -->
+    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.1.8) -->
     <section id="sec-pub-tao" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -4913,6 +4928,123 @@ function closeArticleModal() {
         });
       }
     });
+  
+    // v3.1.8: 첫 페이지(#sec-hero) Three.js 실시간 3D 입체 오브젝트 (마우스 반응형 AI 코어 & 궤도)
+    function initHero3DScene() {
+      const canvas = document.getElementById('hero3dCanvas');
+      const hero = document.getElementById('sec-hero');
+      if (!canvas || !hero || typeof THREE === 'undefined') return;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0, 9.5);
+
+      const group = new THREE.Group();
+      group.position.set(2.3, 0.1, 0);
+      scene.add(group);
+
+      const ambient = new THREE.AmbientLight(0xffffff, 0.85);
+      scene.add(ambient);
+      const keyLight = new THREE.DirectionalLight(0x38bdf8, 1.4);
+      keyLight.position.set(5, 6, 7);
+      scene.add(keyLight);
+      const rimLight = new THREE.PointLight(0x1d63dc, 1.6, 25);
+      rimLight.position.set(-4, -3, 5);
+      scene.add(rimLight);
+
+      const coreGeo = new THREE.IcosahedronGeometry(1.35, 2);
+      const coreMat = new THREE.MeshPhysicalMaterial({
+        color: 0x1d63dc,
+        emissive: 0x0ea5e9,
+        emissiveIntensity: 0.28,
+        roughness: 0.18,
+        metalness: 0.35,
+        transparent: true,
+        opacity: 0.72
+      });
+      const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+      group.add(coreMesh);
+
+      const shellGeo = new THREE.IcosahedronGeometry(1.75, 1);
+      const shellMat = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.28
+      });
+      const shellMesh = new THREE.Mesh(shellGeo, shellMat);
+      group.add(shellMesh);
+
+      const ringGeo1 = new THREE.TorusGeometry(2.35, 0.032, 16, 100);
+      const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x2563eb, transparent: true, opacity: 0.38 });
+      const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
+      ring1.rotation.x = Math.PI * 0.36;
+      ring1.rotation.y = Math.PI * 0.15;
+      group.add(ring1);
+
+      const ringGeo2 = new THREE.TorusGeometry(2.8, 0.022, 16, 100);
+      const ringMat2 = new THREE.MeshBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.26 });
+      const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
+      ring2.rotation.x = -Math.PI * 0.32;
+      ring2.rotation.y = -Math.PI * 0.22;
+      group.add(ring2);
+
+      const pCount = 90;
+      const pPos = new Float32Array(pCount * 3);
+      for (let i = 0; i < pCount; i++) {
+        pPos[i * 3] = (Math.random() - 0.5) * 14;
+        pPos[i * 3 + 1] = (Math.random() - 0.5) * 8;
+        pPos[i * 3 + 2] = (Math.random() - 0.5) * 5;
+      }
+      const pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+      const pMat = new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.065, transparent: true, opacity: 0.45 });
+      const particles = new THREE.Points(pGeo, pMat);
+      scene.add(particles);
+
+      let mouseX = 0, mouseY = 0;
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      });
+
+      function resize() {
+        const w = hero.clientWidth || 1200;
+        const h = hero.clientHeight || 600;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        group.position.x = w < 1024 ? 0 : 2.3;
+        group.scale.setScalar(w < 640 ? 0.72 : 1.0);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      let t = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        if (hero.style.display === 'none' || hero.classList.contains('hidden')) return;
+        t += 0.008;
+        coreMesh.rotation.y += 0.005;
+        coreMesh.rotation.x += 0.002;
+        shellMesh.rotation.y -= 0.0035;
+        shellMesh.rotation.z += 0.002;
+        ring1.rotation.z += 0.004;
+        ring2.rotation.z -= 0.003;
+        particles.rotation.y = t * 0.12;
+        group.position.y = Math.sin(t * 1.4) * 0.18;
+        group.rotation.y += (mouseX * 0.25 - group.rotation.y) * 0.04;
+        group.rotation.x += (-mouseY * 0.18 - group.rotation.x) * 0.04;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+    window.addEventListener('load', initHero3DScene);
+
   </script>
 
   <!-- ADMIN LOGIN MODAL -->
