@@ -827,11 +827,11 @@
     <!-- 1. HERO SECTION -->
     <section id="sec-hero" class="relative overflow-hidden py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
       <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-cyan-500/15 via-blue-600/20 to-purple-600/15 blur-3xl pointer-events-none rounded-full"></div>
-      <!-- 은은한 상단 NA 모노그램 워터마크 배경 (v3.1.9) -->
+      <!-- 은은한 상단 NA 모노그램 워터마크 배경 (v3.2.0) -->
       <div class="pointer-events-none select-none absolute inset-0 overflow-hidden z-0">
         <img src="./assets/na_monogram_bg.png" alt="" aria-hidden="true" class="na-watermark-float absolute left-[52%] top-[52%] w-[520px] sm:w-[680px] lg:w-[780px] max-w-none opacity-[0.06] drop-shadow-xl" />
       </div>
-      <!-- 실시간 Three.js 3D 입체 오브젝트 캔버스 (v3.1.9) -->
+      <!-- 실시간 Three.js 3D 입체 오브젝트 캔버스 (v3.2.0) -->
       <canvas id="hero3dCanvas" class="pointer-events-none absolute inset-0 w-full h-full z-[1] opacity-100"></canvas>
       
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -885,26 +885,23 @@
           </div>
         </div>
 
-        <!-- Hero Graphic (3D Emblem Card - 반투명 글래스 & 투명 NA 모노그램으로 3D 구형 투과, v3.1.9) -->
+        <!-- Hero Graphic (프레임 없는 투명 NA 심볼 & 3D 구형 직접 투과, v3.2.0) -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="relative max-w-sm w-full">
-            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/15 to-blue-500/15 rounded-3xl blur-2xl pointer-events-none"></div>
-            <div class="rounded-3xl p-6 relative border border-cyan-400/40 bg-slate-900/35 backdrop-blur-md shadow-2xl text-center space-y-4">
-              <div class="relative w-48 h-36 mx-auto flex items-center justify-center p-2 rounded-2xl bg-transparent border border-cyan-400/25">
-                <img src="./assets/na_monogram_bg.png" alt="엔인공지능에이전트연구소 NA 심볼" class="w-full h-full object-contain opacity-85 drop-shadow-[0_6px_18px_rgba(6,182,212,0.45)]" />
-              </div>
-              <div>
-                <h2 class="text-lg font-bold text-white drop-shadow">N | Artificial Intelligent Agent Laboratory</h2>
-                <p class="text-xs text-cyan-300 font-bold mt-1">엔인공지능에이전트연구소 (NAIA)</p>
-                <p class="text-xs text-slate-200/90 mt-2 italic leading-relaxed">
-                  "Where Autonomous Intelligence Meets Creative Soul — Harmonized Singularity"
-                </p>
-              </div>
-              <div class="pt-3 border-t border-white/15 flex items-center justify-around text-xs text-slate-200">
-                <span><i class="fa-solid fa-palette text-amber-400"></i> Artist</span>
-                <span><i class="fa-solid fa-cubes text-blue-400"></i> Architect</span>
-                <span><i class="fa-solid fa-microchip text-cyan-400"></i> Agent</span>
-              </div>
+          <div class="relative max-w-md w-full text-center space-y-4 py-4">
+            <div class="relative w-56 h-36 mx-auto flex items-center justify-center">
+              <img src="./assets/na_monogram_bg.png" alt="엔인공지능에이전트연구소 NA 심볼" class="w-full h-full object-contain opacity-90 drop-shadow-[0_10px_24px_rgba(6,182,212,0.5)]" />
+            </div>
+            <div class="space-y-1.5">
+              <h2 class="text-sm sm:text-base font-extrabold text-white whitespace-nowrap tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">N | Artificial Intelligent Agent Laboratory</h2>
+              <p class="text-xs text-cyan-300 font-bold drop-shadow">엔인공지능에이전트연구소 (NAIA)</p>
+              <p class="text-xs text-slate-200/95 pt-1 italic leading-relaxed drop-shadow">
+                "Where Autonomous Intelligence Meets Creative Soul — Harmonized Singularity"
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/20 flex items-center justify-around text-xs text-slate-100 drop-shadow">
+              <span><i class="fa-solid fa-palette text-amber-400"></i> Artist</span>
+              <span><i class="fa-solid fa-cubes text-blue-400"></i> Architect</span>
+              <span><i class="fa-solid fa-microchip text-cyan-400"></i> Agent</span>
             </div>
           </div>
         </div>
@@ -1894,7 +1891,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.1.9) -->
+    <!-- AI영상 제작 > 동북아공동체재단 전용 섹션 (v3.2.0) -->
     <section id="sec-video-nea" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -1951,7 +1948,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.1.9) -->
+    <!-- AI 작사·작곡·뮤직비디오 제작 > AI 뮤직카페 전용 섹션 (v3.2.0) -->
     <section id="sec-music-cafe" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -2009,7 +2006,7 @@ NAIA는 언제나 가장 앞선 자리에서 혁신의 표준을 세우고, 기�
       </div>
     </section>
 
-    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.1.9) -->
+    <!-- AI 도서출판 컨설팅 > 만화와 노래로 배우는 노자의 도덕경 전용 섹션 (v3.2.0) -->
     <section id="sec-pub-tao" style="display: none;" class="hidden koist-surface scroll-mt-20 py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-[#F8FAFC]">
       <div class="max-w-6xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
@@ -4929,7 +4926,7 @@ function closeArticleModal() {
       }
     });
   
-    // v3.1.9: 첫 페이지(#sec-hero) Three.js 실시간 3D 입체 오브젝트 (투명 NA 로고 뒤 선명한 3D 코어 구형 & 궤도)
+    // v3.2.0: 첫 페이지(#sec-hero) Three.js 실시간 3D 입체 오브젝트 (투명 NA 로고 뒤 선명한 3D 코어 구형 & 궤도)
     function initHero3DScene() {
       const canvas = document.getElementById('hero3dCanvas');
       const hero = document.getElementById('sec-hero');
